@@ -7,5 +7,5 @@ ERP en Django
 # Usuario Admin
 ```
 User: admin
-Pass: x1234567890
+Pass: admin
 ```
