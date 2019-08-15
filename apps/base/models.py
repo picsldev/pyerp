@@ -25,3 +25,14 @@ class PyCompany(models.Model):
     region_id = models.ForeignKey(PyRegion, null=True, blank=True, on_delete=models.CASCADE)
     comuna_id = models.ForeignKey(PyComuna, null=True, blank=True, on_delete=models.CASCADE)
 
+
+class PyPartner(models.Model):
+    name = models.CharField(max_length=40)
+    street = models.CharFild(max_length=100)
+    street_2 = models.CharField(max_length=100)
+    city = models.CharField(max_length=50)
+    phone = models.CharField(max_length=20)
+    email = models.CharField(max_length=40)
+    rut = models.CharField(max_length=12)
+    giro = models.CharField(max_length=80)
+
