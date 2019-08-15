@@ -1,6 +1,6 @@
 from django.contrib import admin
-from apps.base.models import PyPartner
+from apps.base.models import PyPartner, PyProduct, PyCountry
 
 admin.site.register(PyPartner)
-
-# Register your models here.
+admin.site.register(PyProduct)
+admin.site.register(PyCountry)

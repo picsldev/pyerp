@@ -29,6 +29,7 @@ class PyCompany(models.Model):
     comuna_id = models.ForeignKey(PyComuna, null=True, blank=True, on_delete=models.CASCADE)
 
 
+# Tabla de Partner
 class PyPartner(models.Model):
     name = models.CharField(max_length=40)
     street = models.CharField(max_length=100, blank=True)
@@ -41,3 +42,11 @@ class PyPartner(models.Model):
 
     def get_absolute_url(self):
         return reverse('partner-detail', kwargs={'pk': self.pk})
+
+# Tabla de Product
+class PyProduct(models.Model):
+    name = models.CharField(max_length=80)
+    code = models.CharField(max_length=80, blank=True)
+    bar_code = models.CharField(max_length=80, blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=1)
+    cost = models.DecimalField(max_digits=10, decimal_places=2, default=0)

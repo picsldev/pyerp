@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from ..base.models import PyPartner, PyCompany
+from ..base.models import PyPartner, PyCompany, PyProduct
 
 
 class PartnerListView(ListView):
@@ -49,5 +49,21 @@ class CompanyListView(ListView):
             {'string': 'Teléfono', 'field': 'phone'},
             {'string': 'Email', 'field': 'email'},
             {'string': 'Giro', 'field': 'giro'},
+        ]
+        return context
+
+class ProductListView(ListView):
+    model = PyProduct
+    template_name = 'erp/list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductListView, self).get_context_data(**kwargs)
+        context['list_name'] = 'Productos'
+        context['fields'] = [
+            {'string': 'Código', 'field': 'code'},
+            {'string': 'Código Barra', 'field': 'bar_code'},
+            {'string': 'Nombre', 'field': 'name'},
+            {'string': 'Precio', 'field': 'price'},
+            {'string': 'Costo', 'field': 'cost'},
         ]
         return context
