@@ -8,7 +8,7 @@ from django.shortcuts import redirect
 from django.contrib.auth import logout, login
 
 
-# @login_required(login_url="/erp/login")
+@login_required(login_url="/erp/login")
 def erp_home(request):
     return render(request, "home.html")
 
