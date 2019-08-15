@@ -7,7 +7,7 @@ ERP en Django, Esto es un proyecto en Desarrollo.
 # Usuario Admin
 ```
 User: admin
-Pass: admin
+Pass: x1234567890
 ```
 
 # Datos de Contacto
