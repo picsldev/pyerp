@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class PyCountry(models.Model):
@@ -37,3 +38,6 @@ class PyPartner(models.Model):
     email = models.CharField(max_length=40, blank=True)
     rut = models.CharField(max_length=12, blank=True)
     giro = models.CharField(max_length=80, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('partner-detail', kwargs={'pk': self.pk})

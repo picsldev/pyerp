@@ -1,5 +1,7 @@
+from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.views.generic import ListView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from ..base.models import PyPartner, PyCompany
 
 
@@ -17,6 +19,21 @@ class PartnerListView(ListView):
             {'string': 'Email', 'field': 'email'},
         ]
         return context
+
+
+class PartnerCreateView(CreateView):
+    model = PyPartner
+    fields = ['name']
+
+
+class PartnerUpdateView(UpdateView):
+    model = PyPartner
+    fields = ['name']
+
+
+class PartnerDeleteView(DeleteView):
+    model = PyPartner
+    success_url = reverse_lazy('partner-detail')
 
 
 class CompanyListView(ListView):
