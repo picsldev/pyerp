@@ -6,6 +6,9 @@
     <div class="card-header">
         <a href="{% url update_url object.pk %}" class="btn btn-success">Editar</a>
         <a href="{% url delete_url object.pk %}" class="btn btn-danger">Borrar</a>
+        {% for btn in buttons %}
+        <a href="{{ btn.act }}" class="btn btn-{{btn.class}} float-right">{{btn.name}}</a>
+        {% endfor %}
     </div>
     <div class="card-body">
         <form>

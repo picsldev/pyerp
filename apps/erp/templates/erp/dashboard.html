@@ -63,7 +63,7 @@
           <img src="{% static '/default.png' %}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="profile" class="d-block">{{ user.username }}</a>
+          <a href="{% url 'user-detail' user.pk %}" class="d-block">{{ user.username }}</a>
         </div>
       </div>
 
@@ -73,7 +73,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="/erp/" class="nav-link">
+            <a href="/erp" class="nav-link">
               <i class="nav-icon fas fa-home text-info"></i>
               <p>Inicio</p>
             </a>
@@ -299,7 +299,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
+                  <a href="{% url 'users' %}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Usuarios</p>
                   </a>
@@ -313,7 +313,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="../layout/collapsed-sidebar.html" class="nav-link">
+                    <a href="#" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>General</p>
                     </a>
