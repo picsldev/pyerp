@@ -28,6 +28,8 @@ class PyCompany(models.Model):
     region_id = models.ForeignKey(PyRegion, null=True, blank=True, on_delete=models.CASCADE)
     comuna_id = models.ForeignKey(PyComuna, null=True, blank=True, on_delete=models.CASCADE)
 
+    def get_absolute_url(self):
+        return reverse('company-detail', kwargs={'pk': self.pk})
 
 # Tabla de Partner
 class PyPartner(models.Model):
@@ -45,8 +47,11 @@ class PyPartner(models.Model):
 
 # Tabla de Product
 class PyProduct(models.Model):
-    name = models.CharField(max_length=80)
-    code = models.CharField(max_length=80, blank=True)
-    bar_code = models.CharField(max_length=80, blank=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2, default=1)
-    cost = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    name = models.CharField('Nombre', max_length=80)
+    code = models.CharField('Código', max_length=80, blank=True)
+    bar_code = models.CharField('Cod. Barras', max_length=80, blank=True)
+    price = models.DecimalField('Precio', max_digits=10, decimal_places=2, default=1)
+    cost = models.DecimalField('Costo', max_digits=10, decimal_places=2, default=0)
+
+    def get_absolute_url(self):
+        return reverse('product-detail', kwargs={'pk': self.pk})

@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{% static '/dist/css/adminlte.min.css' %}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
   {% block head %}
   {% endblock %}
 </head>
@@ -37,7 +38,7 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item d-none d-sm-inline-block">
             
-            <a href="logout" class="nav-link"><i class="fas text-warning fa-sign-out-alt"></i></a>
+            <a href="{% url 'logout' %}" class="nav-link"><i class="fas text-warning fa-sign-out-alt"></i></a>
           </li>
     </ul>
   </nav>
@@ -160,13 +161,13 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="../layout/top-nav.html" class="nav-link">
+        <a href="{% url 'partners' %}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Clientes</p>
         </a>
       </li>
       <li class="nav-item">
-          <a href="../layout/top-nav.html" class="nav-link">
+          <a href="{% url 'products' %}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Productos</p>
           </a>
@@ -305,7 +306,7 @@
                 </li>
               
                 <li class="nav-item">
-                  <a href="../layout/collapsed-sidebar.html" class="nav-link">
+                  <a href="{% url 'companies' %}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Compañias</p>
                   </a>
@@ -328,7 +329,7 @@
             
 
           <li class="nav-item has-treeview">
-              <a href="logout" class="nav-link">
+              <a href="{% url 'logout' %}" class="nav-link">
                 <i class="nav-icon fas text-warning fa-sign-out-alt"></i>
                 <p>Cerrar</p>
               </a>

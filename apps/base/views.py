@@ -77,6 +77,7 @@ class CompanyListView(ListView):
         ]
         return context
 
+
 class ProductListView(ListView):
     model = PyProduct
     template_name = 'erp/list.html'
@@ -84,6 +85,8 @@ class ProductListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(ProductListView, self).get_context_data(**kwargs)
         context['list_name'] = 'Productos'
+        context['detail_url'] = 'product-detail'
+        context['add_url'] = 'product-add'
         context['fields'] = [
             {'string': 'Código', 'field': 'code'},
             {'string': 'Código Barra', 'field': 'bar_code'},
@@ -92,3 +95,41 @@ class ProductListView(ListView):
             {'string': 'Costo', 'field': 'cost'},
         ]
         return context
+
+
+class ProductDetailView(DetailView):
+    model = PyProduct
+    template_name = 'erp/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductDetailView, self).get_context_data(**kwargs)
+        context['detail_name'] = 'Producto: %s' % context['object'].name
+        context['update_url'] = 'product-update'
+        context['delete_url'] = 'product-delete'
+        context['fields'] = [
+            {'string': 'Nombre', 'field': 'name'},
+            {'string': 'Código', 'field': 'code'},
+            {'string': 'Precio', 'field': 'price'},
+            {'string': 'Costo', 'field': 'cost'},
+        ]
+        return context
+
+PRODUCT_FIELDS = ['name', 'code', 'price', 'cost']
+
+class ProductCreateView(CreateView):
+    model = PyProduct
+    fields = PRODUCT_FIELDS
+    template_name = 'erp/form.html'
+
+
+class ProductUpdateView(UpdateView):
+    model = PyProduct
+    fields = PRODUCT_FIELDS
+    template_name = 'erp/form.html'
+
+
+@login_required(login_url="/erp/login")
+def DeleteProduct(self, pk):
+    product = PyProduct.objects.get(id=pk)
+    product.delete()
+    return redirect(reverse('products'))
