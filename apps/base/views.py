@@ -98,13 +98,13 @@ def DoChangePassword(self, pk, **kwargs):
     return redirect(reverse('user-detail', kwargs={'pk': pk}))
 
 
-
-class PartnerListView(ListView):
+class CustomerListView(ListView):
     model = PyPartner
     template_name = 'erp/list.html'
+    queryset = PyPartner.objects.filter(customer=True).all()
 
     def get_context_data(self, **kwargs):
-        context = super(PartnerListView, self).get_context_data(**kwargs)
+        context = super(CustomerListView, self).get_context_data(**kwargs)
         context['title'] = 'Partners'
         context['detail_url'] = 'partner-detail'
         context['add_url'] = 'partner-add'
@@ -138,7 +138,7 @@ class PartnerDetailView(DetailView):
 
 class PartnerCreateView(CreateView):
     model = PyPartner
-    fields = ['name', 'email', 'phone', 'rut']
+    fields = ['name', 'email', 'phone', 'rut', 'customer', 'provider']
     template_name = 'erp/form.html'
 
     def get_context_data(self, **kwargs):
@@ -151,7 +151,7 @@ class PartnerCreateView(CreateView):
 
 class PartnerUpdateView(UpdateView):
     model = PyPartner
-    fields = ['name', 'email', 'phone', 'rut']
+    fields = ['name', 'email', 'phone', 'rut', 'customer', 'provider']
     template_name = 'erp/form.html'
 
     def get_context_data(self, **kwargs):
