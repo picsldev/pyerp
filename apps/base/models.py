@@ -57,3 +57,17 @@ class PyProduct(models.Model):
 
     def get_absolute_url(self):
         return reverse('product-detail', kwargs={'pk': self.pk})
+
+
+
+# Tabla de Product
+class PyEmployee(models.Model):
+    name = models.CharField('Nombre', max_length=80)
+    name2 = models.CharField('Segundo Nombre', max_length=80, blank=True)
+    first_name = models.CharField('Apellido Paterno', max_length=80, blank=True)
+    last_name = models.CharField('Apellido Materno', max_length=80, blank=True)
+    phone = models.CharField('Teléfono', max_length=20, blank=True)
+    email = models.CharField('Correo', max_length=40, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('employee-detail', kwargs={'pk': self.pk})
