@@ -31,14 +31,14 @@ class PyCompany(models.Model):
 
 # Tabla de Partner
 class PyPartner(models.Model):
-    name = models.CharField(max_length=40)
-    street = models.CharField(max_length=100, blank=True)
-    street_2 = models.CharField(max_length=100, blank=True)
-    city = models.CharField(max_length=50, blank=True)
-    phone = models.CharField(max_length=20, blank=True)
-    email = models.CharField(max_length=40, blank=True)
-    rut = models.CharField(max_length=12, blank=True)
-    giro = models.CharField(max_length=80, blank=True)
+    name = models.CharField('Nombre', max_length=40)
+    street = models.CharField('Calle', max_length=100, blank=True)
+    street_2 = models.CharField('Calle 2', max_length=100, blank=True)
+    city = models.CharField('Ciudad', max_length=50, blank=True)
+    phone = models.CharField('Teléfono', max_length=20, blank=True)
+    email = models.CharField('Correo', max_length=40, blank=True)
+    rut = models.CharField('RUT', max_length=12, blank=True)
+    giro = models.CharField('Giro', max_length=80, blank=True)
 
     def get_absolute_url(self):
         return reverse('partner-detail', kwargs={'pk': self.pk})

@@ -1,0 +1,24 @@
+{% extends "erp/dashboard.html" %}
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_messages %}
+
+{% block content %}
+<div class="card card-primary card-outline mt-2">
+    <form method="post" class="form">
+        <div class="card-header">
+            {% buttons %}
+            <button type="submit" class="btn btn-primary">
+                Guardar
+            </button>
+            {% endbuttons %}
+        </div>
+        <div class="card-body">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+        </div>
+    </form>
+</div>
+{% endblock %}

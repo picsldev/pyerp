@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'apps.sale',
     'apps.crm',
     'apps.config',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

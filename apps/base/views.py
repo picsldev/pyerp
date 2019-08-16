@@ -1,7 +1,8 @@
-from django.urls import reverse_lazy
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.urls import reverse_lazy, reverse
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.contrib.auth.decorators import login_required
 from ..base.models import PyPartner, PyCompany, PyProduct
 
 
@@ -12,6 +13,26 @@ class PartnerListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(PartnerListView, self).get_context_data(**kwargs)
         context['list_name'] = 'Partners'
+        context['detail_url'] = 'partner-detail'
+        context['add_url'] = 'partner-add'
+        context['fields'] = [
+            {'string': 'Nombre', 'field': 'name'},
+            {'string': 'RUT', 'field': 'rut'},
+            {'string': 'Teléfono', 'field': 'phone'},
+            {'string': 'Email', 'field': 'email'},
+        ]
+        return context
+
+
+class PartnerDetailView(DetailView):
+    model = PyPartner
+    template_name = 'erp/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PartnerDetailView, self).get_context_data(**kwargs)
+        context['detail_name'] = 'Partner: %s' % context['object'].name
+        context['update_url'] = 'partner-update'
+        context['delete_url'] = 'partner-delete'
         context['fields'] = [
             {'string': 'Nombre', 'field': 'name'},
             {'string': 'RUT', 'field': 'rut'},
@@ -23,17 +44,21 @@ class PartnerListView(ListView):
 
 class PartnerCreateView(CreateView):
     model = PyPartner
-    fields = ['name']
+    fields = ['name', 'email', 'phone', 'rut']
+    template_name = 'erp/form.html'
 
 
 class PartnerUpdateView(UpdateView):
     model = PyPartner
-    fields = ['name']
+    fields = ['name', 'email', 'phone', 'rut']
+    template_name = 'erp/form.html'
 
 
-class PartnerDeleteView(DeleteView):
-    model = PyPartner
-    success_url = reverse_lazy('partner-detail')
+@login_required(login_url="/erp/login")
+def DeletePartner(self, pk):
+    partner = PyPartner.objects.get(id=pk)
+    partner.delete()
+    return redirect(reverse('partners'))
 
 
 class CompanyListView(ListView):

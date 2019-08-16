@@ -8,13 +8,11 @@
 {% block content %}
     <div class="card card-primary card-outline mt-2">
         <div class="card-header">
-            <h3 class="card-title">{{ list_name }}</h3>
+            <h3>{{ list_name }}</h3>
+            <a href="{% url add_url %}" class="btn btn-primary">Crear</a>
         </div>
         <div class="card-body">
-            <div class="p-2">
-                <button class="btn btn-primary">Crear</button>
-            </div>
-            <table id="list_table" class="table table-bordered table-striped">
+            <table id="list_table" class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
                         {% for field in fields %}
@@ -24,7 +22,7 @@
                 </thead>
                 <tbody>
                     {% for object in object_list %}
-                    <tr>
+                    <tr data-row-location="{% url detail_url object.pk %}" style="cursor: pointer;">
                         {% for field in fields %}
                         <td>{{ object|get_obj_attr:field.field }}</td>
                         {% endfor %}
@@ -47,6 +45,9 @@
         $("#list_table").DataTable({
             buttons: ['csv', 'excel', 'pdf', 'print']
         });
+    });
+    $('[data-row-location]').click(function () {
+        window.location = $(this).data('rowLocation');
     });
 </script>
 {% endblock %}
