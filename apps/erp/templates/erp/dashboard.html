@@ -364,6 +364,14 @@
     </section>-->
 
     <!-- Main content -->
+    <nav>
+        <ol class="breadcrumb">
+            {% for bc in breadcrumbs %}
+            <li class="breadcrumb-item"><a href="{% url bc.url %}">{{ bc.name }}</a></li>
+            {% endfor %}
+            <li class="breadcrumb-item">{{ title }}</li>
+        </ol>
+    </nav>
     <section class="content">
         {% block content %}{% endblock %}
   </section>

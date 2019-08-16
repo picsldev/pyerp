@@ -4,7 +4,6 @@
 {% block content %}
 <div class="card card-primary card-outline mt-2">
     <div class="card-header">
-        <h3>{{detail_name}}</h3>
         <a href="{% url update_url object.pk %}" class="btn btn-success">Editar</a>
         <a href="{% url delete_url object.pk %}" class="btn btn-danger">Borrar</a>
     </div>

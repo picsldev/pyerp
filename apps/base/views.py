@@ -12,7 +12,7 @@ class PartnerListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(PartnerListView, self).get_context_data(**kwargs)
-        context['list_name'] = 'Partners'
+        context['title'] = 'Partners'
         context['detail_url'] = 'partner-detail'
         context['add_url'] = 'partner-add'
         context['fields'] = [
@@ -30,7 +30,8 @@ class PartnerDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(PartnerDetailView, self).get_context_data(**kwargs)
-        context['detail_name'] = 'Partner: %s' % context['object'].name
+        context['title'] = context['object'].name
+        context['breadcrumbs'] = [{'url': 'partners', 'name': 'Partners'}]
         context['update_url'] = 'partner-update'
         context['delete_url'] = 'partner-delete'
         context['fields'] = [
@@ -47,11 +48,23 @@ class PartnerCreateView(CreateView):
     fields = ['name', 'email', 'phone', 'rut']
     template_name = 'erp/form.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(PartnerCreateView, self).get_context_data(**kwargs)
+        context['title'] = 'Crear partner'
+        context['breadcrumbs'] = [{'url': 'partners', 'name': 'Partners'}]
+        return context
+
 
 class PartnerUpdateView(UpdateView):
     model = PyPartner
     fields = ['name', 'email', 'phone', 'rut']
     template_name = 'erp/form.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PartnerUpdateView, self).get_context_data(**kwargs)
+        context['title'] = context['object'].name
+        context['breadcrumbs'] = [{'url': 'partners', 'name': 'Partners'}]
+        return context
 
 
 @login_required(login_url="/erp/login")
@@ -67,7 +80,7 @@ class CompanyListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(CompanyListView, self).get_context_data(**kwargs)
-        context['list_name'] = 'Compañías'
+        context['title'] = 'Compañías'
         context['fields'] = [
             {'string': 'Nombre', 'field': 'name'},
             {'string': 'RUT', 'field': 'rut'},
@@ -84,7 +97,7 @@ class ProductListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductListView, self).get_context_data(**kwargs)
-        context['list_name'] = 'Productos'
+        context['title'] = 'Productos'
         context['detail_url'] = 'product-detail'
         context['add_url'] = 'product-add'
         context['fields'] = [
@@ -103,6 +116,8 @@ class ProductDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductDetailView, self).get_context_data(**kwargs)
+        context['title'] = context['object'].name
+        context['breadcrumbs'] = [{'url': 'products', 'name': 'Productos'}]
         context['detail_name'] = 'Producto: %s' % context['object'].name
         context['update_url'] = 'product-update'
         context['delete_url'] = 'product-delete'
@@ -121,11 +136,23 @@ class ProductCreateView(CreateView):
     fields = PRODUCT_FIELDS
     template_name = 'erp/form.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(ProductCreateView, self).get_context_data(**kwargs)
+        context['title'] = 'Crear producto'
+        context['breadcrumbs'] = [{'url': 'products', 'name': 'Productos'}]
+        return context
+
 
 class ProductUpdateView(UpdateView):
     model = PyProduct
     fields = PRODUCT_FIELDS
     template_name = 'erp/form.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductUpdateView, self).get_context_data(**kwargs)
+        context['title'] = context['object'].name
+        context['breadcrumbs'] = [{'url': 'products', 'name': 'Productos'}]
+        return context
 
 
 @login_required(login_url="/erp/login")
