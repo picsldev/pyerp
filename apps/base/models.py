@@ -47,6 +47,13 @@ class PyPartner(models.Model):
     def get_absolute_url(self):
         return reverse('partner-detail', kwargs={'pk': self.pk})
 
+# Tabla de Leads
+class PyLead(models.Model):
+    name = models.CharField('Nombre', max_length=80)
+
+    def get_absolute_url(self):
+        return reverse('department-detail', kwargs={'pk': self.pk})
+
 # Tabla de Product
 class PyProduct(models.Model):
     name = models.CharField('Nombre', max_length=80)
