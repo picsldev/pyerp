@@ -28,3 +28,8 @@ class PyLead(models.Model):
     def __str__(self):
         return format(self.name)
 
+
+cont_lead = PyLead.objects.count()
+
+print(cont_lead)
+

@@ -7,6 +7,12 @@ from datetime import datetime, timedelta
 from django.utils.timesince import timesince
 
 
+PRODUCT_CHOICE = (
+        ("product", "Almacenable"),
+        ('consu', 'Consumible'),
+        ('service', 'Servicio')
+    )
+
 class PyCountry(models.Model):
     name = models.CharField(max_length=40)
 
@@ -109,6 +115,9 @@ class PyProduct(models.Model):
     cost = models.DecimalField('Costo', max_digits=10, decimal_places=2, default=0)
 
     web_active = models.BooleanField('Web', default=False)
+
+    type = models.CharField(
+        choices=PRODUCT_CHOICE, max_length=64, default='consu')
 
     def get_absolute_url(self):
         return reverse('product-detail', kwargs={'pk': self.pk})

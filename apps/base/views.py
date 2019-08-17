@@ -106,8 +106,6 @@ PARTNER_FIELDS  = [
             {'string': 'Dirección', 'field': 'street'},
             {'string': 'Teléfono', 'field': 'phone'},
             {'string': 'Email', 'field': 'email'},
-            {'string': 'Cliente', 'field': 'customer'},
-            {'string': 'Proveedor', 'field': 'provider'},
             {'string': 'Para Facturar', 'field': 'for_invoice'},
             {'string': 'Creado por', 'field': 'created_by'},
             {'string': 'Creado', 'field': 'created_on'},
@@ -357,10 +355,10 @@ PRODUCT_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},
             {'string': 'Precio', 'field': 'price'},
             {'string': 'Costo', 'field': 'cost'},
-            {'string': 'Activo en la Web', 'field': 'web_active'},
+            {'string': 'tipo', 'field': 'type'},
         ]
 
-LEAD_FIELDS_SHORT = ['name', 'code', 'price', 'cost', 'web_active']
+LEAD_FIELDS_SHORT = ['name', 'code', 'price', 'cost', 'type', 'web_active']
 
 
 class ProductListView(ListView):

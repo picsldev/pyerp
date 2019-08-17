@@ -23,12 +23,6 @@ LEAD_FIELDS = [
 LEAD_FIELDS_SHORT = ['name','partner_id','user_id','income','stage_id']
 
 
-cont_lead = PyLead.objects.count()
-
-print(cont_lead)
-
-
-
 class LeadListView(ListView):
     model = PyLead
     template_name = 'erp/list.html'
