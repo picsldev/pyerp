@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^erp/', include('apps.erp.urls')),
     url(r'^base/', include('apps.base.urls')),
     url(r'^crm/', include('apps.crm.urls')),
+    url(r'^task/', include('apps.project.urls')),
 ]

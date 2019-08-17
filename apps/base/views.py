@@ -356,6 +356,7 @@ PRODUCT_FIELDS = [
             {'string': 'Precio', 'field': 'price'},
             {'string': 'Costo', 'field': 'cost'},
             {'string': 'tipo', 'field': 'type'},
+            {'string': 'Creado', 'field': 'created_on'},
         ]
 
 LEAD_FIELDS_SHORT = ['name', 'code', 'price', 'cost', 'type', 'web_active']

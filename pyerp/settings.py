@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'apps.base',
     'apps.sale',
     'apps.crm',
+    'apps.project',
     'apps.config',
     'bootstrap4',
 ]
