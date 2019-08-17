@@ -41,8 +41,8 @@ class PyPartner(models.Model):
     email = models.CharField('Correo', max_length=40, blank=True)
     rut = models.CharField('RUT', max_length=12, blank=True)
     giro = models.CharField('Giro', max_length=80, blank=True)
-    customer = models.BooleanField('Es cliente', default=False)
-    provider = models.BooleanField('Es proveedor', default=False)
+    customer = models.BooleanField('Es cliente', default=True)
+    provider = models.BooleanField('Es proveedor', default=True)
 
     def get_absolute_url(self):
         return reverse('partner-detail', kwargs={'pk': self.pk})
