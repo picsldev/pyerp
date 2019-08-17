@@ -408,6 +408,17 @@ class CompanyListView(ListView):
         ]
         return context
 
+PRODUCT_FIELDS = [
+            {'string': 'Código', 'field': 'code'},
+            {'string': 'Código Barra', 'field': 'bar_code'},
+            {'string': 'Nombre', 'field': 'name'},
+            {'string': 'Precio', 'field': 'price'},
+            {'string': 'Costo', 'field': 'cost'},
+            {'string': 'Activo en la Web', 'field': 'web_active'},
+        ]
+
+LEAD_FIELDS_SHORT = ['name', 'code', 'price', 'cost', 'web_active']
+
 
 class ProductListView(ListView):
     model = PyProduct
@@ -418,13 +429,7 @@ class ProductListView(ListView):
         context['title'] = 'Productos'
         context['detail_url'] = 'product-detail'
         context['add_url'] = 'product-add'
-        context['fields'] = [
-            {'string': 'Código', 'field': 'code'},
-            {'string': 'Código Barra', 'field': 'bar_code'},
-            {'string': 'Nombre', 'field': 'name'},
-            {'string': 'Precio', 'field': 'price'},
-            {'string': 'Costo', 'field': 'cost'},
-        ]
+        context['fields'] = PRODUCT_FIELDS
         return context
 
 
@@ -439,19 +444,14 @@ class ProductDetailView(DetailView):
         context['detail_name'] = 'Producto: %s' % context['object'].name
         context['update_url'] = 'product-update'
         context['delete_url'] = 'product-delete'
-        context['fields'] = [
-            {'string': 'Nombre', 'field': 'name'},
-            {'string': 'Código', 'field': 'code'},
-            {'string': 'Precio', 'field': 'price'},
-            {'string': 'Costo', 'field': 'cost'},
-        ]
+        context['fields'] = PRODUCT_FIELDS
         return context
 
-PRODUCT_FIELDS = ['name', 'code', 'price', 'cost']
+
 
 class ProductCreateView(CreateView):
     model = PyProduct
-    fields = PRODUCT_FIELDS
+    fields = LEAD_FIELDS_SHORT
     template_name = 'erp/form.html'
 
     def get_context_data(self, **kwargs):
@@ -464,7 +464,7 @@ class ProductCreateView(CreateView):
 
 class ProductUpdateView(UpdateView):
     model = PyProduct
-    fields = PRODUCT_FIELDS
+    fields = LEAD_FIELDS_SHORT
     template_name = 'erp/form.html'
 
     def get_context_data(self, **kwargs):

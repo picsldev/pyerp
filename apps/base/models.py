@@ -52,7 +52,16 @@ class PyLead(models.Model):
     name = models.CharField('Nombre', max_length=80)
 
     def get_absolute_url(self):
-        return reverse('department-detail', kwargs={'pk': self.pk})
+        return reverse('lead-detail', kwargs={'pk': self.pk})
+
+# Tabla de Artículos
+class PyArticle(models.Model):
+    name = models.CharField('Artículo', max_length=80)
+
+    def get_absolute_url(self):
+        return reverse('article-detail', kwargs={'pk': self.pk})
+
+
 
 # Tabla de Product
 class PyProduct(models.Model):
@@ -61,6 +70,8 @@ class PyProduct(models.Model):
     bar_code = models.CharField('Cod. Barras', max_length=80, blank=True)
     price = models.DecimalField('Precio', max_digits=10, decimal_places=2, default=1)
     cost = models.DecimalField('Costo', max_digits=10, decimal_places=2, default=0)
+
+    web_active = models.BooleanField('Web', default=False)
 
     def get_absolute_url(self):
         return reverse('product-detail', kwargs={'pk': self.pk})
