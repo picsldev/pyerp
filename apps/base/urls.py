@@ -5,6 +5,7 @@ from ..base.views import CompanyListView
 from ..base.views import ProductListView, ProductDetailView, ProductCreateView, ProductUpdateView, DeleteProduct
 from ..base.views import UserListView, UserDetailView, UserCreateView, UserUpdateView, DeleteUser, ChangePasswordForm, DoChangePassword
 from ..base.views import EmployeeListView, EmployeeDetailView, EmployeeCreateView, EmployeeUpdateView, DeleteEmployee
+from ..base.views import DepartmentListView, DepartmentDetailView, DepartmentCreateView, DepartmentUpdateView, DeleteDepartment
 
 urlpatterns = [
     path('users', UserListView.as_view(), name='users'),
@@ -34,4 +35,10 @@ urlpatterns = [
     path('employee/<int:pk>/', EmployeeDetailView.as_view(), name='employee-detail'),
     path('employee/<int:pk>/update', EmployeeUpdateView.as_view(), name='employee-update'),
     path('employee/<int:pk>/delete/', DeleteEmployee, name='employee-delete'),
+
+    path('department', DepartmentListView.as_view(), name='department'),
+    path('department/add/', DepartmentCreateView.as_view(), name='department-add'),
+    path('department/<int:pk>/', DepartmentDetailView.as_view(), name='department-detail'),
+    path('department/<int:pk>/update', DepartmentUpdateView.as_view(), name='department-update'),
+    path('department/<int:pk>/delete/', DeleteDepartment, name='department-delete'),
 ]

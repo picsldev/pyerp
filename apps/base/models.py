@@ -60,7 +60,7 @@ class PyProduct(models.Model):
 
 
 
-# Tabla de Product
+# Tabla de Empleados
 class PyEmployee(models.Model):
     name = models.CharField('Nombre', max_length=80)
     name2 = models.CharField('Segundo Nombre', max_length=80, blank=True)
@@ -71,3 +71,11 @@ class PyEmployee(models.Model):
 
     def get_absolute_url(self):
         return reverse('employee-detail', kwargs={'pk': self.pk})
+
+# Tabla de Departamentos
+class PyDepartment(models.Model):
+    name = models.CharField('Nombre', max_length=80)
+
+    def get_absolute_url(self):
+        return reverse('department-detail', kwargs={'pk': self.pk})
+
