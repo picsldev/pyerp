@@ -12,10 +12,11 @@ TASK_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},
             {'string': 'Estado', 'field': 'state'},
             {'string': 'Usuario', 'field': 'user_id'},
+            {'string': 'Proyecto', 'field': 'project_id'},
             {'string': 'Notas', 'field': 'note'},
         ]
 
-TASK_FIELDS_SHORT = ['name','state','user_id','note']
+TASK_FIELDS_SHORT = ['name','state','user_id','project_id','note']
 
 
 class TaskListView(ListView):
