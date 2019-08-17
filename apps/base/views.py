@@ -100,6 +100,14 @@ def DoChangePassword(self, pk, **kwargs):
 
 """ BEGIN PARTNER """
 
+PARTNER_FIELDS  = [
+            {'string': 'RUT', 'field': 'rut'},
+            {'string': 'Nombre', 'field': 'name'},
+            {'string': 'Teléfono', 'field': 'phone'},
+            {'string': 'Email', 'field': 'email'},
+        ]
+
+
 class CustomerListView(ListView):
     model = PyPartner
     template_name = 'erp/list.html'
@@ -110,12 +118,20 @@ class CustomerListView(ListView):
         context['title'] = 'Partners'
         context['detail_url'] = 'partner-detail'
         context['add_url'] = 'partner-add'
-        context['fields'] = [
-            {'string': 'Nombre', 'field': 'name'},
-            {'string': 'RUT', 'field': 'rut'},
-            {'string': 'Teléfono', 'field': 'phone'},
-            {'string': 'Email', 'field': 'email'},
-        ]
+        context['fields'] = PARTNER_FIELDS
+        return context
+
+class ProviderListView(ListView):
+    model = PyPartner
+    template_name = 'erp/list.html'
+    queryset = PyPartner.objects.filter(provider=True).all()
+
+    def get_context_data(self, **kwargs):
+        context = super(ProviderListView, self).get_context_data(**kwargs)
+        context['title'] = 'Partners'
+        context['detail_url'] = 'partner-detail'
+        context['add_url'] = 'partner-add'
+        context['fields'] = PARTNER_FIELDS
         return context
 
 
@@ -130,12 +146,7 @@ class PartnerDetailView(DetailView):
         context['breadcrumbs'] = [{'url': 'partners', 'name': 'Partners'}]
         context['update_url'] = 'partner-update'
         context['delete_url'] = 'partner-delete'
-        context['fields'] = [
-            {'string': 'Nombre', 'field': 'name'},
-            {'string': 'RUT', 'field': 'rut'},
-            {'string': 'Teléfono', 'field': 'phone'},
-            {'string': 'Email', 'field': 'email'},
-        ]
+        context['fields'] = PARTNER_FIELDS
         return context
 
 
