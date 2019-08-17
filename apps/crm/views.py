@@ -15,11 +15,18 @@ def DashboardCrmView(request):
 LEAD_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},
             {'string': 'Cliente', 'field': 'partner_id'},
+            {'string': 'Vendedor', 'field': 'user_id'},
             {'string': 'Ingreso', 'field': 'income'},
             {'string': 'Etapa', 'field': 'stage_id'},
         ]
 
-LEAD_FIELDS_SHORT = ['name','partner_id','income','stage_id']
+LEAD_FIELDS_SHORT = ['name','partner_id','user_id','income','stage_id']
+
+
+cont_lead = PyLead.objects.count()
+
+print(cont_lead)
+
 
 
 class LeadListView(ListView):

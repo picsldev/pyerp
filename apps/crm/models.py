@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from ..base.models import PyPartner
+from django.contrib.auth.models import User
 
 
 # Tabla de Etapas
@@ -17,6 +18,7 @@ class PyStage(models.Model):
 class PyLead(models.Model):
     name = models.CharField('Nombre', max_length=80)
     partner_id = models.ForeignKey(PyPartner, null=True, blank=True, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     stage_id = models.ForeignKey(PyStage, null=True, blank=True, on_delete=models.CASCADE)
     income = models.DecimalField('Ingreso', max_digits=10, decimal_places=2, default=0)
 
@@ -25,5 +27,4 @@ class PyLead(models.Model):
 
     def __str__(self):
         return format(self.name)
-
 
