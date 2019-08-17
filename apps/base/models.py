@@ -5,13 +5,22 @@ from django.urls import reverse
 class PyCountry(models.Model):
     name = models.CharField(max_length=40)
 
+    def __str__(self):
+        return format(self.name)
+
 
 class PyRegion(models.Model):
     name = models.CharField(max_length=40)
 
+    def __str__(self):
+        return format(self.name)
+
 
 class PyComuna(models.Model):
     name = models.CharField(max_length=40)
+
+    def __str__(self):
+        return format(self.name)
 
 
 class PyCompany(models.Model):
@@ -31,6 +40,9 @@ class PyCompany(models.Model):
     def get_absolute_url(self):
         return reverse('company-detail', kwargs={'pk': self.pk})
 
+    def __str__(self):
+        return format(self.name)
+
 # Tabla de Partner
 class PyPartner(models.Model):
     name = models.CharField('Nombre', max_length=40)
@@ -47,6 +59,9 @@ class PyPartner(models.Model):
     def get_absolute_url(self):
         return reverse('partner-detail', kwargs={'pk': self.pk})
 
+    def __str__(self):
+        return "[" + format(self.rut) + "] " + format(self.name)
+
 # Tabla de Leads
 class PyLead(models.Model):
     name = models.CharField('Nombre', max_length=80)
@@ -54,12 +69,18 @@ class PyLead(models.Model):
     def get_absolute_url(self):
         return reverse('lead-detail', kwargs={'pk': self.pk})
 
+    def __str__(self):
+        return format(self.name)
+
 # Tabla de Artículos
 class PyArticle(models.Model):
     name = models.CharField('Artículo', max_length=80)
 
     def get_absolute_url(self):
         return reverse('article-detail', kwargs={'pk': self.pk})
+
+    def __str__(self):
+        return format(self.name)
 
 
 
@@ -76,6 +97,9 @@ class PyProduct(models.Model):
     def get_absolute_url(self):
         return reverse('product-detail', kwargs={'pk': self.pk})
 
+    def __str__(self):
+        return format(self.name)
+
 
 
 # Tabla de Empleados
@@ -90,10 +114,16 @@ class PyEmployee(models.Model):
     def get_absolute_url(self):
         return reverse('employee-detail', kwargs={'pk': self.pk})
 
+    def __str__(self):
+        return format(self.name)
+
 # Tabla de Departamentos
 class PyDepartment(models.Model):
     name = models.CharField('Nombre', max_length=80)
 
     def get_absolute_url(self):
         return reverse('department-detail', kwargs={'pk': self.pk})
+
+    def __str__(self):
+        return format(self.name)
 

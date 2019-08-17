@@ -10,9 +10,10 @@ from django.contrib.auth.models import User
 """ BEGIN LEAD """
 LEAD_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},
+            {'string': 'Cliente', 'field': 'partner_id'},
         ]
 
-LEAD_FIELDS_SHORT = ['name']
+LEAD_FIELDS_SHORT = ['name','partner_id']
 
 
 class LeadListView(ListView):
