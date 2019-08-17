@@ -55,6 +55,7 @@ class PyPartner(models.Model):
     giro = models.CharField('Giro', max_length=80, blank=True)
     customer = models.BooleanField('Es cliente', default=True)
     provider = models.BooleanField('Es proveedor', default=True)
+    for_invoice = models.BooleanField('Para Facturar', default=True)
 
     def get_absolute_url(self):
         return reverse('partner-detail', kwargs={'pk': self.pk})

@@ -102,10 +102,16 @@ def DoChangePassword(self, pk, **kwargs):
 
 PARTNER_FIELDS  = [
             {'string': 'RUT', 'field': 'rut'},
-            {'string': 'Nombre', 'field': 'name'},
+            {'string': 'Nombre / Razón Social', 'field': 'name'},
+            {'string': 'Dirección', 'field': 'street'},
             {'string': 'Teléfono', 'field': 'phone'},
             {'string': 'Email', 'field': 'email'},
+            {'string': 'Cliente', 'field': 'customer'},
+            {'string': 'Proveedor', 'field': 'provider'},
+            {'string': 'Para Facturar', 'field': 'for_invoice'},
         ]
+
+PARTNER_FIELDS_SHORT = ['name', 'street', 'email', 'phone', 'rut', 'customer', 'provider', 'for_invoice']
 
 
 class CustomerListView(ListView):
@@ -165,7 +171,7 @@ class PartnerCreateView(CreateView):
 
 class PartnerUpdateView(UpdateView):
     model = PyPartner
-    fields = ['name', 'email', 'phone', 'rut', 'customer', 'provider']
+    fields = PARTNER_FIELDS_SHORT
     template_name = 'erp/form.html'
 
     def get_context_data(self, **kwargs):
