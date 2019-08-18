@@ -15,7 +15,7 @@ COMPANY_FIELDS = [
     {'string': 'Giro', 'field': 'giro'},
 ]
 
-COMPANY_FIELDS_SHORT = ['name', 'city', 'phone', 'email', 'rut']
+COMPANY_FIELDS_SHORT = ['name', 'city', 'phone', 'email', 'rut', 'social_facebook', 'social_instagram', 'social_linkedin']
 
 
 class CompanyListView(ListView):
