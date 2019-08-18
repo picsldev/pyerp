@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
-from ..base.models import PyPartner, PyCompany, PyProduct, PyEmployee, PyDepartment, PyLead
+from ..base.models import PyPartner, PyCompany, PyProduct, PyEmployee, PyDepartment, PyProductCategory
 from django.contrib.auth.models import User
 
 
@@ -331,6 +331,72 @@ def DeleteDepartment(self, pk):
 """ END DEPARTMENT """
 
 
+""" BEGIN CATEGORY PRODUCT"""
+CATEGORY_FIELDS = [
+            {'string': 'Nombre', 'field': 'name'},
+        ]
+
+CATEGORY_FIELDS_SHORT = ['name']
+
+
+class ProductCategoryListView(ListView):
+    model = PyProductCategory
+    template_name = 'erp/list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductCategoryListView, self).get_context_data(**kwargs)
+        context['title'] = 'Categorias de Productos'
+        context['detail_url'] = 'product-category-detail'
+        context['add_url'] = 'product-category-add'
+        context['fields'] = CATEGORY_FIELDS
+        return context
+
+class ProductCategoryDetailView(DetailView):
+    model = PyProductCategory
+    template_name = 'erp/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductCategoryDetailView, self).get_context_data(**kwargs)
+        context['title'] = context['object'].name
+        context['breadcrumbs'] = [{'url': 'product-category', 'name': 'Categorias de Productos'}]
+        context['update_url'] = 'product-category-update'
+        context['delete_url'] = 'product-category-delete'
+        context['fields'] = CATEGORY_FIELDS
+        return context
+
+class ProductCategoryCreateView(CreateView):
+    model = PyProductCategory
+    fields = CATEGORY_FIELDS_SHORT
+    template_name = 'erp/form.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductCategoryCreateView, self).get_context_data(**kwargs)
+        context['title'] = 'Crear Categoria de Productos'
+        context['breadcrumbs'] = [{'url': 'product-category', 'name': 'Categoria de Producto'}]
+        context['back_url'] = reverse('product-category')
+        return context
+
+class ProductCategoryUpdateView(UpdateView):
+    model = PyProductCategory
+    fields = DEPARTMENT_FIELDS_SHORT
+    template_name = 'erp/form.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductCategoryUpdateView, self).get_context_data(**kwargs)
+        context['title'] = context['object'].name
+        context['breadcrumbs'] = [{'url': 'product-category', 'name': 'Categoria de Producto'}]
+        context['back_url'] = reverse('product-category-detail', kwargs={'pk': context['object'].pk})
+        return context
+
+
+@login_required(login_url="/erp/login")
+def DeleteProductCategory(self, pk):
+    product_category = PyProductCategory.objects.get(id=pk)
+    product_category.delete()
+    return redirect(reverse('product-category'))
+""" END CATEGORY PRODUCT """
+
+
 
 
 class CompanyListView(ListView):
@@ -353,13 +419,16 @@ PRODUCT_FIELDS = [
             {'string': 'Código', 'field': 'code'},
             {'string': 'Código Barra', 'field': 'bar_code'},
             {'string': 'Nombre', 'field': 'name'},
+            {'string': 'Categoría', 'field': 'category_id'},
             {'string': 'Precio', 'field': 'price'},
             {'string': 'Costo', 'field': 'cost'},
             {'string': 'tipo', 'field': 'type'},
             {'string': 'Creado', 'field': 'created_on'},
+            {'string': 'Descripción', 'field': 'description'},
+            {'string': 'Creado', 'field': 'created_on'},
         ]
 
-LEAD_FIELDS_SHORT = ['name', 'code', 'price', 'cost', 'type', 'web_active']
+LEAD_FIELDS_SHORT = ['name', 'category_id', 'code', 'price', 'cost', 'type', 'description', 'web_active']
 
 
 class ProductListView(ListView):

@@ -6,6 +6,7 @@ from ..base.views import ProductListView, ProductDetailView, ProductCreateView, 
 from ..base.views import UserListView, UserDetailView, UserCreateView, UserUpdateView, DeleteUser, ChangePasswordForm, DoChangePassword
 from ..base.views import EmployeeListView, EmployeeDetailView, EmployeeCreateView, EmployeeUpdateView, DeleteEmployee
 from ..base.views import DepartmentListView, DepartmentDetailView, DepartmentCreateView, DepartmentUpdateView, DeleteDepartment
+from ..base.views import ProductCategoryListView, ProductCategoryDetailView, ProductCategoryCreateView, ProductCategoryUpdateView, DeleteProductCategory
 
 urlpatterns = [
     path('users', UserListView.as_view(), name='users'),
@@ -43,4 +44,10 @@ urlpatterns = [
     path('department/<int:pk>/', DepartmentDetailView.as_view(), name='department-detail'),
     path('department/<int:pk>/update', DepartmentUpdateView.as_view(), name='department-update'),
     path('department/<int:pk>/delete/', DeleteDepartment, name='department-delete'),
+
+    path('product-category', ProductCategoryListView.as_view(), name='product-category'),
+    path('product-category/add/', ProductCategoryCreateView.as_view(), name='product-category-add'),
+    path('product-category/<int:pk>/', ProductCategoryDetailView.as_view(), name='product-category-detail'),
+    path('product-category/<int:pk>/update', ProductCategoryUpdateView.as_view(), name='product-category-update'),
+    path('product-category/<int:pk>/delete/', DeleteProductCategory, name='product-category-delete'),
 ]

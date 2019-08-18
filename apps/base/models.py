@@ -34,6 +34,16 @@ class PyComuna(models.Model):
         return format(self.name)
 
 
+class PyProductCategory(models.Model):
+    name = models.CharField(max_length=40)
+
+    def __str__(self):
+        return format(self.name)
+
+    def get_absolute_url(self):
+        return reverse('product-category-detail', kwargs={'pk': self.pk})
+
+
 class PyCompany(models.Model):
     name = models.CharField(max_length=40)
     street = models.CharField(max_length=100, blank=True)
@@ -113,6 +123,8 @@ class PyProduct(models.Model):
     bar_code = models.CharField('Cod. Barras', max_length=80, blank=True)
     price = models.DecimalField('Precio', max_digits=10, decimal_places=2, default=1)
     cost = models.DecimalField('Costo', max_digits=10, decimal_places=2, default=0)
+    category_id = models.ForeignKey(PyProductCategory, null=True, blank=True, on_delete=models.CASCADE)
+    description = models.TextField(blank=True, null=True)
 
     web_active = models.BooleanField('Web', default=False)
 
