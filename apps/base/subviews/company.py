@@ -7,6 +7,17 @@ from django.views.generic.edit import CreateView, UpdateView
 from ...base.models import PyCompany
 
 
+COMPANY_FIELDS = [
+    {'string': 'Nombre', 'field': 'name'},
+    {'string': 'RUT', 'field': 'rut'},
+    {'string': 'Teléfono', 'field': 'phone'},
+    {'string': 'Email', 'field': 'email'},
+    {'string': 'Giro', 'field': 'giro'},
+]
+
+COMPANY_FIELDS_SHORT = ['name', 'city', 'phone', 'email', 'rut']
+
+
 class CompanyListView(ListView):
     model = PyCompany
     template_name = 'erp/list.html'
@@ -16,14 +27,9 @@ class CompanyListView(ListView):
         context['title'] = 'Compañías'
         context['detail_url'] = 'company-detail'
         context['add_url'] = 'company-add'
-        context['fields'] = [
-            {'string': 'Nombre', 'field': 'name'},
-            {'string': 'RUT', 'field': 'rut'},
-            {'string': 'Teléfono', 'field': 'phone'},
-            {'string': 'Email', 'field': 'email'},
-            {'string': 'Giro', 'field': 'giro'},
-        ]
+        context['fields'] = COMPANY_FIELDS
         return context
+
 
 
 class CompanyDetailView(DetailView):
@@ -33,16 +39,15 @@ class CompanyDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(CompanyDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
-        context['breadcrumbs'] = [{'url': 'companies', 'name': 'Compañías'}]
+        context['breadcrumbs'] = [{'url': 'companies', 'name': 'Compañia'}]
         context['update_url'] = 'company-update'
         context['delete_url'] = 'company-delete'
-        context['fields'] = ['name', 'city', 'phone', 'email', 'rut']
+        context['fields'] = COMPANY_FIELDS
         return context
-
 
 class CompanyCreateView(CreateView):
     model = PyCompany
-    fields = ['name', 'city', 'phone', 'email', 'rut']
+    fields = COMPANY_FIELDS_SHORT
     template_name = 'erp/form.html'
 
     def get_context_data(self, **kwargs):
@@ -53,18 +58,17 @@ class CompanyCreateView(CreateView):
         return context
 
 
-class CompanyUpdateView(CreateView):
+class CompanyUpdateView(UpdateView):
     model = PyCompany
-    fields = ['name', 'city', 'phone', 'email', 'rut']
+    fields = COMPANY_FIELDS_SHORT
     template_name = 'erp/form.html'
 
     def get_context_data(self, **kwargs):
         context = super(CompanyUpdateView, self).get_context_data(**kwargs)
-        context['title'] = context['object'].username
+        context['title'] = context['object'].name
         context['breadcrumbs'] = [{'url': 'companies', 'name': 'Compañías'}]
         context['back_url'] = reverse('company-detail', kwargs={'pk': context['object'].pk})
         return context
-
 
 @login_required(login_url="/erp/login")
 def DeleteCompany(self, pk):
