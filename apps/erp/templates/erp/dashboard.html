@@ -1,4 +1,5 @@
 {% load static %}
+{% load erp_tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,9 +36,17 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item d-none d-sm-inline-block">
-
-            <a href="{% url 'logout' %}" class="nav-link"><i class="fas fa-sign-out-alt"></i></a>
-          </li>
+          <div class="nav-link" title="Modo Online">
+            {% if user|get_online %}
+            <i class="fa fa-toggle-on"></i>
+            {% else %}
+            <i class="fa fa-toggle-off"></i>
+            {% endif %}
+          </div>
+        </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{% url 'logout' %}" class="nav-link"><i class="fas fa-sign-out-alt"></i></a>
+      </li>
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -406,7 +415,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{% url 'base-config' 1 %}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>General</p>
                     </a>

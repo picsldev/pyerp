@@ -1,14 +1,17 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from ..base.views import CustomerListView, PartnerDetailView, PartnerCreateView, PartnerUpdateView, DeletePartner, ProviderListView
-from ..base.views import CompanyListView
+from ..base.views import CompanyListView, CompanyDetailView, CompanyCreateView, CompanyUpdateView, DeleteCompany
 from ..base.views import ProductListView, ProductDetailView, ProductCreateView, ProductUpdateView, DeleteProduct
 from ..base.views import UserListView, UserDetailView, UserCreateView, UserUpdateView, DeleteUser, ChangePasswordForm, DoChangePassword
 from ..base.views import EmployeeListView, EmployeeDetailView, EmployeeCreateView, EmployeeUpdateView, DeleteEmployee
 from ..base.views import DepartmentListView, DepartmentDetailView, DepartmentCreateView, DepartmentUpdateView, DeleteDepartment
 from ..base.views import ProductCategoryListView, ProductCategoryDetailView, ProductCategoryCreateView, ProductCategoryUpdateView, DeleteProductCategory
+from ..base.views import UpdateBaseConfigView
 
 urlpatterns = [
+    path('config/<int:pk>', UpdateBaseConfigView.as_view(), name='base-config'),
+
     path('users', UserListView.as_view(), name='users'),
     path('user/add/', UserCreateView.as_view(), name='user-add'),
     path('user/<int:pk>/', UserDetailView.as_view(), name='user-detail'),
@@ -24,6 +27,10 @@ urlpatterns = [
     path('Product/<int:pk>/delete/', DeleteProduct, name='product-delete'),
 
     path('companies', CompanyListView.as_view(), name='companies'),
+    path('company/add/', CompanyCreateView.as_view(), name='company-add'),
+    path('company/<int:pk>/', CompanyDetailView.as_view(), name='company-detail'),
+    path('company/<int:pk>/update', CompanyUpdateView.as_view(), name='company-update'),
+    path('company/<int:pk>/delete/', DeleteCompany, name='company-delete'),
 
     path('partners', CustomerListView.as_view(), name='partners'),
     path('provider', ProviderListView.as_view(), name='provider'),
