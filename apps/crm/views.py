@@ -9,7 +9,14 @@ from django.contrib.auth.models import User
 
 
 def DashboardCrmView(request):
-    return render(request, 'crm/dashboard-crm.html')
+    leads = PyLead.objects.all()
+    return render(request, 'crm/dashboard-crm.html', {
+        'leads': leads,
+        'total_leads': len(leads),
+        'new_leads': len(leads.filter(stage_id__name__iexact='nuevo')),
+        'gained_leads': len(leads.filter(stage_id__name__iexact='ganado')),
+        'lost_leads': len(leads.filter(stage_id__name__iexact='perdidos'))
+    })
 
 """ BEGIN LEAD """
 LEAD_FIELDS = [
