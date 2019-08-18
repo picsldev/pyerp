@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PyERP | ERP en Djando</title>
+  <title> {{ user|get_company_name }} | {{ user|get_company_slogan }} </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -35,6 +35,12 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+        <li>
+            <div class="nav-link">
+                {{ user|get_company_name }}
+            </div>
+
+        </li>
         <li class="nav-item d-none d-sm-inline-block">
           <div class="nav-link" title="Modo Online">
             {% if user|get_online %}

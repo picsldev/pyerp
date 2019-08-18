@@ -109,7 +109,7 @@ img::-moz-selection {
 }
 
 #mainNav {
-  background-color: #212529;
+  background-color: #092E20;
 }
 
 #mainNav .navbar-toggler {
@@ -124,7 +124,7 @@ img::-moz-selection {
 }
 
 #mainNav .navbar-brand {
-  color: #fed136;
+  color: #fff;
   font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
@@ -165,7 +165,7 @@ img::-moz-selection {
   #mainNav.navbar-shrink {
     padding-top: 0;
     padding-bottom: 0;
-    background-color: #212529;
+    background-color: #092E20;
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
@@ -176,7 +176,8 @@ img::-moz-selection {
 header.masthead {
   text-align: center;
   color: white;
-  background-image: url("../img/header-bg.jpg");
+  /* background-image: url("../img/header-bg.jpg"); */
+  background-color: #092E20;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -591,8 +592,8 @@ header.masthead .intro-text .intro-heading {
 }
 
 section#contact {
-  background-color: #212529;
-  background-image: url("../img/map-image.png");
+  background-color: #092E20;
+  /* background-image: url("../img/map-image.png"); */
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -683,7 +684,7 @@ ul.social-buttons li a {
   color: white;
   border-radius: 100%;
   outline: none;
-  background-color: #212529;
+  background-color: #092E20;
 }
 
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
