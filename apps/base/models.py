@@ -91,6 +91,9 @@ class PyPartner(models.Model):
     def __str__(self):
         return "[" + format(self.rut) + "] " + format(self.name)
 
+    def __repr__(self):
+        return '%s%s' % (self.rut and ('[%s] ' % self.rut) or '', self.name)
+
     class Meta:
         ordering = ['-created_on']
 

@@ -3,11 +3,19 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from ..base.models import PyPartner, PyProduct
+from django.contrib.auth.models import User
 
 
 @login_required(login_url="/erp/login")
 def erp_home(request):
-    return render(request, "home.html")
+    partners = PyPartner.objects.all()
+    return render(request, "home.html", {
+        'customers': partners.filter(customer=True),
+        'providers': partners.filter(provider=True),
+        'users': User.objects.all(),
+        'products': PyProduct.objects.all()
+    })
 
 
 def login_user(request):

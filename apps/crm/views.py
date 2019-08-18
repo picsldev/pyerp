@@ -12,10 +12,10 @@ def DashboardCrmView(request):
     leads = PyLead.objects.all()
     return render(request, 'crm/dashboard-crm.html', {
         'leads': leads,
-        'total_leads': len(leads),
-        'new_leads': len(leads.filter(stage_id__name__iexact='nuevo')),
-        'gained_leads': len(leads.filter(stage_id__name__iexact='ganado')),
-        'lost_leads': len(leads.filter(stage_id__name__iexact='perdidos'))
+        'total_leads': leads,
+        'new_leads': leads.filter(stage_id__name__iexact='nuevo'),
+        'gained_leads': leads.filter(stage_id__name__iexact='ganado'),
+        'lost_leads': leads.filter(stage_id__name__iexact='perdidos')
     })
 
 """ BEGIN LEAD """
