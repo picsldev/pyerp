@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^crm/', include('apps.crm.urls')),
     url(r'^project/', include('apps.project.urls')),
     url(r'^website/', include('apps.website.urls')),
+    url(r'^account/', include('apps.account.urls')),
 ]
