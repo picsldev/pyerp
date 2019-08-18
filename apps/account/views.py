@@ -12,9 +12,11 @@ from django.contrib.auth.models import User
 ACCOUNTPLAN_FIELDS = [
             {'string': 'Código', 'field': 'code'},
             {'string': 'Nombre', 'field': 'name'},
+            {'string': 'Tipo', 'field': 'type'},
+            {'string': 'Conciliación', 'field': 'reconcile'},
         ]
 
-ACCOUNTPLAN_FIELDS_SHORT = ['code','name']
+ACCOUNTPLAN_FIELDS_SHORT = ['code','name','type', 'reconcile']
 
 
 class AccountPlanListView(ListView):
