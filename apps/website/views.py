@@ -16,7 +16,6 @@ ARTICLE_FIELDS = [
 
 ARTICLE_FIELDS_SHORT = ['name','description']
 
-
 class ArticleListView(ListView):
     model = PyArticle
     template_name = 'erp/list.html'

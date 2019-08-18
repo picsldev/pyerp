@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apps.home',
     'apps.base',
     'apps.sale',
+    'apps.account',
     'apps.crm',
     'apps.website',
     'apps.project',
