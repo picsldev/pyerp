@@ -22,14 +22,12 @@ class PyLead(models.Model):
     stage_id = models.ForeignKey(PyStage, null=True, blank=True, on_delete=models.CASCADE)
     income = models.DecimalField('Ingreso', max_digits=10, decimal_places=2, default=0)
 
+
     def get_absolute_url(self):
         return reverse('lead-detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return format(self.name)
 
-
-cont_lead = PyLead.objects.count()
-
-print(cont_lead)
-
+    def give_total_lead(self):
+        return self.objects.count()
