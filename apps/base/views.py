@@ -1,12 +1,14 @@
-from django.urls import reverse_lazy, reverse
-from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
-from ..base.models import PyPartner, PyCompany, PyProduct, PyEmployee, PyDepartment, PyProductCategory
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.shortcuts import redirect, render
+from django.urls import reverse, reverse_lazy
+from django.views.generic import DetailView, ListView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
+from ..base.models import (PyCompany, PyDepartment, PyEmployee, PyPartner,
+                           PyProduct, PyProductCategory)
+from .common import validarRut, check_rut
 
 class UserListView(ListView):
     model = User
@@ -100,19 +102,19 @@ def DoChangePassword(self, pk, **kwargs):
 
 """ BEGIN PARTNER """
 
-PARTNER_FIELDS  = [
-            {'string': 'RUT', 'field': 'rut'},
-            {'string': 'Nombre / Razón Social', 'field': 'name'},
-            {'string': 'Dirección', 'field': 'street'},
-            {'string': 'Teléfono', 'field': 'phone'},
-            {'string': 'Email', 'field': 'email'},
-            {'string': 'Para Facturar', 'field': 'for_invoice'},
-            {'string': 'Creado por', 'field': 'created_by'},
-            {'string': 'Creado', 'field': 'created_on'},
-            {'string': 'Notas', 'field': 'note'},
-        ]
+PARTNER_FIELDS = [
+    {'string': 'RUT', 'field': 'rut'},
+    {'string': 'Nombre / Razón Social', 'field': 'name'},
+    {'string': 'Dirección', 'field': 'street'},
+    {'string': 'Teléfono', 'field': 'phone'},
+    {'string': 'Email', 'field': 'email'},
+    {'string': 'Para Facturar', 'field': 'for_invoice'},
+    {'string': 'Creado por', 'field': 'created_by'},
+    {'string': 'Creado', 'field': 'created_on'},
+    {'string': 'Notas', 'field': 'note'},
+]
 
-PARTNER_FIELDS_SHORT = [ 'rut', 'name', 'street', 'email', 'phone', 'note', 'customer', 'provider', 'for_invoice']
+PARTNER_FIELDS_SHORT = ['rut', 'name', 'street', 'email', 'phone', 'note', 'customer', 'provider', 'for_invoice']
 
 
 class CustomerListView(ListView):
@@ -128,6 +130,7 @@ class CustomerListView(ListView):
         context['fields'] = PARTNER_FIELDS
         return context
 
+
 class ProviderListView(ListView):
     model = PyPartner
     template_name = 'erp/list.html'
@@ -140,7 +143,6 @@ class ProviderListView(ListView):
         context['add_url'] = 'partner-add'
         context['fields'] = PARTNER_FIELDS
         return context
-
 
 
 class PartnerDetailView(DetailView):
@@ -169,6 +171,14 @@ class PartnerCreateView(CreateView):
         context['back_url'] = reverse('partners')
         return context
 
+    def get_form(self, form_class=None):
+        if form_class is None:
+            form_class = self.get_form_class()
+
+        form = super(PartnerCreateView, self).get_form(form_class)
+        form.fields['rut'].widget.attrs = {'placeholder': '00.000.000-0'}
+        return form
+
 
 class PartnerUpdateView(UpdateView):
     model = PyPartner
@@ -182,6 +192,23 @@ class PartnerUpdateView(UpdateView):
         context['back_url'] = reverse('partner-detail', kwargs={'pk': context['object'].pk})
         return context
 
+    def form_valid(self, form):
+        rut = form.data.get('rut')
+        if validarRut(rut):
+            self.object.rut = check_rut(rut, 1)
+        else:
+            form.add_error('rut', 'Formato de RUT inválido')
+            return self.form_invalid(form)
+        return super(PartnerUpdateView, self).form_valid(form)
+
+    def get_form(self, form_class=None):
+        if form_class is None:
+            form_class = self.get_form_class()
+
+        form = super(PartnerUpdateView, self).get_form(form_class)
+        form.fields['rut'].widget.attrs = {'placeholder': '00.000.000-0'}
+        return form
+
 
 @login_required(login_url="/erp/login")
 def DeletePartner(self, pk):
@@ -190,18 +217,15 @@ def DeletePartner(self, pk):
     return redirect(reverse('partners'))
 
 
-
-
-
 """ BEGIN EMPLEOYEE """
 EMPLEOYEE_FIELDS = [
-            {'string': 'Nombre', 'field': 'name'},
-            {'string': 'Segundo Nombre', 'field': 'name2'},
-            {'string': 'Primer Apelllido', 'field': 'first_name'},
-            {'string': 'Segundo Apelllido', 'field': 'last_name'},
-            {'string': 'Teléfono', 'field': 'phone'},
-            {'string': 'Email', 'field': 'email'},
-        ]
+    {'string': 'Nombre', 'field': 'name'},
+    {'string': 'Segundo Nombre', 'field': 'name2'},
+    {'string': 'Primer Apelllido', 'field': 'first_name'},
+    {'string': 'Segundo Apelllido', 'field': 'last_name'},
+    {'string': 'Teléfono', 'field': 'phone'},
+    {'string': 'Email', 'field': 'email'},
+]
 
 EMPLEOYEE_FIELDS_SHORT = ['name', 'name2', 'email', 'first_name', 'last_name', 'phone', 'email']
 
@@ -218,6 +242,7 @@ class EmployeeListView(ListView):
         context['fields'] = EMPLEOYEE_FIELDS
         return context
 
+
 class EmployeeDetailView(DetailView):
     model = PyEmployee
     template_name = 'erp/detail.html'
@@ -230,6 +255,7 @@ class EmployeeDetailView(DetailView):
         context['delete_url'] = 'employee-delete'
         context['fields'] = EMPLEOYEE_FIELDS
         return context
+
 
 class EmployeeCreateView(CreateView):
     model = PyEmployee
@@ -262,13 +288,15 @@ def DeleteEmployee(self, pk):
     employee = PyEmployee.objects.get(id=pk)
     employee.delete()
     return redirect(reverse('employee'))
+
+
 """ END EMPLEOYEE """
 
 
 """ BEGIN DEPARTMENT """
 DEPARTMENT_FIELDS = [
-            {'string': 'Nombre', 'field': 'name'},
-        ]
+    {'string': 'Nombre', 'field': 'name'},
+]
 
 DEPARTMENT_FIELDS_SHORT = ['name']
 
@@ -285,6 +313,7 @@ class DepartmentListView(ListView):
         context['fields'] = DEPARTMENT_FIELDS
         return context
 
+
 class DepartmentDetailView(DetailView):
     model = PyDepartment
     template_name = 'erp/detail.html'
@@ -298,6 +327,7 @@ class DepartmentDetailView(DetailView):
         context['fields'] = DEPARTMENT_FIELDS
         return context
 
+
 class DepartmentCreateView(CreateView):
     model = PyDepartment
     fields = DEPARTMENT_FIELDS_SHORT
@@ -309,6 +339,7 @@ class DepartmentCreateView(CreateView):
         context['breadcrumbs'] = [{'url': 'department', 'name': 'Departamento'}]
         context['back_url'] = reverse('department')
         return context
+
 
 class DepartmentUpdateView(UpdateView):
     model = PyDepartment
@@ -328,13 +359,15 @@ def DeleteDepartment(self, pk):
     department = PyDepartment.objects.get(id=pk)
     department.delete()
     return redirect(reverse('department'))
+
+
 """ END DEPARTMENT """
 
 
 """ BEGIN CATEGORY PRODUCT"""
 CATEGORY_FIELDS = [
-            {'string': 'Nombre', 'field': 'name'},
-        ]
+    {'string': 'Nombre', 'field': 'name'},
+]
 
 CATEGORY_FIELDS_SHORT = ['name']
 
@@ -351,6 +384,7 @@ class ProductCategoryListView(ListView):
         context['fields'] = CATEGORY_FIELDS
         return context
 
+
 class ProductCategoryDetailView(DetailView):
     model = PyProductCategory
     template_name = 'erp/detail.html'
@@ -364,6 +398,7 @@ class ProductCategoryDetailView(DetailView):
         context['fields'] = CATEGORY_FIELDS
         return context
 
+
 class ProductCategoryCreateView(CreateView):
     model = PyProductCategory
     fields = CATEGORY_FIELDS_SHORT
@@ -375,6 +410,7 @@ class ProductCategoryCreateView(CreateView):
         context['breadcrumbs'] = [{'url': 'product-category', 'name': 'Categoria de Producto'}]
         context['back_url'] = reverse('product-category')
         return context
+
 
 class ProductCategoryUpdateView(UpdateView):
     model = PyProductCategory
@@ -394,9 +430,9 @@ def DeleteProductCategory(self, pk):
     product_category = PyProductCategory.objects.get(id=pk)
     product_category.delete()
     return redirect(reverse('product-category'))
+
+
 """ END CATEGORY PRODUCT """
-
-
 
 
 class CompanyListView(ListView):
@@ -415,18 +451,19 @@ class CompanyListView(ListView):
         ]
         return context
 
+
 PRODUCT_FIELDS = [
-            {'string': 'Código', 'field': 'code'},
-            {'string': 'Código Barra', 'field': 'bar_code'},
-            {'string': 'Nombre', 'field': 'name'},
-            {'string': 'Categoría', 'field': 'category_id'},
-            {'string': 'Precio', 'field': 'price'},
-            {'string': 'Costo', 'field': 'cost'},
-            {'string': 'tipo', 'field': 'type'},
-            {'string': 'Creado', 'field': 'created_on'},
-            {'string': 'Descripción', 'field': 'description'},
-            {'string': 'Creado', 'field': 'created_on'},
-        ]
+    {'string': 'Código', 'field': 'code'},
+    {'string': 'Código Barra', 'field': 'bar_code'},
+    {'string': 'Nombre', 'field': 'name'},
+    {'string': 'Categoría', 'field': 'category_id'},
+    {'string': 'Precio', 'field': 'price'},
+    {'string': 'Costo', 'field': 'cost'},
+    {'string': 'tipo', 'field': 'type'},
+    {'string': 'Creado', 'field': 'created_on'},
+    {'string': 'Descripción', 'field': 'description'},
+    {'string': 'Creado', 'field': 'created_on'},
+]
 
 LEAD_FIELDS_SHORT = ['name', 'category_id', 'code', 'price', 'cost', 'type', 'description', 'web_active']
 
@@ -457,7 +494,6 @@ class ProductDetailView(DetailView):
         context['delete_url'] = 'product-delete'
         context['fields'] = PRODUCT_FIELDS
         return context
-
 
 
 class ProductCreateView(CreateView):
