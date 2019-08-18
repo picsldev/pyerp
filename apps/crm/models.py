@@ -3,7 +3,6 @@ from django.urls import reverse
 from ..base.models import PyPartner
 from django.contrib.auth.models import User
 
-
 # Tabla de Etapas
 class PyStage(models.Model):
     name = models.CharField('Nombre', max_length=80)
