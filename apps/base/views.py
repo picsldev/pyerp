@@ -345,7 +345,7 @@ class ProductCategoryListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductCategoryListView, self).get_context_data(**kwargs)
-        context['title'] = 'Categorias de Productos'
+        context['title'] = 'Categorías de Productos'
         context['detail_url'] = 'product-category-detail'
         context['add_url'] = 'product-category-add'
         context['fields'] = CATEGORY_FIELDS
