@@ -22,3 +22,7 @@ def get_company_name(obj):
 @register.filter
 def get_company_email(obj):
     return BaseConfig.objects.get(pk=1).main_company_id.email
+
+@register.filter
+def get_company_slogan(obj):
+    return BaseConfig.objects.get(pk=1).main_company_id.slogan
