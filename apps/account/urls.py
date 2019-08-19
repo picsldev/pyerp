@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from ..account.views import AccountPlanListView, AccountPlanDetailView, AccountPlanCreateView, AccountPlanUpdateView, DeleteAccountPlan
+from .subviews.accountplan import AccountPlanListView, AccountPlanDetailView, AccountPlanCreateView, AccountPlanUpdateView, DeleteAccountPlan
 
 
 urlpatterns = [
