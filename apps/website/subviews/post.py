@@ -7,7 +7,7 @@ from ..submodels.post import PyPost
 
 POST_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},
-            {'string': 'Descripción', 'field': 'description'},
+            {'string': 'Creado en', 'field': 'created_on'},
         ]
 
 POST_FIELDS_SHORT = ['name','description']
@@ -43,7 +43,7 @@ class PostCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(PostCreateView, self).get_context_data(**kwargs)
-        context['title'] = 'Crear Artículo'
+        context['title'] = 'Crear Post'
         context['breadcrumbs'] = [{'url': 'post', 'name': 'Entrada'}]
         context['back_url'] = reverse('post')
         return context
