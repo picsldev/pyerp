@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from ..pos.views import PosListView, PosDetailView, PosCreateView, PosUpdateView, DeletePos
+from .subviews.pos import PosListView, PosDetailView, PosCreateView, PosUpdateView, DeletePos
 
 
 urlpatterns = [

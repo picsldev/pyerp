@@ -27,4 +27,6 @@ urlpatterns = [
     url(r'^website/', include('apps.website.urls')),
     url(r'^account/', include('apps.account.urls')),
     url(r'^pos/', include('apps.pos.urls')),
+    url(r'^payroll/', include('apps.payroll.urls')),
+    url(r'^dte/', include('apps.dte.urls')),
 ]

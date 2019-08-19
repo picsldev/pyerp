@@ -1,8 +1,8 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from ..crm.views import LeadListView, LeadDetailView, LeadCreateView, LeadUpdateView, DeleteLead
-from ..crm.views import StageListView, StageDetailView, StageCreateView, StageUpdateView, DeleteStage
-from ..crm.views import DashboardCrmView
+from .subviews.lead import LeadListView, LeadDetailView, LeadCreateView, LeadUpdateView, DeleteLead
+from .subviews.stage import StageListView, StageDetailView, StageCreateView, StageUpdateView, DeleteStage
+from .subviews.dashboard import DashboardCrmView
 
 
 urlpatterns = [

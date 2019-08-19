@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PyERP | ERP en Djando</title>
+  <title> {{ user|get_company_name }} | {{ user|get_company_slogan }} </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,7 +21,7 @@
   {% block head %}
   {% endblock %}
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition {% if not user|get_sidebar_collapse %} sidebar-collapse {% endif %} sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
@@ -33,8 +33,16 @@
       </li>
     </ul>
 
+
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+        <li>
+            <div class="nav-link">
+               [ {{ user|get_company_rut }} ] <b>{{ user|get_company_name }}</b>
+            </div>
+
+        </li>
         <li class="nav-item d-none d-sm-inline-block">
           <div class="nav-link" title="Modo Online">
             {% if user|get_online %}
@@ -81,7 +89,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
             <a href="/erp" class="nav-link">
-              <i class="nav-icon fas fa-home"></i>
+              <i class="fa fa-home nav-icon"></i>
               <p>Inicio</p>
             </a>
           </li>
@@ -139,7 +147,7 @@
 <!-- CRM Begin -->
 <li class="nav-item has-treeview" >
     <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-tachometer-alt"></i>
+      <i class="fa fa-tasks nav-icon"></i>
       <p>
         CRM
         <i class="fas fa-angle-left right"></i>
@@ -174,7 +182,7 @@
 <!-- Ventas Begin -->
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="far fa-edit nav-icon"></i>
+      <i class="fa fa-file nav-icon"></i>
       <p>
         Ventas
         <i class="fas fa-angle-left right"></i>
@@ -201,7 +209,7 @@
 <!-- Compras Begin -->
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-book"></i>
+      <i class="fa fa-book nav-icon"></i>
       <p>
         Compras
         <i class="fas fa-angle-left right"></i>
@@ -221,12 +229,6 @@
             <p>Productos</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="{% url 'product-category' %}" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Categorías de Productos</p>
-          </a>
-        </li>
     </ul>
 
   </li>
@@ -236,7 +238,7 @@
 <!-- Inventario Begin -->
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-th"></i>
+      <i class="fa fa-cube nav-icon"></i>
       <p>
         Inventario
         <i class="fas fa-angle-left right"></i>
@@ -266,7 +268,7 @@
 <!-- Contabilidad Begin -->
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="far fa-copy nav-icon"></i>
+      <i class="fa fa-hdd nav-icon"></i>
       <p>
         Contabilidad
         <i class="fas fa-angle-left right"></i>
@@ -287,9 +289,9 @@
 <!-- Punto Venta Begin -->
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="far fa-file nav-icon"></i>
+      <i class="fa fa-desktop nav-icon"></i>
       <p>
-        Punto de Venta
+         Punto de Venta
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
@@ -308,7 +310,7 @@
  <!-- Punto Venta Begin -->
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-folder"></i>
+      <i class="fa fa-folder nav-icon"></i>
       <p>
         Proyectos
         <i class="fas fa-angle-left right"></i>
@@ -342,9 +344,9 @@
 <!-- RRHH Begin -->
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-book"></i>
+      <i class="fa fa-child nav-icon"></i>
       <p>
-        Nómina
+        Remuneraciones
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
@@ -366,10 +368,32 @@
 <!-- RRHH End -->
 
 
+ <!-- DTE Begin -->
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="fa fa-barcode nav-icon"></i>
+      <p>
+        DTE
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{% url 'economical-activitie' %}" class="nav-link">
+          <i class="fa fa-info nav-icon"></i>
+          <p>Actividades Económicas</p>
+        </a>
+      </li>
+
+    </ul>
+  </li>
+<!-- DTE End -->
+
+
 <!-- Web Begin -->
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-table"></i>
+      <i class="fa fa-cloud nav-icon"></i>
       <p>
         Web
         <i class="fas fa-angle-left right"></i>
@@ -377,9 +401,9 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{% url 'article' %}" class="nav-link">
+        <a href="{% url 'post' %}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>Artículos</p>
+          <p>Entradas</p>
         </a>
       </li>
 
@@ -390,10 +414,13 @@
 
 
 
+
+
+
 <!-- Configuracion Begin -->
           <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i class="nav-icon far fa-plus-square"></i>
+                <i class="fa fa-cogs nav-icon"></i>
                 <p>
                   Configuración
                   <i class="fas fa-angle-left right"></i>
@@ -402,22 +429,30 @@
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{% url 'users' %}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="fa fa-users nav-icon"></i>
                     <p>Usuarios</p>
                   </a>
                 </li>
               
                 <li class="nav-item">
                   <a href="{% url 'companies' %}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="fa fa-building nav-icon"></i>
                     <p>Compañias</p>
                   </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{% url 'base-config' 1 %}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+                      <i class="fa fa-cog nav-icon"></i>
                       <p>General</p>
+                    </a>
+                  </li>
+
+
+                  <li class="nav-item">
+                    <a href="{% url 'load-data' %}" class="nav-link">
+                      <i class="fa fa-database nav-icon"></i>
+                      <p>Cargar Datos Iniciales</p>
                     </a>
                   </li>
 
@@ -480,13 +515,23 @@
   </div>
   <!-- /.content-wrapper -->
 
-  
+    <style>
+        .mylink{
+        color: #343A40
+        }
+
+        .mylink: hover{
+        color: #343A40
+        }
+
+    </style>
+
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 1.0
+      <b>Version</b> 1.19
     </div>
-    <strong>Copyright &copy; 2019 <a href="http://pyerp.cl">PyERP</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2019 <a class="mylink" target="_blank" href="http://pyerp.cl">PyERP</a>.</strong> All rights
+    reserved. Código Fuente:  <strong><a target="_blank" class="mylink" href="https://github.com/falconsoft3d/pyerp">github.com/falconsoft3d/pyerp</a></strong>
   </footer>
 
   <!-- Control Sidebar -->

@@ -2,16 +2,15 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from ..base.views import CustomerListView, PartnerDetailView, PartnerCreateView, PartnerUpdateView, DeletePartner, ProviderListView
 from ..base.views import CompanyListView, CompanyDetailView, CompanyCreateView, CompanyUpdateView, DeleteCompany
-from ..base.views import ProductListView, ProductDetailView, ProductCreateView, ProductUpdateView, DeleteProduct
+from .subviews.product import ProductListView, ProductDetailView, ProductCreateView, ProductUpdateView, DeleteProduct
 from ..base.views import UserListView, UserDetailView, UserCreateView, UserUpdateView, DeleteUser, ChangePasswordForm, DoChangePassword
-from ..base.views import EmployeeListView, EmployeeDetailView, EmployeeCreateView, EmployeeUpdateView, DeleteEmployee
-from ..base.views import DepartmentListView, DepartmentDetailView, DepartmentCreateView, DepartmentUpdateView, DeleteDepartment
-from ..base.views import ProductCategoryListView, ProductCategoryDetailView, ProductCategoryCreateView, ProductCategoryUpdateView, DeleteProductCategory
+from .subviews.product_category import ProductCategoryListView, ProductCategoryDetailView, ProductCategoryCreateView, ProductCategoryUpdateView, DeleteProductCategory
 from ..base.views import UpdateBaseConfigView
+from .subviews.base_config import LoadData
 
 urlpatterns = [
     path('config/<int:pk>', UpdateBaseConfigView.as_view(), name='base-config'),
-
+    path('load-data', LoadData, name='load-data'),
     path('users', UserListView.as_view(), name='users'),
     path('user/add/', UserCreateView.as_view(), name='user-add'),
     path('user/<int:pk>/', UserDetailView.as_view(), name='user-detail'),
@@ -39,18 +38,6 @@ urlpatterns = [
     path('partner/<int:pk>/', PartnerDetailView.as_view(), name='partner-detail'),
     path('partner/<int:pk>/update', PartnerUpdateView.as_view(), name='partner-update'),
     path('partner/<int:pk>/delete/', DeletePartner, name='partner-delete'),
-
-    path('employee', EmployeeListView.as_view(), name='employee'),
-    path('employee/add/', EmployeeCreateView.as_view(), name='employee-add'),
-    path('employee/<int:pk>/', EmployeeDetailView.as_view(), name='employee-detail'),
-    path('employee/<int:pk>/update', EmployeeUpdateView.as_view(), name='employee-update'),
-    path('employee/<int:pk>/delete/', DeleteEmployee, name='employee-delete'),
-
-    path('department', DepartmentListView.as_view(), name='department'),
-    path('department/add/', DepartmentCreateView.as_view(), name='department-add'),
-    path('department/<int:pk>/', DepartmentDetailView.as_view(), name='department-detail'),
-    path('department/<int:pk>/update', DepartmentUpdateView.as_view(), name='department-update'),
-    path('department/<int:pk>/delete/', DeleteDepartment, name='department-delete'),
 
     path('product-category', ProductCategoryListView.as_view(), name='product-category'),
     path('product-category/add/', ProductCategoryCreateView.as_view(), name='product-category-add'),

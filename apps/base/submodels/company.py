@@ -17,6 +17,12 @@ class PyCompany(models.Model):
     region_id = models.ForeignKey(PyRegion, null=True, blank=True, on_delete=models.CASCADE)
     comuna_id = models.ForeignKey(PyComuna, null=True, blank=True, on_delete=models.CASCADE)
 
+    social_facebook = models.CharField(max_length=255, blank=True)
+    social_instagram = models.CharField(max_length=255, blank=True)
+    social_linkedin = models.CharField(max_length=255, blank=True)
+
+    slogan = models.CharField('Eslogan', max_length=250, blank=True)
+
     def get_absolute_url(self):
         return reverse('company-detail', kwargs={'pk': self.pk})
 
