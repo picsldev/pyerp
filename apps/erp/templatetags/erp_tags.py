@@ -42,3 +42,7 @@ def get_company_instagram(obj):
 @register.filter
 def get_company_linkedin(obj):
     return BaseConfig.objects.get(pk=1).main_company_id.social_linkedin
+
+@register.filter
+def get_sidebar_collapse(obj):
+    return BaseConfig.objects.get(pk=1).open_menu
