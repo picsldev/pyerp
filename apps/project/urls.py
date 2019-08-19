@@ -1,8 +1,8 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from ..project.views import TaskListView, TaskDetailView, TaskCreateView, TaskUpdateView, DeleteTask
-from ..project.views import ProjectListView, ProjectDetailView, ProjectCreateView, ProjectUpdateView, DeleteProject
-from ..project.views import BugListView, BugDetailView, BugCreateView, BugUpdateView, DeleteBug
+from .subviews.task import TaskListView, TaskDetailView, TaskCreateView, TaskUpdateView, DeleteTask
+from .subviews.project import ProjectListView, ProjectDetailView, ProjectCreateView, ProjectUpdateView, DeleteProject
+from .subviews.bug import BugListView, BugDetailView, BugCreateView, BugUpdateView, DeleteBug
 
 urlpatterns = [
     path('task', TaskListView.as_view(), name='task'),
