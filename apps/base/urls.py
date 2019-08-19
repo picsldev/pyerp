@@ -2,11 +2,11 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from ..base.views import CustomerListView, PartnerDetailView, PartnerCreateView, PartnerUpdateView, DeletePartner, ProviderListView
 from ..base.views import CompanyListView, CompanyDetailView, CompanyCreateView, CompanyUpdateView, DeleteCompany
-from ..base.views import ProductListView, ProductDetailView, ProductCreateView, ProductUpdateView, DeleteProduct
+from .subviews.product import ProductListView, ProductDetailView, ProductCreateView, ProductUpdateView, DeleteProduct
 from ..base.views import UserListView, UserDetailView, UserCreateView, UserUpdateView, DeleteUser, ChangePasswordForm, DoChangePassword
 from ..base.views import EmployeeListView, EmployeeDetailView, EmployeeCreateView, EmployeeUpdateView, DeleteEmployee
 from ..base.views import DepartmentListView, DepartmentDetailView, DepartmentCreateView, DepartmentUpdateView, DeleteDepartment
-from ..base.views import ProductCategoryListView, ProductCategoryDetailView, ProductCategoryCreateView, ProductCategoryUpdateView, DeleteProductCategory
+from .subviews.product_category import ProductCategoryListView, ProductCategoryDetailView, ProductCategoryCreateView, ProductCategoryUpdateView, DeleteProductCategory
 from ..base.views import UpdateBaseConfigView
 
 urlpatterns = [
