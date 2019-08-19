@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'apps.website',
     'apps.payroll',
     'apps.pos',
+    'apps.dte',
     'apps.project',
     'bootstrap4',
 ]
