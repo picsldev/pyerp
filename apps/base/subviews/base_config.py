@@ -5,4 +5,4 @@ from ..models import BaseConfig
 class UpdateBaseConfigView(UpdateView):
     model = BaseConfig
     template_name = 'erp/form.html'
-    fields = ['online', 'main_company_id']
+    fields = ['online', 'open_menu','main_company_id']
