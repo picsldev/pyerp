@@ -6,10 +6,11 @@ from .subviews.product import ProductListView, ProductDetailView, ProductCreateV
 from ..base.views import UserListView, UserDetailView, UserCreateView, UserUpdateView, DeleteUser, ChangePasswordForm, DoChangePassword
 from .subviews.product_category import ProductCategoryListView, ProductCategoryDetailView, ProductCategoryCreateView, ProductCategoryUpdateView, DeleteProductCategory
 from ..base.views import UpdateBaseConfigView
+from .subviews.base_config import LoadData
 
 urlpatterns = [
     path('config/<int:pk>', UpdateBaseConfigView.as_view(), name='base-config'),
-
+    path('load-data', LoadData, name='load-data'),
     path('users', UserListView.as_view(), name='users'),
     path('user/add/', UserCreateView.as_view(), name='user-add'),
     path('user/<int:pk>/', UserDetailView.as_view(), name='user-detail'),
