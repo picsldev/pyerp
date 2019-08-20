@@ -16,3 +16,6 @@ def shop(request):
 
 def post(request):
     return render(request, 'post.html')
+
+def license(request):
+    return render(request, 'license.html')
