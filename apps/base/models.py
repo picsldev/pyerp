@@ -9,6 +9,7 @@ from .submodels.locations import PyComuna, PyCountry, PyRegion
 
 from .submodels.product import PyProduct
 from .submodels.product_category import PyProductCategory
+from .submodels.product_webcategory import PyProductWebCategory
 
 from datetime import datetime, timedelta
 from django.utils.timesince import timesince

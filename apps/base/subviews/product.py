@@ -11,6 +11,7 @@ PRODUCT_FIELDS = [
     {'string': 'Código Barra', 'field': 'bar_code'},
     {'string': 'Nombre', 'field': 'name'},
     {'string': 'Categoría', 'field': 'category_id'},
+    {'string': 'Categoría Web', 'field': 'web_category_id'},
     {'string': 'Precio', 'field': 'price'},
     {'string': 'Costo', 'field': 'cost'},
     {'string': 'tipo', 'field': 'type'},
@@ -19,7 +20,7 @@ PRODUCT_FIELDS = [
     {'string': 'Creado', 'field': 'created_on'},
 ]
 
-LEAD_FIELDS_SHORT = ['name', 'category_id', 'code', 'price', 'cost', 'type', 'description', 'web_active']
+LEAD_FIELDS_SHORT = ['name', 'category_id', 'web_category_id','code', 'price', 'cost', 'type', 'description', 'web_active']
 
 
 class ProductListView(ListView):
