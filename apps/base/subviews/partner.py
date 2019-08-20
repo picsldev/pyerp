@@ -17,9 +17,11 @@ PARTNER_FIELDS = [
     {'string': 'Creado por', 'field': 'created_by'},
     {'string': 'Creado', 'field': 'created_on'},
     {'string': 'Notas', 'field': 'note'},
+    {'string': 'Canal', 'field': 'channel_id'},
+    {'string': 'Campaña', 'field': 'campaign_id'},
 ]
 
-PARTNER_FIELDS_SHORT = ['rut', 'name', 'street', 'email', 'phone', 'note', 'customer', 'provider', 'for_invoice']
+PARTNER_FIELDS_SHORT = ['rut', 'name', 'street', 'email', 'phone', 'note', 'customer', 'provider', 'channel_id', 'campaign_id', 'for_invoice']
 
 
 class CustomerListView(ListView):
