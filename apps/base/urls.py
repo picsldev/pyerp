@@ -5,6 +5,7 @@ from ..base.views import CompanyListView, CompanyDetailView, CompanyCreateView, 
 from .subviews.product import ProductListView, ProductDetailView, ProductCreateView, ProductUpdateView, DeleteProduct
 from ..base.views import UserListView, UserDetailView, UserCreateView, UserUpdateView, DeleteUser, ChangePasswordForm, DoChangePassword
 from .subviews.product_category import ProductCategoryListView, ProductCategoryDetailView, ProductCategoryCreateView, ProductCategoryUpdateView, DeleteProductCategory
+from .subviews.product_webcategory import ProductWebCategoryListView, ProductWebCategoryDetailView, ProductWebCategoryCreateView, ProductWebCategoryUpdateView, DeleteProductWebCategory
 from ..base.views import UpdateBaseConfigView
 from .subviews.base_config import LoadData
 
@@ -44,4 +45,10 @@ urlpatterns = [
     path('product-category/<int:pk>/', ProductCategoryDetailView.as_view(), name='product-category-detail'),
     path('product-category/<int:pk>/update', ProductCategoryUpdateView.as_view(), name='product-category-update'),
     path('product-category/<int:pk>/delete/', DeleteProductCategory, name='product-category-delete'),
+
+    path('product-webcategory', ProductWebCategoryListView.as_view(), name='product-webcategory'),
+    path('product-webcategory/add/', ProductWebCategoryCreateView.as_view(), name='product-webcategory-add'),
+    path('product-webcategory/<int:pk>/', ProductWebCategoryDetailView.as_view(), name='product-webcategory-detail'),
+    path('product-webcategory/<int:pk>/update', ProductWebCategoryUpdateView.as_view(), name='product-webcategory-update'),
+    path('product-webcategory/<int:pk>/delete/', DeleteProductWebCategory, name='product-webcategory-delete'),
 ]

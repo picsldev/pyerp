@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from .product_category import PyProductCategory
-
+from .product_webcategory import PyProductWebCategory
 
 PRODUCT_CHOICE = (
         ("product", "Almacenable"),
@@ -20,6 +20,7 @@ class PyProduct(models.Model):
     price = models.DecimalField('Precio', max_digits=10, decimal_places=2, default=1)
     cost = models.DecimalField('Costo', max_digits=10, decimal_places=2, default=0)
     category_id = models.ForeignKey(PyProductCategory, null=True, blank=True, on_delete=models.CASCADE)
+    web_category_id = models.ForeignKey(PyProductWebCategory, null=True, blank=True, on_delete=models.CASCADE)
     description = models.TextField(blank=True, null=True)
 
     web_active = models.BooleanField('Web', default=False)
