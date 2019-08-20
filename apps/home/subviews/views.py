@@ -9,6 +9,9 @@ def index(request):
 def shop(request):
     return render(request, 'shop.html')
 
+def product(request):
+    return render(request, 'product.html')
+
 def post(request):
     return render(request, 'post.html')
 
