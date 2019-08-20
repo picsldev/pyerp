@@ -7,6 +7,8 @@ from django.views.generic.edit import CreateView, UpdateView
 from ...base.models import PyPartner
 from ..common import check_rut, validarRut
 
+from ...base.submodels.log import PyLog
+
 PARTNER_FIELDS = [
     {'string': 'RUT', 'field': 'rut'},
     {'string': 'Nombre / Razón Social', 'field': 'name'},
@@ -121,4 +123,5 @@ class PartnerUpdateView(UpdateView):
 def DeletePartner(self, pk):
     partner = PyPartner.objects.get(id=pk)
     partner.delete()
+    PyLog(name='Partner', note='PartnerDelete:').save()
     return redirect(reverse('partners'))

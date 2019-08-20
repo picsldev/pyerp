@@ -5,6 +5,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from ..base.models import PyPartner, PyProduct
 from django.contrib.auth.models import User
+from ..base.submodels.log import PyLog
 
 
 @login_required(login_url="/erp/login")
@@ -28,11 +29,15 @@ def auth(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
+        PyLog(name='Login', note='Login: ' + str(username)).save()
         return redirect(reverse('home'))
+
+
     else:
         return redirect(('login'))
 
 
 def logout_user(request):
     logout(request)
+    PyLog(name='Logout', note='Logout: ').save()
     return redirect(('login'))
