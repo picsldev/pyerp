@@ -66,7 +66,7 @@ h6 {
 }
 
 ::selection {
-  background: #fed136;
+  background: #092E20;
   text-shadow: none;
 }
 
@@ -451,7 +451,7 @@ header.masthead .intro-text .intro-heading {
   color: white;
   border: 7px solid #e9ecef;
   border-radius: 100%;
-  background-color: #fed136;
+  background-color: #092e20;
 }
 
 .timeline > li .timeline-image h4 {
