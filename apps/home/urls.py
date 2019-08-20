@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^$', index, name='home-index'),
     url(r'^blog/', blog, name='home-blog'),
     url(r'^shop/', shop, name='home-shop'),
+    url(r'^post/', shop, name='home-post'),
 ]

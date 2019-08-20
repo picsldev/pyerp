@@ -13,3 +13,6 @@ def blog(request):
 
 def shop(request):
     return render(request, 'shop.html')
+
+def post(request):
+    return render(request, 'post.html')
