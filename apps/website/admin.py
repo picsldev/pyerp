@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .submodels.website_config import WebsiteConfig
 
-# Register your models here.
+admin.site.register(WebsiteConfig)
+

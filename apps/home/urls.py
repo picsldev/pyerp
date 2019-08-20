@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.urls import path
-from ..home.views import index, blog, shop, post
+from ..home.views import index, blog, shop, post, UnderConstruction
 
 urlpatterns = [
     url(r'^$', index, name='home-index'),
@@ -8,4 +8,5 @@ urlpatterns = [
     path('post/<int:post_id>/', post, name="post"),
     url(r'^shop/', shop, name='home-shop'),
     url(r'^license/', license, name='home-license'),
+    url(r'^under-construction/', UnderConstruction, name='under-construction'),
 ]
