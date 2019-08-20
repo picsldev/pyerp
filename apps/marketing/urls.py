@@ -2,6 +2,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from .subviews.channel import ChannelListView, ChannelDetailView, ChannelCreateView, ChannelUpdateView, DeleteChannel
 from .subviews.campaign import CampaignListView, CampaignDetailView, CampaignCreateView, CampaignUpdateView, DeleteCampaign
+from .subviews.mform import MformListView, MformDetailView, MformCreateView, MformUpdateView, DeleteMform
 
 
 urlpatterns = [
@@ -16,4 +17,10 @@ urlpatterns = [
     path('campaign/<int:pk>/', CampaignDetailView.as_view(), name='campaign-detail'),
     path('campaign/<int:pk>/update', CampaignUpdateView.as_view(), name='campaign-update'),
     path('campaign/<int:pk>/delete/', DeleteCampaign, name='campaign-delete'),
+
+    path('mform', MformListView.as_view(), name='mform'),
+    path('mform/add/', MformCreateView.as_view(), name='mform-add'),
+    path('mform/<int:pk>/', MformDetailView.as_view(), name='mform-detail'),
+    path('mform/<int:pk>/update', MformUpdateView.as_view(), name='mform-update'),
+    path('mform/<int:pk>/delete/', DeleteMform, name='mform-delete'),
 ]
