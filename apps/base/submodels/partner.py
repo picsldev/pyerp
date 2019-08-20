@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+from ...marketing.submodels.channel import PyChannel
+from ...marketing.submodels.campaign import PyCampaign
 
 
 class PyPartner(models.Model):
@@ -17,6 +19,9 @@ class PyPartner(models.Model):
     provider = models.BooleanField('Es proveedor', default=True)
     for_invoice = models.BooleanField('Para Facturar', default=True)
     note = models.TextField(blank=True, null=True)
+
+    channel_id = models.ForeignKey(PyChannel, null=True, blank=True, on_delete=models.CASCADE)
+    campaign_id = models.ForeignKey(PyCampaign, null=True, blank=True, on_delete=models.CASCADE)
 
     created_by = models.ForeignKey(
         User, related_name='pypartner_created_by',
