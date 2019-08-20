@@ -17,7 +17,17 @@ LEAD_FIELDS = [
             {'string': 'Etapa', 'field': 'stage_id'},
         ]
 
-LEAD_FIELDS_SHORT = ['name','partner_id','user_id','income','stage_id']
+LEAD_FIELDS_VIEW = [
+            {'string': 'Nombre', 'field': 'name'},
+            {'string': 'Cliente', 'field': 'partner_id'},
+            {'string': 'Vendedor', 'field': 'user_id'},
+            {'string': 'Ingreso', 'field': 'income'},
+            {'string': 'Etapa', 'field': 'stage_id'},
+            {'string': 'Canal', 'field': 'channel_id'},
+            {'string': 'Campaña', 'field': 'campaign_id'},
+        ]
+
+LEAD_FIELDS_SHORT = ['name','partner_id','user_id','income','stage_id','channel_id','campaign_id']
 
 
 class LeadListView(ListView):
@@ -29,7 +39,7 @@ class LeadListView(ListView):
         context['title'] = 'Oportunidades'
         context['detail_url'] = 'lead-detail'
         context['add_url'] = 'lead-add'
-        context['fields'] = LEAD_FIELDS
+        context['fields'] = LEAD_FIELDS_VIEW
         return context
 
 class LeadDetailView(DetailView):
@@ -41,7 +51,7 @@ class LeadDetailView(DetailView):
         context['breadcrumbs'] = [{'url': 'lead', 'name': 'Oportunidad'}]
         context['update_url'] = 'lead-update'
         context['delete_url'] = 'lead-delete'
-        context['fields'] = LEAD_FIELDS
+        context['fields'] = LEAD_FIELDS_VIEW
         return context
 
 class LeadCreateView(CreateView):
