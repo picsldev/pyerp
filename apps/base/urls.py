@@ -8,6 +8,8 @@ from .subviews.product_category import ProductCategoryListView, ProductCategoryD
 from .subviews.product_webcategory import ProductWebCategoryListView, ProductWebCategoryDetailView, ProductWebCategoryCreateView, ProductWebCategoryUpdateView, DeleteProductWebCategory
 from ..base.views import UpdateBaseConfigView
 from .subviews.base_config import LoadData
+from .subviews.log import LogListView, LogDetailView, LogCreateView, LogUpdateView, DeleteLog
+
 
 urlpatterns = [
     path('config/<int:pk>', UpdateBaseConfigView.as_view(), name='base-config'),
@@ -51,4 +53,10 @@ urlpatterns = [
     path('product-webcategory/<int:pk>/', ProductWebCategoryDetailView.as_view(), name='product-webcategory-detail'),
     path('product-webcategory/<int:pk>/update', ProductWebCategoryUpdateView.as_view(), name='product-webcategory-update'),
     path('product-webcategory/<int:pk>/delete/', DeleteProductWebCategory, name='product-webcategory-delete'),
+
+    path('logs', LogListView.as_view(), name='logs'),
+    path('log/add/', LogCreateView.as_view(), name='log-add'),
+    path('log/<int:pk>/', LogDetailView.as_view(), name='log-detail'),
+    path('log/<int:pk>/update', LogUpdateView.as_view(), name='log-update'),
+    path('log/<int:pk>/delete/', DeleteLog, name='log-delete'),
 ]
