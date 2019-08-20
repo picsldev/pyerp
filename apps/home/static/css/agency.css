@@ -93,9 +93,11 @@ img::-moz-selection {
 }
 
 .btn-primary {
-  background-color: #fed136;
-  border-color: #fed136;
+   background-color: #fff;
+   border-color: #092E20;
+   color: green;
 }
+
 
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
   background-color: #fec810 !important;
