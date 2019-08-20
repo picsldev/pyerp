@@ -29,6 +29,32 @@
         {% endfor %}
 
       </div>
+
+      <div class="row">
+        <div class="mx-auto" style="margin-top: 30px;">
+            {% if is_paginated %}
+              <ul class="pagination">
+              {% if page_obj.has_previous %}
+                  <li>
+                      <span><a href="?page={{ page_obj.previous_page_number }}">Anterior</a></span>
+                  </li>
+              {% endif %}
+                  <li class="">
+                      <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.</span>
+                  </li>
+              {% if page_obj.has_next %}
+                  <li>
+                      <span><a href="?page={{ page_obj.next_page_number }}">Siguiente »</a></span>
+                  </li>
+              {% endif %}
+              </ul>
+          {% endif %}
+        </div>
+      </div>
+
     </div>
+
+
+
   </section>
 {% include "footer.html" %}
