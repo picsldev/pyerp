@@ -6,11 +6,11 @@ from django.views.generic.edit import CreateView, UpdateView
 from ..submodels.post import PyPost
 
 POST_FIELDS = [
-            {'string': 'Nombre', 'field': 'name'},
+            {'string': 'Título', 'field': 'title'},
             {'string': 'Creado en', 'field': 'created_on'},
         ]
 
-POST_FIELDS_SHORT = ['name','description']
+POST_FIELDS_SHORT = ['title','content']
 
 class PostListView(ListView):
     model = PyPost
@@ -29,7 +29,7 @@ class PostDetailView(DetailView):
     template_name = 'erp/detail.html'
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
-        context['title'] = context['object'].name
+        context['title'] = context['object'].title
         context['breadcrumbs'] = [{'url': 'post', 'name': 'Entradas'}]
         context['update_url'] = 'post-update'
         context['delete_url'] = 'post-delete'
@@ -55,7 +55,7 @@ class PostUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(PostUpdateView, self).get_context_data(**kwargs)
-        context['title'] = context['object'].name
+        context['title'] = context['object'].title
         context['breadcrumbs'] = [{'url': 'post', 'name': 'Entrada'}]
         context['back_url'] = reverse('post-detail', kwargs={'pk': context['object'].pk})
         return context
