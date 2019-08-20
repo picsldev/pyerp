@@ -1,5 +1,7 @@
 from django import template
 from ...base.models import BaseConfig
+from ...website.models import WebsiteConfig
+
 
 register = template.Library()
 
@@ -46,3 +48,17 @@ def get_company_linkedin(obj):
 @register.filter
 def get_sidebar_collapse(obj):
     return BaseConfig.objects.get(pk=1).open_menu
+
+
+# WEB
+@register.filter
+def web_show_blog(obj):
+    return WebsiteConfig.objects.get(pk=1).show_blog
+
+@register.filter
+def web_show_shop(obj):
+    return WebsiteConfig.objects.get(pk=1).show_shop
+
+@register.filter
+def web_under_construction(obj):
+    return WebsiteConfig.objects.get(pk=1).under_construction

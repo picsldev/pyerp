@@ -19,6 +19,9 @@ def post(request):
 def license(request):
     return render(request, 'license.html')
 
+def UnderConstruction(request):
+    return render(request, 'under_construction.html')
+
 """
 BLOG
 """
