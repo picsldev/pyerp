@@ -10,13 +10,15 @@ from django.contrib.auth.models import User
 
 MFORM_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},
+            {'string': 'Campaña', 'field': 'campaign_id'},
         ]
 
 MFORM_FIELDS_VIEW = [
             {'string': 'Nombre', 'field': 'name'},
+            {'string': 'Campaña', 'field': 'campaign_id'},
         ]
 
-MFORM_FIELDS_SHORT = ['name']
+MFORM_FIELDS_SHORT = ['name','campaign_id']
 
 
 class MformListView(ListView):
