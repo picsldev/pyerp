@@ -13,8 +13,6 @@ class PyPartner(models.Model):
     city = models.CharField('Ciudad', max_length=50, blank=True)
     phone = models.CharField('Teléfono', max_length=20, blank=True)
     email = models.EmailField('Correo', max_length=40, blank=True)
-    rut = models.CharField('RUT', max_length=12, blank=True)
-    giro = models.CharField('Giro', max_length=80, blank=True)
     customer = models.BooleanField('Es cliente', default=True)
     provider = models.BooleanField('Es proveedor', default=True)
     for_invoice = models.BooleanField('Para Facturar', default=True)
@@ -33,10 +31,11 @@ class PyPartner(models.Model):
         return reverse('partner-detail', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return '%s%s' % (self.rut and ('[%s] ' % self.rut) or '', self.name)
+        # %s%s' % (self.rut and ('[%s] ' % self.rut) or '', self.name)
+        return self.name
 
     def __repr__(self):
-        return '%s%s' % (self.rut and ('[%s] ' % self.rut) or '', self.name)
+        return self.name
 
     class Meta:
         ordering = ['-created_on']

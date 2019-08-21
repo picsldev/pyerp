@@ -1,1 +1,0 @@
-from .submodels.economical_activitie import PyEconomicalActivitie

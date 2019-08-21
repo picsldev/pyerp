@@ -29,5 +29,4 @@ urlpatterns = [
     url(r'^pos/', include('apps.pos.urls')),
     url(r'^marketing/', include('apps.marketing.urls')),
     url(r'^payroll/', include('apps.payroll.urls')),
-    url(r'^dte/', include('apps.dte.urls')),
 ]

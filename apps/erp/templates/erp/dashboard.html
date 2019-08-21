@@ -79,7 +79,9 @@
           <img src="{% static '/default.png' %}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{% url 'user-detail' user.pk %}" class="d-block">{{ user.username }}</a>
+            {% if user.username %}
+                <a href="{% url 'user-detail' user.pk %}" class="d-block">{{ user.username }}</a>
+            {% endif %}
         </div>
       </div>
 
@@ -347,7 +349,7 @@
     <a href="#" class="nav-link">
       <i class="fa fa-child nav-icon"></i>
       <p>
-        Remuneraciones
+        Nómina
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
@@ -367,28 +369,6 @@
     </ul>
   </li>
 <!-- RRHH End -->
-
-
- <!-- DTE Begin -->
-<li class="nav-item has-treeview">
-    <a href="#" class="nav-link">
-      <i class="fa fa-barcode nav-icon"></i>
-      <p>
-        DTE
-        <i class="fas fa-angle-left right"></i>
-      </p>
-    </a>
-    <ul class="nav nav-treeview">
-      <li class="nav-item">
-        <a href="{% url 'economical-activitie' %}" class="nav-link">
-          <i class="fa fa-info nav-icon"></i>
-          <p>Actividades Económicas</p>
-        </a>
-      </li>
-
-    </ul>
-  </li>
-<!-- DTE End -->
 
 
 <!-- Web Begin -->
