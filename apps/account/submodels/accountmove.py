@@ -3,13 +3,12 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
-STATE = (
+
+class PyAccountMove(models.Model):
+    STATE = (
         ("draft", "Borrador"),
         ('posted', 'Validado'),
     )
-
-# Tabla de Leads
-class PyAccountMove(models.Model):
     code = models.CharField('Código', max_length=80)
     name = models.CharField('Nombre', max_length=80)
     state = models.CharField(
@@ -19,4 +18,9 @@ class PyAccountMove(models.Model):
         return reverse('account-move-detail', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return + "[" + format(self.code) + "] " + format(self.name)
+        return '[%s] %s' % (self.code, self.name)
+
+
+class PyAccountMoveLine(models.Model):
+    name = models.CharField('Nombre', max_length=80)
+    move = models.ForeignKey(to=PyAccountMove, on_delete='cascade', related_name='lines', null=True, blank=True)
