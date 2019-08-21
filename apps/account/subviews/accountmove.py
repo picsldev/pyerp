@@ -21,8 +21,8 @@ class AccountMoveListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(AccountMoveListView, self).get_context_data(**kwargs)
         context['title'] = 'Asiento Contable'
-        context['detail_url'] = 'accountmove-detail'
-        context['add_url'] = 'accountmove-add'
+        context['detail_url'] = 'account-move-detail'
+        context['add_url'] = 'account-move-add'
         context['fields'] = ACCOUNTMOVE_FIELDS
         return context
 
@@ -32,9 +32,9 @@ class AccountMoveDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(AccountMoveDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
-        context['breadcrumbs'] = [{'url': 'accountmove', 'name': 'Asiento Contable'}]
-        context['update_url'] = 'accountmove-update'
-        context['delete_url'] = 'accountmove-delete'
+        context['breadcrumbs'] = [{'url': 'account-move', 'name': 'Asiento Contable'}]
+        context['update_url'] = 'account-move-update'
+        context['delete_url'] = 'account-move-delete'
         context['fields'] = ACCOUNTMOVE_FIELDS
         return context
 
@@ -46,8 +46,8 @@ class AccountMoveCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super(AccountMoveCreateView, self).get_context_data(**kwargs)
         context['title'] = 'Crear Asiento'
-        context['breadcrumbs'] = [{'url': 'accountmove', 'name': 'Crear Asiento'}]
-        context['back_url'] = reverse('accountmove')
+        context['breadcrumbs'] = [{'url': 'account-move', 'name': 'Crear Asiento'}]
+        context['back_url'] = reverse('account-move')
         return context
 
 class AccountMoveUpdateView(UpdateView):
@@ -58,8 +58,8 @@ class AccountMoveUpdateView(UpdateView):
     def get_context_data(self, **kwargs):
         context = super(AccountMoveUpdateView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
-        context['breadcrumbs'] = [{'url': 'accountmove', 'name': 'Asiento Contable'}]
-        context['back_url'] = reverse('accountmove-detail', kwargs={'pk': context['object'].pk})
+        context['breadcrumbs'] = [{'url': 'account-move', 'name': 'Asiento Contable'}]
+        context['back_url'] = reverse('account-move-detail', kwargs={'pk': context['object'].pk})
         return context
 
 
@@ -67,4 +67,4 @@ class AccountMoveUpdateView(UpdateView):
 def DeleteAccountMove(self, pk):
     accountmove = PyAccountMove.objects.get(id=pk)
     accountmove.delete()
-    return redirect(reverse('accountmove'))
+    return redirect(reverse('account-move'))

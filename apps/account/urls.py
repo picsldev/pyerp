@@ -10,9 +10,9 @@ urlpatterns = [
     path('accountplan/<int:pk>/update', AccountPlanUpdateView.as_view(), name='accountplan-update'),
     path('accountplan/<int:pk>/delete/', DeleteAccountPlan, name='accountplan-delete'),
 
-    path('accountmove', AccountMoveListView.as_view(), name='accountmove'),
-    path('accountmove/add/', AccountMoveCreateView.as_view(), name='accountmove-add'),
-    path('accountmove/<int:pk>/', AccountMoveDetailView.as_view(), name='accountmove-detail'),
-    path('accountmove/<int:pk>/update', AccountMoveUpdateView.as_view(), name='accountmove-update'),
-    path('accountmove/<int:pk>/delete/', DeleteAccountMove, name='accountmove-delete'),
+    path('account-move', AccountMoveListView.as_view(), name='account-move'),
+    path('account-move/add/', AccountMoveCreateView.as_view(), name='account-move-add'),
+    path('account-move/<int:pk>/', AccountMoveDetailView.as_view(), name='account-move-detail'),
+    path('account-move/<int:pk>/update', AccountMoveUpdateView.as_view(), name='account-move-update'),
+    path('account-move/<int:pk>/delete/', DeleteAccountMove, name='account-move-delete'),
 ]
