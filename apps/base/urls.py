@@ -9,7 +9,7 @@ from .subviews.product_webcategory import ProductWebCategoryListView, ProductWeb
 from ..base.views import UpdateBaseConfigView
 from .subviews.base_config import LoadData
 from .subviews.log import LogListView, LogDetailView, LogCreateView, LogUpdateView, DeleteLog
-
+from .subviews.cron import CronListView, CronDetailView, CronCreateView, CronUpdateView, DeleteCron
 
 urlpatterns = [
     path('config/<int:pk>', UpdateBaseConfigView.as_view(), name='base-config'),
@@ -59,4 +59,10 @@ urlpatterns = [
     path('log/<int:pk>/', LogDetailView.as_view(), name='log-detail'),
     path('log/<int:pk>/update', LogUpdateView.as_view(), name='log-update'),
     path('log/<int:pk>/delete/', DeleteLog, name='log-delete'),
+
+    path('crons', CronListView.as_view(), name='crons'),
+    path('cron/add/', CronCreateView.as_view(), name='cron-add'),
+    path('cron/<int:pk>/', CronDetailView.as_view(), name='cron-detail'),
+    path('cron/<int:pk>/update', CronUpdateView.as_view(), name='cron-update'),
+    path('cron/<int:pk>/delete/', DeleteCron, name='cron-delete'),
 ]

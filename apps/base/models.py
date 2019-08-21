@@ -11,6 +11,7 @@ from .submodels.product import PyProduct
 from .submodels.product_category import PyProductCategory
 from .submodels.product_webcategory import PyProductWebCategory
 from .submodels.log import PyLog
+from .submodels.cron import PyCron
 
 from datetime import datetime, timedelta
 from django.utils.timesince import timesince
