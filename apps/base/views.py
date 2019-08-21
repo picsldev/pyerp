@@ -11,7 +11,6 @@ from .subviews.partner import CustomerListView, ProviderListView, PartnerDetailV
 from .subviews.base_config import UpdateBaseConfigView
 from .subviews.company import CompanyListView, CompanyDetailView, CompanyCreateView, CompanyUpdateView, DeleteCompany
 
-
 class UserListView(ListView):
     model = User
     template_name = 'erp/list.html'
