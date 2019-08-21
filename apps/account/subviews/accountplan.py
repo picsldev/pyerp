@@ -5,7 +5,6 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 from ..submodels.accountplan import PyAccountPlan
 
-""" BEGIN ACCOUNTPLAN """
 ACCOUNTPLAN_FIELDS = [
             {'string': 'Código', 'field': 'code'},
             {'string': 'Nombre', 'field': 'name'},
@@ -49,7 +48,7 @@ class AccountPlanCreateView(CreateView):
         context = super(AccountPlanCreateView, self).get_context_data(**kwargs)
         context['title'] = 'Crear Cuenta'
         context['breadcrumbs'] = [{'url': 'accountplan', 'name': 'Crear Cuenta'}]
-        context['back_url'] = reverse('lead')
+        context['back_url'] = reverse('accountplan')
         return context
 
 class AccountPlanUpdateView(UpdateView):
@@ -70,4 +69,3 @@ def DeleteAccountPlan(self, pk):
     accountplan = PyAccountPlan.objects.get(id=pk)
     accountplan.delete()
     return redirect(reverse('accountplan'))
-""" END ACCOUNTPLAN """
