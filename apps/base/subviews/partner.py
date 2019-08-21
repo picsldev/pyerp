@@ -10,8 +10,7 @@ from ..common import check_rut, validarRut
 from ...base.submodels.log import PyLog
 
 PARTNER_FIELDS = [
-    {'string': 'RUT', 'field': 'rut'},
-    {'string': 'Nombre / Razón Social', 'field': 'name'},
+    {'string': 'Nombre', 'field': 'name'},
     {'string': 'Dirección', 'field': 'street'},
     {'string': 'Teléfono', 'field': 'phone'},
     {'string': 'Email', 'field': 'email'},
@@ -23,7 +22,7 @@ PARTNER_FIELDS = [
     {'string': 'Campaña', 'field': 'campaign_id'},
 ]
 
-PARTNER_FIELDS_SHORT = ['rut', 'name', 'street', 'email', 'phone', 'note', 'customer', 'provider', 'channel_id', 'campaign_id', 'for_invoice']
+PARTNER_FIELDS_SHORT = ['name', 'street', 'email', 'phone', 'note', 'customer', 'provider', 'channel_id', 'campaign_id', 'for_invoice']
 
 
 class CustomerListView(ListView):
@@ -70,7 +69,7 @@ class PartnerDetailView(DetailView):
 
 class PartnerCreateView(CreateView):
     model = PyPartner
-    fields = ['name', 'email', 'phone', 'rut', 'customer', 'provider']
+    fields = ['name', 'email', 'phone', 'customer', 'provider']
     template_name = 'erp/form.html'
 
     def get_context_data(self, **kwargs):
@@ -80,13 +79,15 @@ class PartnerCreateView(CreateView):
         context['back_url'] = reverse('partners')
         return context
 
+
+    """
     def get_form(self, form_class=None):
         if form_class is None:
             form_class = self.get_form_class()
 
         form = super(PartnerCreateView, self).get_form(form_class)
         form.fields['rut'].widget.attrs = {'placeholder': '00.000.000-0'}
-        return form
+        return form"""
 
 
 class PartnerUpdateView(UpdateView):
@@ -100,7 +101,7 @@ class PartnerUpdateView(UpdateView):
         context['breadcrumbs'] = [{'url': 'partners', 'name': 'Partners'}]
         context['back_url'] = reverse('partner-detail', kwargs={'pk': context['object'].pk})
         return context
-
+    """
     def form_valid(self, form):
         rut = form.data.get('rut')
         if validarRut(rut):
@@ -116,7 +117,7 @@ class PartnerUpdateView(UpdateView):
 
         form = super(PartnerUpdateView, self).get_form(form_class)
         form.fields['rut'].widget.attrs = {'placeholder': '00.000.000-0'}
-        return form
+        return form"""
 
 
 @login_required(login_url="/erp/login")
