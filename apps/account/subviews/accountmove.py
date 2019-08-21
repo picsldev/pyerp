@@ -6,12 +6,12 @@ from django.views.generic.edit import CreateView, UpdateView
 from ..submodels.accountmove import PyAccountMove
 
 ACCOUNTMOVE_FIELDS = [
-            {'string': 'Código', 'field': 'code'},
-            {'string': 'Nombre', 'field': 'name'},
-            {'string': 'Estado', 'field': 'state'},
-        ]
+    {'string': 'Código', 'field': 'code'},
+    {'string': 'Nombre', 'field': 'name'},
+    {'string': 'Estado', 'field': 'state'},
+]
 
-ACCOUNTMOVE_FIELDS_SHORT = ['code','name','state']
+ACCOUNTMOVE_FIELDS_SHORT = ['code', 'name', 'state']
 
 
 class AccountMoveListView(ListView):
@@ -26,9 +26,11 @@ class AccountMoveListView(ListView):
         context['fields'] = ACCOUNTMOVE_FIELDS
         return context
 
+
 class AccountMoveDetailView(DetailView):
     model = PyAccountMove
     template_name = 'erp/detail.html'
+
     def get_context_data(self, **kwargs):
         context = super(AccountMoveDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
@@ -37,6 +39,7 @@ class AccountMoveDetailView(DetailView):
         context['delete_url'] = 'account-move-delete'
         context['fields'] = ACCOUNTMOVE_FIELDS
         return context
+
 
 class AccountMoveCreateView(CreateView):
     model = PyAccountMove
@@ -50,10 +53,11 @@ class AccountMoveCreateView(CreateView):
         context['back_url'] = reverse('account-move')
         return context
 
+
 class AccountMoveUpdateView(UpdateView):
     model = PyAccountMove
     fields = ACCOUNTMOVE_FIELDS_SHORT
-    template_name = 'erp/form.html'
+    template_name = 'account/account_move.html'
 
     def get_context_data(self, **kwargs):
         context = super(AccountMoveUpdateView, self).get_context_data(**kwargs)

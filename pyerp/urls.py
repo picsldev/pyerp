@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+from django.apps import apps
+from cruds_adminlte.urls import crud_for_app
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,3 +35,5 @@ urlpatterns = [
     url(r'^marketing/', include('apps.marketing.urls')),
     url(r'^payroll/', include('apps.payroll.urls')),
 ]
+
+urlpatterns += crud_for_app('account')
