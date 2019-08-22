@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from django.utils.translation import ugettext_lazy as _
-from easy_thumbnails.conf import Settings as thumbnail_settings
+# from easy_thumbnails.conf import Settings as thumbnail_settings
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'django_select2',
-    'easy_thumbnails',
+    # s'easy_thumbnails',
     'image_cropping',
     'django_ajax',
     'cruds_adminlte'
@@ -147,9 +147,11 @@ STATIC_ROOT = '/home/django/static/'
 INTERNAL_IPS = ('127.0.0.1',)
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 IMAGE_CROPPING_JQUERY_URL = None
+"""
 THUMBNAIL_PROCESSORS = (
     'image_cropping.thumbnail_processors.crop_corners',
 ) + thumbnail_settings.THUMBNAIL_PROCESSORS
+"""
 TIME_FORMAT = 'h:i A'
 DATETIME_FORMAT = 'd/m/Y H:i:s'
 DATE_FORMAT = "d/m/Y"

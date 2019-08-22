@@ -10,7 +10,6 @@ class PyCompany(models.Model):
     city = models.CharField(max_length=50, blank=True)
     phone = models.CharField(max_length=20, blank=True)
     email = models.EmailField(max_length=40, blank=True)
-    rut = models.CharField(max_length=12, blank=True)
     giro = models.CharField(max_length=80, blank=True)
 
     country_id = models.ForeignKey(PyCountry, null=True, blank=True, on_delete=models.CASCADE)
