@@ -1,5 +1,5 @@
 # PyERP
-ERP en Django, Esto es un proyecto en Desarrollo.
+ERP in Django, This is a project in Development.
 
 ![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp.png?raw=true "Ynext")
 
@@ -9,13 +9,13 @@ ERP en Django, Esto es un proyecto en Desarrollo.
     git clone https://github.com/falconsoft3d/pyerp
     
 
-# Usuario Admin
+# Credentials for admin
 ```
 User: admin
 Pass: x1234567890
 ```
 
-# Datos de Contacto
+# My contact data
 ```
 Ynext | Marlon Falcón Hernández | Santiago de Chile | Chile
 * ERP, CRM y Software: https://www.ynext.cl
@@ -25,6 +25,6 @@ Ynext | Marlon Falcón Hernández | Santiago de Chile | Chile
 » Facebook: https://www.facebook.com/Ynext-1150152835134897
 » Github: https://github.com/falconsoft3d
 » linkedin: https://linkedin.com/in/marlon-falcón-3a2aa9a4
-» Apóyame en Paypal: https://www.paypal.me/falconsoft3d
+» Support me Paypal: https://www.paypal.me/falconsoft3d
 ```
 
