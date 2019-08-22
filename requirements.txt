@@ -8,7 +8,7 @@ django-crispy-forms==1.7.2
 django-image-cropping==1.2.0
 django-select2==7.1.0
 djangoajax==2.3.7
-easy-thumbnails==2.6
+
 ipdb==0.12.2
 ipython==7.7.0
 ipython-genutils==0.2.0
