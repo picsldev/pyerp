@@ -5,6 +5,14 @@ ERP in Django, This is a project in Development.
 
 
 1. Install PyERP using the following command::
+```
+git clone https://github.com/falconsoft3d/pyerp
+virtualenv env --python=python3
+source env/bin/activate
+cd pyerp
+pip3 install -r requirements.txt
+python manage.py runserver
+```
 
     git clone https://github.com/falconsoft3d/pyerp
     
