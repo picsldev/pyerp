@@ -13,8 +13,6 @@ cd pyerp
 pip3 install -r requirements.txt
 python manage.py runserver
 ```
-
-    git clone https://github.com/falconsoft3d/pyerp
     
 
 # Credentials for admin
