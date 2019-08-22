@@ -3,6 +3,12 @@ ERP en Django, Esto es un proyecto en Desarrollo.
 
 ![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp.png?raw=true "Ynext")
 
+
+1. Install PyERP using the following command::
+
+    git clone https://github.com/falconsoft3d/pyerp
+    
+
 # Usuario Admin
 ```
 User: admin
