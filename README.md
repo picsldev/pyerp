@@ -21,6 +21,9 @@ User: admin
 Pass: x1234567890
 ```
 
+# Feedback and Support
+We welcome your feedback and support, raise issues if you want to see a new feature or report a bug.
+
 # My contact data
 ```
 Ynext | Marlon Falcón Hernández | Santiago de Chile | Chile
@@ -33,9 +36,6 @@ Ynext | Marlon Falcón Hernández | Santiago de Chile | Chile
 » linkedin: https://linkedin.com/in/marlon-falcón-3a2aa9a4
 » Support me Paypal: https://www.paypal.me/falconsoft3d
 ```
-
-# Feedback and Support
-We welcome your feedback and support, raise issues if you want to see a new feature or report a bug.
 
 https://github.com/falconsoft3d/pyerp/issues
 
