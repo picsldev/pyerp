@@ -1,15 +1,6 @@
 # PyERP
 ERP en Django, Esto es un proyecto en Desarrollo.
 
-# Usuario Admin
-```
-git clone https://github.com/falconsoft3d/pyerp
-cd pyerp/env
-source bin/activate
-cd ..
-python manage.py runserver
-```
-
 ![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp.png?raw=true "Ynext")
 
 # Usuario Admin
