@@ -136,4 +136,8 @@ LANGUAGES = (
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/django/static/'
+try:
+    from .localsettings import *
+except ImportError:
+    import logging
+    logging.getLogger(__name__).warning('localsettings.py no encontrado')
