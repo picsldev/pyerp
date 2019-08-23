@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from apps.website.submodels.post import PyPost
 from django.views.generic import DetailView, ListView
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
     return render(request, 'index.html')
@@ -33,7 +34,8 @@ POST_FIELDS = [
 
 POST_FIELDS_SHORT = ['title','content','created_on']
 
-class BlogView(ListView):
+class BlogView(LoginRequiredMixin, ListView):
+    login_url = "login"
     model = PyPost
     template_name = 'blog.html'
     fields = POST_FIELDS
@@ -43,7 +45,8 @@ class BlogView(ListView):
         context = super().get_context_data(**kwargs)
         return context
 
-class PostDetailView(DetailView):
+class PostDetailView(LoginRequiredMixin, DetailView):
+    login_url = "login"
     model = PyPost
     template_name = 'post.html'
     def get_context_data(self, **kwargs):

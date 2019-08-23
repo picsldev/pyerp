@@ -1,9 +1,9 @@
 from django.db import models
 from django.urls import reverse
 from .locations import PyComuna, PyCountry, PyRegion
+from .father import PyFather
 
-
-class PyCompany(models.Model):
+class PyCompany(PyFather):
     name = models.CharField(max_length=40)
     street = models.CharField(max_length=100, blank=True)
     street_2 = models.CharField(max_length=100, blank=True)

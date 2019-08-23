@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+from .father import PyFather
 
 
 CRON_CHOICE = (
@@ -14,7 +15,7 @@ CRON_CHOICE = (
 
 
 
-class PyCron(models.Model):
+class PyCron(PyFather):
     name = models.CharField('Nombre', max_length=40)
     active = models.BooleanField('Activo', default=False)
     interval_type = models.CharField(

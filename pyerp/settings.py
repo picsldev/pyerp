@@ -26,7 +26,7 @@ SECRET_KEY = '(5u_8%)7z-9t#pxxg8@$bt99rr)m6*ceuqf4-ic79-mmd8=^mw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'www.pyerp.cl', 'pyerp.cl']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.pyerp.cl', 'pyerp.cl']
 
 
 # Application definition
@@ -141,3 +141,7 @@ try:
 except ImportError:
     import logging
     logging.getLogger(__name__).warning('localsettings.py no encontrado')
+
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/erp/login/'

@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from .product_category import PyProductCategory
 from .product_webcategory import PyProductWebCategory
+from .father import PyFather
 
 PRODUCT_CHOICE = (
         ("product", "Almacenable"),
@@ -13,7 +14,7 @@ PRODUCT_CHOICE = (
 
 
 # Tabla de Product
-class PyProduct(models.Model):
+class PyProduct(PyFather):
     name = models.CharField('Nombre', max_length=80)
     code = models.CharField('Código', max_length=80, blank=True)
     bar_code = models.CharField('Cod. Barras', max_length=80, blank=True)

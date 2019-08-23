@@ -2,8 +2,9 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+from ...base.submodels.father import PyFather
 
-class PyCampaign(models.Model):
+class PyCampaign(PyFather):
     name = models.CharField('Nombre', max_length=80)
     code = models.CharField('Código', max_length=13)
 

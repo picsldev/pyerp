@@ -6,8 +6,9 @@ from .stage import PyStage
 from ...base.models import PyPartner
 from ...marketing.submodels.channel import PyChannel
 from ...marketing.submodels.campaign import PyCampaign
+from ...base.submodels.father import PyFather
 
-class PyLead(models.Model):
+class PyLead(PyFather):
     name = models.CharField('Nombre', max_length=80)
     partner_id = models.ForeignKey(PyPartner, null=True, blank=True, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
