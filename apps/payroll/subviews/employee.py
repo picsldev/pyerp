@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 from ..submodels.employee import PyEmployee
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 """ BEGIN EMPLEOYEE """
@@ -19,9 +20,10 @@ EMPLEOYEE_FIELDS = [
 EMPLEOYEE_FIELDS_SHORT = ['name', 'name2', 'email', 'first_name', 'last_name', 'phone', 'email']
 
 
-class EmployeeListView(ListView):
+class EmployeeListView(LoginRequiredMixin, ListView):
     model = PyEmployee
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeListView, self).get_context_data(**kwargs)
@@ -32,9 +34,10 @@ class EmployeeListView(ListView):
         return context
 
 
-class EmployeeDetailView(DetailView):
+class EmployeeDetailView(LoginRequiredMixin, DetailView):
     model = PyEmployee
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeDetailView, self).get_context_data(**kwargs)
@@ -46,10 +49,11 @@ class EmployeeDetailView(DetailView):
         return context
 
 
-class EmployeeCreateView(CreateView):
+class EmployeeCreateView(LoginRequiredMixin, CreateView):
     model = PyEmployee
     fields = EMPLEOYEE_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeCreateView, self).get_context_data(**kwargs)
@@ -59,10 +63,11 @@ class EmployeeCreateView(CreateView):
         return context
 
 
-class EmployeeUpdateView(UpdateView):
+class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
     model = PyEmployee
     fields = EMPLEOYEE_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeUpdateView, self).get_context_data(**kwargs)

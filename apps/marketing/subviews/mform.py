@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from ..submodels.mform import PyMform
 from django.contrib.auth.models import User
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 MFORM_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},
@@ -21,9 +21,10 @@ MFORM_FIELDS_VIEW = [
 MFORM_FIELDS_SHORT = ['name','campaign_id']
 
 
-class MformListView(ListView):
+class MformListView(LoginRequiredMixin, ListView):
     model = PyMform
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(MformListView, self).get_context_data(**kwargs)
@@ -33,7 +34,7 @@ class MformListView(ListView):
         context['fields'] = MFORM_FIELDS_VIEW
         return context
 
-class MformDetailView(DetailView):
+class MformDetailView(LoginRequiredMixin, DetailView):
     model = PyMform
     template_name = 'erp/detail.html'
     def get_context_data(self, **kwargs):
@@ -45,10 +46,11 @@ class MformDetailView(DetailView):
         context['fields'] = MFORM_FIELDS_VIEW
         return context
 
-class MformCreateView(CreateView):
+class MformCreateView(LoginRequiredMixin, CreateView):
     model = PyMform
     fields = MFORM_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(MformCreateView, self).get_context_data(**kwargs)
@@ -57,10 +59,11 @@ class MformCreateView(CreateView):
         context['back_url'] = reverse('mform')
         return context
 
-class MformUpdateView(UpdateView):
+class MformUpdateView(LoginRequiredMixin, UpdateView):
     model = PyMform
     fields = MFORM_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(MformUpdateView, self).get_context_data(**kwargs)

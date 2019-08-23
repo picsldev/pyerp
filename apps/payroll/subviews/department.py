@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 from ..submodels.department import PyDepartment
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 DEPARTMENT_FIELDS = [
     {'string': 'Nombre', 'field': 'name'},
@@ -13,9 +13,10 @@ DEPARTMENT_FIELDS = [
 DEPARTMENT_FIELDS_SHORT = ['name']
 
 
-class DepartmentListView(ListView):
+class DepartmentListView(LoginRequiredMixin, ListView):
     model = PyDepartment
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(DepartmentListView, self).get_context_data(**kwargs)
@@ -26,9 +27,10 @@ class DepartmentListView(ListView):
         return context
 
 
-class DepartmentDetailView(DetailView):
+class DepartmentDetailView(LoginRequiredMixin, DetailView):
     model = PyDepartment
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(DepartmentDetailView, self).get_context_data(**kwargs)
@@ -40,10 +42,11 @@ class DepartmentDetailView(DetailView):
         return context
 
 
-class DepartmentCreateView(CreateView):
+class DepartmentCreateView(LoginRequiredMixin, CreateView):
     model = PyDepartment
     fields = DEPARTMENT_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(DepartmentCreateView, self).get_context_data(**kwargs)
@@ -53,10 +56,11 @@ class DepartmentCreateView(CreateView):
         return context
 
 
-class DepartmentUpdateView(UpdateView):
+class DepartmentUpdateView(LoginRequiredMixin, UpdateView):
     model = PyDepartment
     fields = DEPARTMENT_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(DepartmentUpdateView, self).get_context_data(**kwargs)

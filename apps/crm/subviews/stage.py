@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from ..submodels.stage import PyStage
 from django.contrib.auth.models import User
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 """ BEGIN STAGE """
@@ -17,9 +17,10 @@ STAGE_FIELDS = [
 STAGE_FIELDS_SHORT = ['name']
 
 
-class StageListView(ListView):
+class StageListView(LoginRequiredMixin, ListView):
     model = PyStage
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(StageListView, self).get_context_data(**kwargs)
@@ -29,9 +30,11 @@ class StageListView(ListView):
         context['fields'] = STAGE_FIELDS
         return context
 
-class StageDetailView(DetailView):
+class StageDetailView(LoginRequiredMixin, DetailView):
     model = PyStage
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
+
     def get_context_data(self, **kwargs):
         context = super(StageDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
@@ -41,10 +44,11 @@ class StageDetailView(DetailView):
         context['fields'] = STAGE_FIELDS
         return context
 
-class StageCreateView(CreateView):
+class StageCreateView(LoginRequiredMixin, CreateView):
     model = PyStage
     fields = STAGE_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(StageCreateView, self).get_context_data(**kwargs)
@@ -53,10 +57,11 @@ class StageCreateView(CreateView):
         context['back_url'] = reverse('stage')
         return context
 
-class StageUpdateView(UpdateView):
+class StageUpdateView(LoginRequiredMixin, UpdateView):
     model = PyStage
     fields = STAGE_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(StageUpdateView, self).get_context_data(**kwargs)

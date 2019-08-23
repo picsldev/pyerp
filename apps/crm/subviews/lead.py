@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from ..submodels.lead import PyLead
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 """ BEGIN LEAD """
@@ -30,9 +31,10 @@ LEAD_FIELDS_VIEW = [
 LEAD_FIELDS_SHORT = ['name','partner_id','user_id','income','stage_id','channel_id','campaign_id']
 
 
-class LeadListView(ListView):
+class LeadListView(LoginRequiredMixin, ListView):
     model = PyLead
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(LeadListView, self).get_context_data(**kwargs)
@@ -42,9 +44,10 @@ class LeadListView(ListView):
         context['fields'] = LEAD_FIELDS_VIEW
         return context
 
-class LeadDetailView(DetailView):
+class LeadDetailView(LoginRequiredMixin, DetailView):
     model = PyLead
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
     def get_context_data(self, **kwargs):
         context = super(LeadDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
@@ -54,10 +57,11 @@ class LeadDetailView(DetailView):
         context['fields'] = LEAD_FIELDS_VIEW
         return context
 
-class LeadCreateView(CreateView):
+class LeadCreateView(LoginRequiredMixin, CreateView):
     model = PyLead
     fields = LEAD_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(LeadCreateView, self).get_context_data(**kwargs)
@@ -66,7 +70,7 @@ class LeadCreateView(CreateView):
         context['back_url'] = reverse('lead')
         return context
 
-class LeadUpdateView(UpdateView):
+class LeadUpdateView(LoginRequiredMixin, UpdateView):
     model = PyLead
     fields = LEAD_FIELDS_SHORT
     template_name = 'erp/form.html'

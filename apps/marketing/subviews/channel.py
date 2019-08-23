@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from ..submodels.channel import PyChannel
 from django.contrib.auth.models import User
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 CHANNEL_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},
@@ -16,9 +16,10 @@ CHANNEL_FIELDS = [
 CHANNEL_FIELDS_SHORT = ['name','code']
 
 
-class ChannelListView(ListView):
+class ChannelListView(LoginRequiredMixin, ListView):
     model = PyChannel
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ChannelListView, self).get_context_data(**kwargs)
@@ -28,7 +29,7 @@ class ChannelListView(ListView):
         context['fields'] = CHANNEL_FIELDS
         return context
 
-class ChannelDetailView(DetailView):
+class ChannelDetailView(LoginRequiredMixin, DetailView):
     model = PyChannel
     template_name = 'erp/detail.html'
     def get_context_data(self, **kwargs):
@@ -40,10 +41,11 @@ class ChannelDetailView(DetailView):
         context['fields'] = CHANNEL_FIELDS
         return context
 
-class ChannelCreateView(CreateView):
+class ChannelCreateView(LoginRequiredMixin, CreateView):
     model = PyChannel
     fields = CHANNEL_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ChannelCreateView, self).get_context_data(**kwargs)
@@ -52,10 +54,11 @@ class ChannelCreateView(CreateView):
         context['back_url'] = reverse('channel')
         return context
 
-class ChannelUpdateView(UpdateView):
+class ChannelUpdateView(LoginRequiredMixin, UpdateView):
     model = PyChannel
     fields = CHANNEL_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ChannelUpdateView, self).get_context_data(**kwargs)

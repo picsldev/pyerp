@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 from ..submodels.task import PyTask
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 """ BEGIN TASK """
 TASK_FIELDS = [
@@ -17,9 +18,10 @@ TASK_FIELDS = [
 TASK_FIELDS_SHORT = ['name','state','user_id','project_id','note']
 
 
-class TaskListView(ListView):
+class TaskListView(LoginRequiredMixin, ListView):
     model = PyTask
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(TaskListView, self).get_context_data(**kwargs)
@@ -29,9 +31,11 @@ class TaskListView(ListView):
         context['fields'] = TASK_FIELDS
         return context
 
-class TaskDetailView(DetailView):
+class TaskDetailView(LoginRequiredMixin, DetailView):
     model = PyTask
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
+
     def get_context_data(self, **kwargs):
         context = super(TaskDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
@@ -41,10 +45,11 @@ class TaskDetailView(DetailView):
         context['fields'] = TASK_FIELDS
         return context
 
-class TaskCreateView(CreateView):
+class TaskCreateView(LoginRequiredMixin, CreateView):
     model = PyTask
     fields = TASK_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(TaskCreateView, self).get_context_data(**kwargs)
@@ -53,10 +58,11 @@ class TaskCreateView(CreateView):
         context['back_url'] = reverse('task')
         return context
 
-class TaskUpdateView(UpdateView):
+class TaskUpdateView(LoginRequiredMixin, UpdateView):
     model = PyTask
     fields = TASK_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(TaskUpdateView, self).get_context_data(**kwargs)

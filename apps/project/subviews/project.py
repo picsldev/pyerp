@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 from ..submodels.project import PyProject
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 PROJECT_FIELDS = [
@@ -16,9 +17,10 @@ PROJECT_FIELDS = [
 PROJECT_FIELDS_SHORT = ['name','state','user_id','note']
 
 
-class ProjectListView(ListView):
+class ProjectListView(LoginRequiredMixin, ListView):
     model = PyProject
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ProjectListView, self).get_context_data(**kwargs)
@@ -28,9 +30,11 @@ class ProjectListView(ListView):
         context['fields'] = PROJECT_FIELDS
         return context
 
-class ProjectDetailView(DetailView):
+class ProjectDetailView(LoginRequiredMixin, DetailView):
     model = PyProject
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
+
     def get_context_data(self, **kwargs):
         context = super(ProjectDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
@@ -40,10 +44,11 @@ class ProjectDetailView(DetailView):
         context['fields'] = PROJECT_FIELDS
         return context
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = PyProject
     fields = PROJECT_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ProjectCreateView, self).get_context_data(**kwargs)
@@ -52,10 +57,11 @@ class ProjectCreateView(CreateView):
         context['back_url'] = reverse('project')
         return context
 
-class ProjectUpdateView(UpdateView):
+class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = PyProject
     fields = PROJECT_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ProjectUpdateView, self).get_context_data(**kwargs)
