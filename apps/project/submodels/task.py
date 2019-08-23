@@ -3,6 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from .project import PyProject
+from ...base.submodels.father import PyFather
 
 TASK_STATE = (
         ("nuevo", "Nuevo"),
@@ -11,7 +12,7 @@ TASK_STATE = (
     )
 
 
-class PyTask(models.Model):
+class PyTask(PyFather):
     name = models.CharField('Nombre', max_length=80)
     note = models.TextField(blank=True, null=True)
     user_id = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)

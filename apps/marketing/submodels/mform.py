@@ -3,8 +3,10 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from .campaign import PyCampaign
+from ...base.submodels.father import PyFather
 
-class PyMform(models.Model):
+
+class PyMform(PyFather):
     name = models.CharField('Nombre', max_length=255)
     campaign_id = models.ForeignKey(PyCampaign, null=True, blank=True, on_delete=models.CASCADE)
 

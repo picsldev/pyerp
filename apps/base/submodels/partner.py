@@ -4,9 +4,10 @@ from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from ...marketing.submodels.channel import PyChannel
 from ...marketing.submodels.campaign import PyCampaign
+from .father import PyFather
 
 
-class PyPartner(models.Model):
+class PyPartner(PyFather):
     name = models.CharField('Nombre', max_length=40)
     street = models.CharField('Calle', max_length=100, blank=True)
     street_2 = models.CharField('Calle 2', max_length=100, blank=True)
