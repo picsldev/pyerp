@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from ..submodels.campaign import PyCampaign
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 CAMPAIGN_FIELDS = [
@@ -16,9 +17,10 @@ CAMPAIGN_FIELDS = [
 CAMPAIGN_FIELDS_SHORT = ['name','code']
 
 
-class CampaignListView(ListView):
+class CampaignListView(LoginRequiredMixin, ListView):
     model = PyCampaign
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(CampaignListView, self).get_context_data(**kwargs)
@@ -28,9 +30,11 @@ class CampaignListView(ListView):
         context['fields'] = CAMPAIGN_FIELDS
         return context
 
-class CampaignDetailView(DetailView):
+class CampaignDetailView(LoginRequiredMixin, DetailView):
     model = PyCampaign
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
+
     def get_context_data(self, **kwargs):
         context = super(CampaignDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
@@ -40,10 +44,11 @@ class CampaignDetailView(DetailView):
         context['fields'] = CAMPAIGN_FIELDS
         return context
 
-class CampaignCreateView(CreateView):
+class CampaignCreateView(LoginRequiredMixin, CreateView):
     model = PyCampaign
     fields = CAMPAIGN_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(CampaignCreateView, self).get_context_data(**kwargs)
@@ -52,10 +57,11 @@ class CampaignCreateView(CreateView):
         context['back_url'] = reverse('campaign')
         return context
 
-class CampaignUpdateView(UpdateView):
+class CampaignUpdateView(LoginRequiredMixin, UpdateView):
     model = PyCampaign
     fields = CAMPAIGN_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(CampaignUpdateView, self).get_context_data(**kwargs)

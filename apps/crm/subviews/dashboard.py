@@ -1,12 +1,8 @@
-from django.urls import reverse_lazy, reverse
-from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate
-from django.contrib.auth.models import User
 from .lead import PyLead
 
+@login_required(login_url="/erp/login")
 def DashboardCrmView(request):
     leads = PyLead.objects.all()
     return render(request, 'crm/dashboard-crm.html', {

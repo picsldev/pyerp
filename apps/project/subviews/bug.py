@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 from ..submodels.bug import PyBug
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 """ BEGIN BUG """
 BUG_FIELDS = [
@@ -16,9 +17,10 @@ BUG_FIELDS = [
 BUG_FIELDS_SHORT = ['name','state','user_id','note']
 
 
-class BugListView(ListView):
+class BugListView(LoginRequiredMixin, ListView):
     model = PyBug
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(BugListView, self).get_context_data(**kwargs)
@@ -28,9 +30,11 @@ class BugListView(ListView):
         context['fields'] = BUG_FIELDS
         return context
 
-class BugDetailView(DetailView):
+class BugDetailView(LoginRequiredMixin, DetailView):
     model = PyBug
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
+
     def get_context_data(self, **kwargs):
         context = super(BugDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
@@ -40,10 +44,11 @@ class BugDetailView(DetailView):
         context['fields'] = BUG_FIELDS
         return context
 
-class BugCreateView(CreateView):
+class BugCreateView(LoginRequiredMixin, CreateView):
     model = PyBug
     fields = BUG_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(BugCreateView, self).get_context_data(**kwargs)
@@ -52,10 +57,11 @@ class BugCreateView(CreateView):
         context['back_url'] = reverse('bug')
         return context
 
-class BugUpdateView(UpdateView):
+class BugUpdateView(LoginRequiredMixin, UpdateView):
     model = PyBug
     fields = BUG_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(BugUpdateView, self).get_context_data(**kwargs)
