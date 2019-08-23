@@ -9,13 +9,12 @@ from ...base.models import PyCompany
 
 COMPANY_FIELDS = [
     {'string': 'Nombre', 'field': 'name'},
-    {'string': 'RUT', 'field': 'rut'},
     {'string': 'Teléfono', 'field': 'phone'},
     {'string': 'Email', 'field': 'email'},
     {'string': 'Giro', 'field': 'giro'},
 ]
 
-COMPANY_FIELDS_SHORT = ['name', 'city', 'phone', 'email', 'rut', 'social_facebook', 'social_instagram', 'social_linkedin']
+COMPANY_FIELDS_SHORT = ['name', 'city', 'phone', 'email', 'social_facebook', 'social_instagram', 'social_linkedin']
 
 
 class CompanyListView(ListView):
