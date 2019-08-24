@@ -5,12 +5,12 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 from ...base.models import PyProductWebCategory
 
-""" BEGIN CATEGORY PRODUCT"""
 CATEGORY_FIELDS = [
     {'string': 'Nombre', 'field': 'name'},
+    {'string': 'Categoría Padre', 'field': 'parent_id'},
 ]
 
-CATEGORY_FIELDS_SHORT = ['name']
+CATEGORY_FIELDS_SHORT = ['name','parent_id']
 
 
 class ProductWebCategoryListView(ListView):

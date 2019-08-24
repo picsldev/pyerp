@@ -7,9 +7,11 @@ from .father import PyFather
 
 class PyProductCategory(PyFather):
     name = models.CharField(max_length=40)
+    parent_id = models.ForeignKey('self', null=True, blank=True, default=None, on_delete=models.CASCADE)
 
     def __str__(self):
-        return format(self.name)
+        return '%s%s' % (self.parent_id and ('[%s] ' % self.parent_id) or '', self.name)
+
 
     def get_absolute_url(self):
         return reverse('product-category-detail', kwargs={'pk': self.pk})
