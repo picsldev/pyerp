@@ -143,5 +143,5 @@ except ImportError:
     logging.getLogger(__name__).warning('localsettings.py no encontrado')
 
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/erp'
 LOGOUT_REDIRECT_URL = '/erp/login/'

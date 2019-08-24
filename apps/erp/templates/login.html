@@ -41,7 +41,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Iniciar Cesión</p>
 
-      <form action="/erp/auth" method="post">
+      <form method="POST">
         {% csrf_token %}
 
         <div class="text-danger">
@@ -63,7 +63,7 @@
       </div>
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control django-font-g" name="email" placeholder="usuario">
+          <input type="text" class="form-control django-font-g" name="username"  id="id_username" placeholder="usuario">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -71,7 +71,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control django-font-g" placeholder="Contraseña">
+          <input type="password" name="password" class="form-control django-font-g"  id="password" placeholder="Contraseña">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
