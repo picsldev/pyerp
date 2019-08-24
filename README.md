@@ -2,11 +2,6 @@
 ERP in Django, This is a project in Development.
 
 ![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp-marketing/pyerp-m.png?raw=true "Ynext")
-![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp-marketing/01.png?raw=true "Ynext")
-![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp-marketing/02.png?raw=true "Ynext")
-![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp-marketing/03.png?raw=true "Ynext")
-![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp-marketing/04.png?raw=true "Ynext")
-
 
 # Install PyERP using the following command
 ```
@@ -41,4 +36,10 @@ Ynext | Marlon Falcón Hernández | Santiago de Chile | Chile
 # Feedback and Support
 We welcome your feedback and support, raise issues if you want to see a new feature or report a bug.
 https://github.com/falconsoft3d/pyerp/issues
+
+# Screenshot
+![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp-marketing/01.png?raw=true "Ynext")
+![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp-marketing/02.png?raw=true "Ynext")
+![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp-marketing/03.png?raw=true "Ynext")
+![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp-marketing/04.png?raw=true "Ynext")
 
