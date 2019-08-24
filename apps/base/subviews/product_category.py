@@ -8,9 +8,10 @@ from ...base.models import PyProductCategory
 """ BEGIN CATEGORY PRODUCT"""
 CATEGORY_FIELDS = [
     {'string': 'Nombre', 'field': 'name'},
+    {'string': 'Categoría Padre', 'field': 'parent_id'},
 ]
 
-CATEGORY_FIELDS_SHORT = ['name']
+CATEGORY_FIELDS_SHORT = ['name','parent_id']
 
 
 class ProductCategoryListView(ListView):
