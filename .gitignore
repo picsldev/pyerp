@@ -3,4 +3,4 @@
 *.pyc
 *.sqlite3
 localsettings.py
-static/
+/static/
