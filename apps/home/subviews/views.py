@@ -3,13 +3,9 @@ from apps.website.submodels.post import PyPost
 from apps.base.submodels.product import PyProduct
 from django.views.generic import DetailView, ListView
 from django.shortcuts import render
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
     return render(request, 'index.html')
-
-def product(request):
-    return render(request, 'product.html')
 
 def post(request):
     return render(request, 'post.html')
@@ -33,7 +29,6 @@ POST_FIELDS = [
 POST_FIELDS_SHORT = ['title','content','created_on']
 
 class BlogView(ListView):
-    login_url = "login"
     model = PyPost
     template_name = 'blog.html'
     fields = POST_FIELDS
@@ -43,8 +38,7 @@ class BlogView(ListView):
         context = super().get_context_data(**kwargs)
         return context
 
-class PostDetailView(LoginRequiredMixin, DetailView):
-    login_url = "login"
+class PostDetailView(DetailView):
     model = PyPost
     template_name = 'post.html'
     def get_context_data(self, **kwargs):
@@ -53,7 +47,7 @@ class PostDetailView(LoginRequiredMixin, DetailView):
 
 
 
-# Tienda
+# Tienda de Productos
 
 PRODUCT_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},
@@ -63,12 +57,20 @@ PRODUCT_FIELDS = [
         ]
 
 class WebProductView(ListView):
-    login_url = "login"
     model = PyProduct
     template_name = 'shop.html'
     fields = PRODUCT_FIELDS
     paginate_by = 8
+    queryset = PyProduct.objects.filter(web_active='True')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+
+class WebProductDetailView(DetailView):
+    model = PyProduct
+    template_name = 'product.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
