@@ -18,6 +18,8 @@
 
   <link rel="stylesheet" href="{% static '/css/django.css' %}">
 
+  <link rel="stylesheet" href="{% static '/dist/jquery-confirm/jquery-confirm.min.css' %}">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="{% static '/dist/css/adminlte.min.css' %}">
   <!-- Google Font: Source Sans Pro -->
@@ -45,21 +47,7 @@
         {% csrf_token %}
 
         <div class="text-danger">
-                        {% if form.errors  %}
-                            {% for field in form %}
-                               {% if field.errors %}
-                                  {% for error in field.errors %}
-                                     {{ error|escape }}
-                                  {% endfor %}
-                               {% endif %}
-                            {% endfor %}
 
-                            {% if form.non_field_errors  %}
-                                  {% for error in form.non_field_errors %}
-                                     {{ error|escape }}
-                                  {% endfor %}
-                            {% endif %}
-                        {% endif %}
       </div>
 
         <div class="input-group mb-3">
@@ -94,6 +82,37 @@
 <script src="{% static '/plugins/jquery/jquery.min.js' %}"></script>
 <!-- Bootstrap 4 -->
 <script src="{% static '/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="{% static '/dist/jquery-confirm/jquery-confirm.min.js' %}"></script>
+
+<script>
+function mensaje(msg,color='green'){
+ $.alert({
+    title:'',
+    theme: 'material',
+    type: color,
+    content:msg
+ });
+}
+</script>
+
+<script>
+{% if form.errors  %}
+    {% for field in form %}
+       {% if field.errors %}
+          {% for error in field.errors %}
+          mensaje('{{ error|escape }}','red');
+          {% endfor %}
+       {% endif %}
+{% endfor %}
+
+{% if form.non_field_errors  %}
+          {% for error in form.non_field_errors %}
+             mensaje('{{ error|escape }}','red');
+          {% endfor %}
+    {% endif %}
+{% endif %}
+</script>
 
 </body>
 </html>
