@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 from ...base.models import PyProductWebCategory
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 CATEGORY_FIELDS = [
     {'string': 'Nombre', 'field': 'name'},
@@ -13,9 +14,10 @@ CATEGORY_FIELDS = [
 CATEGORY_FIELDS_SHORT = ['name','parent_id']
 
 
-class ProductWebCategoryListView(ListView):
+class ProductWebCategoryListView(LoginRequiredMixin, ListView):
     model = PyProductWebCategory
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ProductWebCategoryListView, self).get_context_data(**kwargs)
@@ -26,9 +28,10 @@ class ProductWebCategoryListView(ListView):
         return context
 
 
-class ProductWebCategoryDetailView(DetailView):
+class ProductWebCategoryDetailView(LoginRequiredMixin, DetailView):
     model = PyProductWebCategory
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ProductWebCategoryDetailView, self).get_context_data(**kwargs)
@@ -40,10 +43,11 @@ class ProductWebCategoryDetailView(DetailView):
         return context
 
 
-class ProductWebCategoryCreateView(CreateView):
+class ProductWebCategoryCreateView(LoginRequiredMixin, CreateView):
     model = PyProductWebCategory
     fields = CATEGORY_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ProductWebCategoryCreateView, self).get_context_data(**kwargs)
@@ -53,10 +57,11 @@ class ProductWebCategoryCreateView(CreateView):
         return context
 
 
-class ProductWebCategoryUpdateView(UpdateView):
+class ProductWebCategoryUpdateView(LoginRequiredMixin, UpdateView):
     model = PyProductWebCategory
     fields = CATEGORY_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ProductWebCategoryUpdateView, self).get_context_data(**kwargs)

@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from .locations import PyComuna, PyCountry, PyRegion
 from .father import PyFather
+from .currency import PyCurrency
 
 class PyCompany(PyFather):
     name = models.CharField(max_length=40)
@@ -15,6 +16,8 @@ class PyCompany(PyFather):
     country_id = models.ForeignKey(PyCountry, null=True, blank=True, on_delete=models.CASCADE)
     region_id = models.ForeignKey(PyRegion, null=True, blank=True, on_delete=models.CASCADE)
     comuna_id = models.ForeignKey(PyComuna, null=True, blank=True, on_delete=models.CASCADE)
+
+    currency_id = models.ForeignKey(PyCurrency, null=True, blank=True, on_delete=models.CASCADE)
 
     social_facebook = models.CharField(max_length=255, blank=True)
     social_instagram = models.CharField(max_length=255, blank=True)

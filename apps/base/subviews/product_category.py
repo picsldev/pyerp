@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 from ...base.models import PyProductCategory
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 """ BEGIN CATEGORY PRODUCT"""
 CATEGORY_FIELDS = [
@@ -14,9 +15,10 @@ CATEGORY_FIELDS = [
 CATEGORY_FIELDS_SHORT = ['name','parent_id']
 
 
-class ProductCategoryListView(ListView):
+class ProductCategoryListView(LoginRequiredMixin, ListView):
     model = PyProductCategory
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ProductCategoryListView, self).get_context_data(**kwargs)
@@ -27,9 +29,10 @@ class ProductCategoryListView(ListView):
         return context
 
 
-class ProductCategoryDetailView(DetailView):
+class ProductCategoryDetailView(LoginRequiredMixin, DetailView):
     model = PyProductCategory
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ProductCategoryDetailView, self).get_context_data(**kwargs)
@@ -41,10 +44,11 @@ class ProductCategoryDetailView(DetailView):
         return context
 
 
-class ProductCategoryCreateView(CreateView):
+class ProductCategoryCreateView(LoginRequiredMixin, CreateView):
     model = PyProductCategory
     fields = CATEGORY_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ProductCategoryCreateView, self).get_context_data(**kwargs)
@@ -54,10 +58,11 @@ class ProductCategoryCreateView(CreateView):
         return context
 
 
-class ProductCategoryUpdateView(UpdateView):
+class ProductCategoryUpdateView(LoginRequiredMixin, UpdateView):
     model = PyProductCategory
     fields = CATEGORY_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ProductCategoryUpdateView, self).get_context_data(**kwargs)
