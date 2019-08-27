@@ -62,3 +62,13 @@ def web_show_shop(obj):
 @register.filter
 def web_under_construction(obj):
     return WebsiteConfig.objects.get(pk=1).under_construction
+
+# Moneda
+@register.filter
+def currency_symbol(obj):
+    return BaseConfig.objects.get(pk=1).main_company_id.currency_id.symbol
+
+@register.filter
+def currency_position(obj):
+    return BaseConfig.objects.get(pk=1).main_company_id.currency_id.position
+
