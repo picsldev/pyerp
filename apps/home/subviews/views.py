@@ -1,8 +1,12 @@
 from __future__ import unicode_literals
 from apps.website.submodels.post import PyPost
 from apps.base.submodels.product import PyProduct
+from apps.base.submodels.partner import PyPartner
+from apps.crm.submodels.lead import PyLead
 from django.views.generic import DetailView, ListView
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
 
 def index(request):
     return render(request, 'index.html')
@@ -15,6 +19,26 @@ def license(request):
 
 def UnderConstruction(request):
     return render(request, 'under_construction.html')
+
+
+def contact(request):
+    name = request.POST.get('name')
+    email = request.POST.get('email')
+    phone = request.POST.get('phone')
+    message = request.POST.get('message')
+    partners = PyPartner.objects.filter(email=email)
+    if partners:
+        partner = partners[0]
+    else:
+        partner = PyPartner(name=name, email=email, phone=phone)
+        partner.save()
+    lead = PyLead(name=message, partner_id=partner)
+    lead.save()
+    body = render_to_string('home/contact_mail_template.html', {'name': name, 'email': email, 'message': message})
+    email_message = EmailMessage(subject='Mensaje de usuario', body=body, from_email=email, to=['carmelolopez3@hotmail.com'])
+    email_message.content_subtype = 'html'
+    email_message.send()
+    return HttpResponse(content='OK')
 
 """
 BLOG

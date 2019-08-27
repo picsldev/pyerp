@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.urls import path
-from .subviews.views import index, BlogView, PostDetailView,  WebProductView, UnderConstruction, WebProductDetailView
+from .subviews.views import index, BlogView, PostDetailView, WebProductView, UnderConstruction, WebProductDetailView, contact
 
 urlpatterns = [
     url(r'^$', index, name='home-index'),
@@ -13,4 +13,5 @@ urlpatterns = [
 
     url(r'^license/', license, name='home-license'),
     url(r'^under-construction/', UnderConstruction, name='under-construction'),
+    url(r'^contact_me$', contact, name='contact-me')
 ]
