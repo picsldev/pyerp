@@ -10,6 +10,7 @@ from ..base.views import UpdateBaseConfigView
 from .subviews.base_config import LoadData
 from .subviews.log import LogListView, LogDetailView, LogCreateView, LogUpdateView, DeleteLog
 from .subviews.cron import CronListView, CronDetailView, CronCreateView, CronUpdateView, DeleteCron
+from .subviews.currency import CurrencyListView, CurrencyDetailView, CurrencyCreateView, CurrencyUpdateView, DeleteCurrency
 
 urlpatterns = [
     path('config/<int:pk>', UpdateBaseConfigView.as_view(), name='base-config'),
@@ -65,4 +66,10 @@ urlpatterns = [
     path('cron/<int:pk>/', CronDetailView.as_view(), name='cron-detail'),
     path('cron/<int:pk>/update', CronUpdateView.as_view(), name='cron-update'),
     path('cron/<int:pk>/delete/', DeleteCron, name='cron-delete'),
+
+    path('currencies', CurrencyListView.as_view(), name='currencies'),
+    path('currency/add/', CurrencyCreateView.as_view(), name='currency-add'),
+    path('currency/<int:pk>/', CurrencyDetailView.as_view(), name='currency-detail'),
+    path('currency/<int:pk>/update', CurrencyUpdateView.as_view(), name='currency-update'),
+    path('currency/<int:pk>/delete/', DeleteCurrency, name='currency-delete'),
 ]

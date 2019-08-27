@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 from ...base.models import PyCron
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 CRON_FIELDS = [
     {'string': 'Nombre', 'field': 'name'},
@@ -18,9 +19,10 @@ CRON_FIELDS = [
 CRON_SHORT = ['name','active','interval_type','model_name','function','number_call']
 
 
-class CronListView(ListView):
+class CronListView(LoginRequiredMixin, ListView):
     model = PyCron
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(CronListView, self).get_context_data(**kwargs)
@@ -31,9 +33,10 @@ class CronListView(ListView):
         return context
 
 
-class CronDetailView(DetailView):
+class CronDetailView(LoginRequiredMixin, DetailView):
     model = PyCron
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(CronDetailView, self).get_context_data(**kwargs)
@@ -45,10 +48,11 @@ class CronDetailView(DetailView):
         return context
 
 
-class CronCreateView(CreateView):
+class CronCreateView(LoginRequiredMixin, CreateView):
     model = PyCron
     fields = CRON_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(CronCreateView, self).get_context_data(**kwargs)
@@ -58,10 +62,11 @@ class CronCreateView(CreateView):
         return context
 
 
-class CronUpdateView(UpdateView):
+class CronUpdateView(LoginRequiredMixin, UpdateView):
     model = PyCron
     fields = CRON_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(CronUpdateView, self).get_context_data(**kwargs)

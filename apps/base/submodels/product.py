@@ -23,6 +23,7 @@ class PyProduct(PyFather):
     category_id = models.ForeignKey(PyProductCategory, null=True, blank=True, on_delete=models.CASCADE)
     web_category_id = models.ForeignKey(PyProductWebCategory, null=True, blank=True, on_delete=models.CASCADE)
     description = models.TextField(blank=True, null=True)
+    img = models.ImageField(default = "default.png")
 
     web_active = models.BooleanField('Web', default=False)
 

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from ...base.models import PyCompany
 
@@ -12,14 +13,16 @@ COMPANY_FIELDS = [
     {'string': 'Teléfono', 'field': 'phone'},
     {'string': 'Email', 'field': 'email'},
     {'string': 'Giro', 'field': 'giro'},
+    {'string': 'Moneda', 'field': 'currency_id'},
 ]
 
-COMPANY_FIELDS_SHORT = ['name', 'city', 'phone', 'email', 'social_facebook', 'social_instagram', 'social_linkedin']
+COMPANY_FIELDS_SHORT = ['name', 'city', 'phone', 'email', 'social_facebook', 'social_instagram', 'social_linkedin', 'currency_id']
 
 
-class CompanyListView(ListView):
+class CompanyListView(LoginRequiredMixin, ListView):
     model = PyCompany
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(CompanyListView, self).get_context_data(**kwargs)
@@ -31,9 +34,10 @@ class CompanyListView(ListView):
 
 
 
-class CompanyDetailView(DetailView):
+class CompanyDetailView(LoginRequiredMixin, DetailView):
     model = PyCompany
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(CompanyDetailView, self).get_context_data(**kwargs)
@@ -44,10 +48,11 @@ class CompanyDetailView(DetailView):
         context['fields'] = COMPANY_FIELDS
         return context
 
-class CompanyCreateView(CreateView):
+class CompanyCreateView(LoginRequiredMixin, CreateView):
     model = PyCompany
     fields = COMPANY_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(CompanyCreateView, self).get_context_data(**kwargs)
@@ -57,10 +62,11 @@ class CompanyCreateView(CreateView):
         return context
 
 
-class CompanyUpdateView(UpdateView):
+class CompanyUpdateView(LoginRequiredMixin, UpdateView):
     model = PyCompany
     fields = COMPANY_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(CompanyUpdateView, self).get_context_data(**kwargs)

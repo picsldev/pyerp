@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from ...base.models import PyPartner
 from ..common import check_rut, validarRut
@@ -25,10 +26,11 @@ PARTNER_FIELDS = [
 PARTNER_FIELDS_SHORT = ['name', 'street', 'email', 'phone', 'note', 'customer', 'provider', 'channel_id', 'campaign_id', 'for_invoice']
 
 
-class CustomerListView(ListView):
+class CustomerListView(LoginRequiredMixin, ListView):
     model = PyPartner
     template_name = 'erp/list.html'
     queryset = PyPartner.objects.filter(customer=True).all()
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(CustomerListView, self).get_context_data(**kwargs)
@@ -39,10 +41,11 @@ class CustomerListView(ListView):
         return context
 
 
-class ProviderListView(ListView):
+class ProviderListView(LoginRequiredMixin, ListView):
     model = PyPartner
     template_name = 'erp/list.html'
     queryset = PyPartner.objects.filter(provider=True).all()
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(ProviderListView, self).get_context_data(**kwargs)
@@ -53,9 +56,10 @@ class ProviderListView(ListView):
         return context
 
 
-class PartnerDetailView(DetailView):
+class PartnerDetailView(LoginRequiredMixin, DetailView):
     model = PyPartner
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(PartnerDetailView, self).get_context_data(**kwargs)
@@ -67,10 +71,11 @@ class PartnerDetailView(DetailView):
         return context
 
 
-class PartnerCreateView(CreateView):
+class PartnerCreateView(LoginRequiredMixin, CreateView):
     model = PyPartner
     fields = ['name', 'email', 'phone', 'customer', 'provider']
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(PartnerCreateView, self).get_context_data(**kwargs)
@@ -94,6 +99,7 @@ class PartnerUpdateView(UpdateView):
     model = PyPartner
     fields = PARTNER_FIELDS_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(PartnerUpdateView, self).get_context_data(**kwargs)

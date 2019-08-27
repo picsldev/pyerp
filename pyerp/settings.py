@@ -152,3 +152,8 @@ EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = '8fcb7d60b5730a'
 EMAIL_HOST_PASSWORD = '4258a6a7364f78'
 EMAIL_PORT = '2525'
+
+# Parar cargar las imagenes
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+MEDIA_ROOT = os.path.join(STATIC_ROOT,'media')
+MEDIA_URL = '/media/'

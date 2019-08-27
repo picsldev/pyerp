@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 from ...base.models import PyLog
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 LOG_FIELDS = [
     {'string': 'Creado el', 'field': 'created_on'},
@@ -14,9 +15,10 @@ LOG_FIELDS = [
 LOG_SHORT = ['name','note']
 
 
-class LogListView(ListView):
+class LogListView(LoginRequiredMixin, ListView):
     model = PyLog
     template_name = 'erp/list.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(LogListView, self).get_context_data(**kwargs)
@@ -27,9 +29,10 @@ class LogListView(ListView):
         return context
 
 
-class LogDetailView(DetailView):
+class LogDetailView(LoginRequiredMixin, DetailView):
     model = PyLog
     template_name = 'erp/detail.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(LogDetailView, self).get_context_data(**kwargs)
@@ -41,10 +44,11 @@ class LogDetailView(DetailView):
         return context
 
 
-class LogCreateView(CreateView):
+class LogCreateView(LoginRequiredMixin, CreateView):
     model = PyLog
     fields = LOG_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(LogCreateView, self).get_context_data(**kwargs)
@@ -54,10 +58,11 @@ class LogCreateView(CreateView):
         return context
 
 
-class LogUpdateView(UpdateView):
+class LogUpdateView(LoginRequiredMixin, UpdateView):
     model = PyLog
     fields = LOG_SHORT
     template_name = 'erp/form.html'
+    login_url = "/erp/login"
 
     def get_context_data(self, **kwargs):
         context = super(LogUpdateView, self).get_context_data(**kwargs)

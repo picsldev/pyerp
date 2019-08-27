@@ -54,6 +54,8 @@ PRODUCT_FIELDS = [
             {'string': 'Descripción', 'field': 'description'},
             {'string': 'Precio', 'field': 'price'},
             {'string': 'Activo', 'field': 'web_active'},
+            {'string': 'Código', 'field': 'code'},
+            {'string': 'Código Barra', 'field': 'code'},
         ]
 
 class WebProductView(ListView):
