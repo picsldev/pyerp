@@ -1,5 +1,6 @@
 # Compiled source #
 ###################
 *.pyc
+*.sqlite3
 localsettings.py
 static/
