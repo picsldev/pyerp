@@ -1,1 +1,2 @@
 from .submodels.website_config import WebsiteConfig
+from .submodels.web_payment_methods import PyWebPaymentMethod

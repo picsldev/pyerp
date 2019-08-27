@@ -1,7 +1,5 @@
 from django.db import models
 from django.urls import reverse
-from django.contrib.auth.models import User
-import datetime
 from ...base.submodels.father import PyFather
 
 class PyPost(PyFather):
