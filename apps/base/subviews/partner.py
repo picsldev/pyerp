@@ -21,9 +21,10 @@ PARTNER_FIELDS = [
     {'string': 'Notas', 'field': 'note'},
     {'string': 'Canal', 'field': 'channel_id'},
     {'string': 'Campaña', 'field': 'campaign_id'},
+    {'string': 'No Email', 'field': 'not_email'},
 ]
 
-PARTNER_FIELDS_SHORT = ['name', 'street', 'email', 'phone', 'note', 'customer', 'provider', 'channel_id', 'campaign_id', 'for_invoice']
+PARTNER_FIELDS_SHORT = ['name', 'street', 'email', 'phone', 'note', 'customer', 'provider', 'channel_id', 'campaign_id', 'for_invoice', 'not_email']
 
 
 class CustomerListView(LoginRequiredMixin, ListView):
