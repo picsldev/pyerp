@@ -146,13 +146,6 @@ except ImportError:
 LOGIN_REDIRECT_URL = '/erp'
 LOGOUT_REDIRECT_URL = '/erp/login/'
 
-
-# Datos de Pruebas de Envio de email https://mailtrap.io Github
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '8fcb7d60b5730a'
-EMAIL_HOST_PASSWORD = '4258a6a7364f78'
-EMAIL_PORT = '2525'
-
 # Parar cargar las imagenes
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 MEDIA_ROOT = os.path.join(STATIC_ROOT,'media')

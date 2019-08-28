@@ -17,6 +17,7 @@ class PyLead(PyFather):
 
     channel_id = models.ForeignKey(PyChannel, null=True, blank=True, on_delete=models.CASCADE)
     campaign_id = models.ForeignKey(PyCampaign, null=True, blank=True, on_delete=models.CASCADE)
+    content = models.TextField(null=True, blank=True)
 
 
     def get_absolute_url(self):

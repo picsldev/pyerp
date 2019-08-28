@@ -16,6 +16,7 @@ LEAD_FIELDS = [
             {'string': 'Vendedor', 'field': 'user_id'},
             {'string': 'Ingreso', 'field': 'income'},
             {'string': 'Etapa', 'field': 'stage_id'},
+            {'string': 'Contenido', 'field': 'content'},
         ]
 
 LEAD_FIELDS_VIEW = [
@@ -26,9 +27,10 @@ LEAD_FIELDS_VIEW = [
             {'string': 'Etapa', 'field': 'stage_id'},
             {'string': 'Canal', 'field': 'channel_id'},
             {'string': 'Campaña', 'field': 'campaign_id'},
+            {'string': 'Contenido', 'field': 'content'},
         ]
 
-LEAD_FIELDS_SHORT = ['name','partner_id','user_id','income','stage_id','channel_id','campaign_id']
+LEAD_FIELDS_SHORT = ['name','partner_id','user_id','income','stage_id','channel_id','campaign_id','content']
 
 
 class LeadListView(LoginRequiredMixin, ListView):
@@ -88,4 +90,3 @@ def DeleteLead(self, pk):
     lead = PyLead.objects.get(id=pk)
     lead.delete()
     return redirect(reverse('lead'))
-""" END LEAD """
