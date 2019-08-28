@@ -1,5 +1,5 @@
 # PyERP
-ERP in Django, This is a project in Development.
+PyERP is an open-source, user-oriented, ERP system based on Django framework.
 
 ![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp-marketing/pyerp-m.png?raw=true "Ynext")
 
