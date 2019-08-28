@@ -19,6 +19,8 @@ class PyPartner(PyFather):
     for_invoice = models.BooleanField('Para Facturar', default=True)
     note = models.TextField(blank=True, null=True)
 
+    not_email = models.BooleanField('No Email', default=False)
+
     channel_id = models.ForeignKey(PyChannel, null=True, blank=True, on_delete=models.CASCADE)
     campaign_id = models.ForeignKey(PyCampaign, null=True, blank=True, on_delete=models.CASCADE)
 
