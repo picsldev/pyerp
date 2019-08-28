@@ -8,7 +8,19 @@
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
-        <div class="intro-lead-in">{{ user|get_company_slogan }}</div>
+        <div class="intro-lead-in">{# { user|get_company_slogan } #}
+             <script language="javascript">
+              function days_passed() {
+                                      var current = new Date();
+                                      console.log(current)
+                                      var previous = new Date(2019, 8-1, 15);
+                                      console.log(previous)
+                                      return Math.ceil((current - previous) / 86400000);
+                                      }
+                dias = days_passed();
+                document.write("Hemos trabajado <b>"+dias + " días</b> en el desarrollo de este ERP, " + Math.trunc(dias/365*100) + "%")
+            </script>
+        </div>
         <div class="intro-heading text-uppercase">{{ user|get_company_name }}</div>
         {% if current_user.is_authenticated %}
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'login' %}">Login</a>
