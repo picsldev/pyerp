@@ -30,3 +30,10 @@ supervisor ctl restart django_app
 ```
 rsync -av db.sqlite3 root@ipdelservidor:/home/django/pyerp
 ```
+
+# SERVER COMANDOS
+```
+cd pyerp
+git pull
+./manage.py collectstatic
+```
