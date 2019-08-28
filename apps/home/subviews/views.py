@@ -32,10 +32,11 @@ def contact(request):
     else:
         partner = PyPartner(name=name, email=email, phone=phone)
         partner.save()
-    lead = PyLead(name=message, partner_id=partner)
+    title = name
+    lead = PyLead(name=title, content=message, partner_id=partner)
     lead.save()
-    body = render_to_string('home/contact_mail_template.html', {'name': name, 'email': email, 'message': message})
-    email_message = EmailMessage(subject='Mensaje de usuario', body=body, from_email=email, to=['carmelolopez3@hotmail.com'])
+    body = render_to_string('home/contact_mail_template.html', {'name': name, 'phone': phone, 'message': message})
+    email_message = EmailMessage(subject='Mensaje de usuario', body=body, from_email=email, to=['mfalcon@ynext.cl'])
     email_message.content_subtype = 'html'
     email_message.send()
     return HttpResponse(content='OK')
