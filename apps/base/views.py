@@ -5,6 +5,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.utils.translation import ugettext_lazy as _
 
 from ..base.models import PyProduct, PyProductCategory
 from .subviews.partner import CustomerListView, ProviderListView, PartnerDetailView, PartnerCreateView, PartnerUpdateView, DeletePartner
