@@ -15,16 +15,17 @@ class UserListView(ListView):
     model = User
     template_name = 'erp/list.html'
 
+
     def get_context_data(self, **kwargs):
         context = super(UserListView, self).get_context_data(**kwargs)
         context['title'] = 'Usuarios'
         context['detail_url'] = 'user-detail'
         context['add_url'] = 'user-add'
         context['fields'] = [
-            {'string': 'Login', 'field': 'username'},
-            {'string': 'Nombre', 'field': 'first_name'},
-            {'string': 'Apellido', 'field': 'last_name'},
-            {'string': 'Email', 'field': 'email'},
+            {'string': _('User Name'), 'field': 'username'},
+            {'string': _('Name'), 'field': 'first_name'},
+            {'string': _('Last name'), 'field': 'last_name'},
+            {'string': _('Email'), 'field': 'email'},
         ]
         return context
 
@@ -40,10 +41,10 @@ class UserDetailView(DetailView):
         context['update_url'] = 'user-update'
         context['delete_url'] = 'user-delete'
         context['fields'] = [
-            {'string': 'Nombre', 'field': 'first_name'},
-            {'string': 'Apellido', 'field': 'last_name'},
-            {'string': 'Login', 'field': 'username'},
-            {'string': 'Email', 'field': 'email'},
+            {'string': _('User Name'), 'field': 'username'},
+            {'string': _('Name'), 'field': 'first_name'},
+            {'string': _('Last name'), 'field': 'last_name'},
+            {'string': _('Email'), 'field': 'email'},
         ]
         context['buttons'] = [
             {

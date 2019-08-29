@@ -15,20 +15,19 @@ PRODUCT_CHOICE = (
 
 # Tabla de Product
 class PyProduct(PyFather):
-    name = models.CharField('Nombre', max_length=80)
-    code = models.CharField('Código', max_length=80, blank=True)
-    bar_code = models.CharField('Cod. Barras', max_length=80, blank=True)
-    price = models.DecimalField('Precio', max_digits=10, decimal_places=2, default=1)
-    cost = models.DecimalField('Costo', max_digits=10, decimal_places=2, default=0)
+    name = models.CharField(_("Name"), max_length=80)
+    code = models.CharField(_("Code"), max_length=80, blank=True)
+    bar_code = models.CharField(_("Bar Code"), max_length=80, blank=True)
+    price = models.DecimalField(_("Price"), max_digits=10, decimal_places=2, default=1)
+    cost = models.DecimalField(_("cost"), max_digits=10, decimal_places=2, default=0)
     category_id = models.ForeignKey(PyProductCategory, null=True, blank=True, on_delete=models.CASCADE)
     web_category_id = models.ForeignKey(PyProductWebCategory, null=True, blank=True, on_delete=models.CASCADE)
-    description = models.TextField(blank=True, null=True)
-    img = models.ImageField(default = "default.png")
+    description = models.TextField(_("description"), blank=True, null=True)
+    img = models.ImageField(_("image"), default = "default.png")
 
     web_active = models.BooleanField('Web', default=False)
 
-    type = models.CharField(
-        choices=PRODUCT_CHOICE, max_length=64, default='consu')
+    type = models.CharField(_("type"), choices=PRODUCT_CHOICE, max_length=64, default='consu')
 
     def get_absolute_url(self):
         return reverse('product-detail', kwargs={'pk': self.pk})
