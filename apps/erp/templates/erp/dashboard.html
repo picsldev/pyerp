@@ -473,7 +473,24 @@
 
 
 
-
+<!-- Web Begin -->
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="fa fa-comment nav-icon"></i>
+      <p>
+        {{ _('Chat Online') }}
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{% url 'chat-home' %}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Chat</p>
+        </a>
+    </ul>
+  </li>
+<!-- Web End -->
 
 
 
@@ -642,12 +659,12 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Select close if you want to leave the assignment.?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{ _('Exit') }}</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">{{ _('Configuration') }}</div>
+        <div class="modal-body">{{ _('Select close if you want to leave the assignment.?') }}</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">{{ _('Cancel') }}</button>
           <a class="btn btn-primary" href="{% url 'logout' %}">{{ _('Close') }}</a>
