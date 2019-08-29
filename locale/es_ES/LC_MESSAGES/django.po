@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-28 22:54-0400\n"
+"POT-Creation-Date: 2019-08-28 23:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,6 +68,103 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
+#: apps/erp/templates/erp/dashboard.html:60
+#: apps/erp/templates/erp/dashboard.html:653 apps/home/templates/chat.html:83
+msgid "Close"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:103 apps/erp/templates/login.html:71
+#: apps/home/templates/header.html:49
+msgid "Home"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:197
+msgid "Sale"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:232
+msgid "Purchase"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:261
+msgid "Inventory"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:291
+msgid "Accounting"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:319
+msgid "Point of sale"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:340
+msgid "Project"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:374
+msgid "Payroll"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:401
+msgid "Web"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:447
+msgid "Marketing"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:485
+#: apps/erp/templates/erp/dashboard.html:650
+msgid "Configuration"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:652
+msgid "Cancel"
+msgstr ""
+
+#: apps/erp/templates/home.html:15
+msgid "Customers"
+msgstr ""
+
+#: apps/erp/templates/home.html:20 apps/erp/templates/home.html:35
+#: apps/erp/templates/home.html:50 apps/erp/templates/home.html:65
+msgid "More Informations"
+msgstr ""
+
+#: apps/erp/templates/home.html:30
+msgid "Providers"
+msgstr ""
+
+#: apps/erp/templates/home.html:45
+msgid "Users"
+msgstr ""
+
+#: apps/erp/templates/home.html:60
+msgid "Products"
+msgstr ""
+
+#: apps/erp/templates/login.html:7
+msgid "ERP in Django"
+msgstr ""
+
+#: apps/erp/templates/login.html:44
+msgid "Log in"
+msgstr ""
+
+#: apps/erp/templates/login.html:54
+msgid "User name"
+msgstr ""
+
+#: apps/erp/templates/login.html:62
+msgid "Password"
+msgstr ""
+
+#: apps/erp/templates/login.html:74 apps/home/templates/header.html:82
+#: apps/home/templates/index.html:26
+msgid "Login"
+msgstr ""
+
 #: apps/home/templates/chat.html:79 apps/home/templates/footer.html:61
 msgid "Message"
 msgstr ""
@@ -78,10 +175,6 @@ msgstr ""
 
 #: apps/home/templates/chat.html:82
 msgid "Send"
-msgstr ""
-
-#: apps/home/templates/chat.html:83
-msgid "Close"
 msgstr ""
 
 #: apps/home/templates/footer.html:36 apps/home/templates/footer.html:47
@@ -95,10 +188,6 @@ msgstr ""
 
 #: apps/home/templates/footer.html:68
 msgid "Send email"
-msgstr ""
-
-#: apps/home/templates/header.html:49
-msgid "Home"
 msgstr ""
 
 #: apps/home/templates/header.html:53
@@ -124,10 +213,6 @@ msgstr ""
 #: apps/home/templates/header.html:76 apps/home/templates/shop.html:9
 msgid "Shop"
 msgstr "Tienda"
-
-#: apps/home/templates/header.html:82 apps/home/templates/index.html:26
-msgid "Login"
-msgstr ""
 
 #: apps/home/templates/index.html:21
 msgid "We have worked"

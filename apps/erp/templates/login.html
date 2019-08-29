@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PyERP | ERP en Djando</title>
+  <title>PyERP | {{ _("ERP in Django") }}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="{% static '.' %}/dist/favicon.png" type="image/x-icon"/>
@@ -41,7 +41,7 @@
   <div class="card">
       
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Iniciar Cesión</p>
+      <p class="login-box-msg">{{ _("Log in") }}</p>
 
       <form method="POST">
         {% csrf_token %}
@@ -51,7 +51,7 @@
       </div>
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control django-font-g" name="username"  id="id_username" placeholder="usuario">
+          <input type="text" class="form-control django-font-g" name="username"  id="id_username" placeholder="{{ _('User name') }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control django-font-g"  id="password" placeholder="Contraseña">
+          <input type="password" name="password" class="form-control django-font-g"  id="password" placeholder="{{ _('Password') }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -68,10 +68,10 @@
         </div>
         <div class="row">
           <div class="col-8">
-            <a href="/">Regresar</a>
+            <a href="/">{{ _('Home') }}</a>
           </div>
           <div class="col-4">
-            <button type="submit" style="color:#fff;" class="django-background btn btn-block btn-flat">Entrar</button>
+            <button type="submit" style="color:#fff;" class="django-background btn btn-block btn-flat">{{ _('Login') }}</button>
 
           </div>
           <!-- /.col -->
