@@ -25,7 +25,7 @@ msgstr ""
 #: apps/base/submodels/product.py:18 apps/base/views.py:26
 #: apps/base/views.py:45
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: apps/base/submodels/product.py:19
 msgid "Code"
@@ -71,7 +71,7 @@ msgstr ""
 #: apps/erp/templates/erp/dashboard.html:60
 #: apps/erp/templates/erp/dashboard.html:653 apps/home/templates/chat.html:83
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: apps/erp/templates/erp/dashboard.html:103 apps/erp/templates/login.html:71
 #: apps/home/templates/header.html:49
