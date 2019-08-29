@@ -1,5 +1,9 @@
 {% extends 'erp/dashboard.html' %}
 {% load staticfiles %}
+{% block head %}
+<script src="{% static 'plugins/moment/moment-with-locales.min.js' %}"></script>
+<script src="{% static 'plugins/socketio/socket.io.slim.js' %}"></script>
+{% endblock %}
 {% block content %}
 <div class="messaging">
       <div class="inbox_msg">
@@ -44,7 +48,7 @@
         </div>
         <div class="mesgs">
           <div class="msg_history">
-            <div class="incoming_msg">
+            <!-- <div class="incoming_msg">
               <div class="incoming_msg_img"> <img src="{% static '/default.png' %}" class="img-circle" alt="sunil"> </div>
               <div class="received_msg">
                 <div class="received_withd_msg">
@@ -57,7 +61,7 @@
               <div class="sent_msg">
                 <p>I can Help you ?</p>
                 <span class="time_date"> 11:01 AM    |    Today</span> </div>
-            </div>
+            </div> -->
 
           </div>
           <div class="type_msg">
@@ -91,7 +95,7 @@ img{ max-width:100%;}
 .srch_bar {
   display: inline-block;
   text-align: right;
-  width: 60%; padding:
+  width: 60%;
 }
 .headind_srch{ padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;}
 
@@ -207,4 +211,52 @@ img{ max-width:100%;}
   overflow-y: auto;
 }
 </style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Capturando los mensajes del cliente
+  var socket = io('http://0.0.0.0:5000');
+  socket.on('master', function (data) {
+    get_message(data.message);
+    client_id = data.sid;
+  });
+  // Actualiza el chat con el mensaje del cliente
+  var client_id = undefined;
+  function get_message(msg) {
+    var now = moment().format('hh:mm:ss a');
+    $('.msg_history').append(`<div class="incoming_msg">
+      <div class="incoming_msg_img"><img src="{% static '/default.png' %}" class="img-circle"/></div>
+      <div class="received_msg">
+        <div class="received_withd_msg">
+          <p>${msg}</p>
+          <span class="time_date">${now}</span></div>
+      </div>
+    </div>`);
+  }
+  // Actualiza el chat con la respuesta del master
+  function respond(msg) {
+    var now = moment().format('hh:mm:ss a');
+    $('.msg_history').append(`<div class="outgoing_msg">
+      <div class="sent_msg">
+        <p>${msg}</p>
+        <span class="time_date">${now}</span>
+      </div>
+    </div>`);
+  }
+  // Capturando los eventos del master en la caja del chat
+  $('.write_msg').on('keyup', function (e) {
+    if (e.keyCode === 13) {
+      var message = $(this).val();
+      $(this).val('');
+      respond(message);
+      socket.emit(`chatr`, {sid: client_id, message: message});
+    }
+  });
+  $('.msg_send_btn').click(function () {
+    var message = $('.write_msg').val();
+    $('.write_msg').val('');
+    respond(message);
+  });
+</script>
 {% endblock %}

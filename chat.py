@@ -18,10 +18,16 @@ def disconnect(sid):
 
 @sio.on('chat')
 def message_chat(sid, message):
-    print(message)
-    print('chat-%s' % sid)
-    sio.emit('chat-%s' % sid, 'Hemos recibido su pregunta: %s' % message)
+    sio.emit('master', {
+        'sid': sid,
+        'message': message
+    })
+
+
+@sio.on('chatr')
+def message_response(sid, data):
+    sio.emit('chat-%s' % data['sid'], data['message'])
 
 
 if __name__ == '__main__':
-    eventlet.wsgi.server(eventlet.listen(('', 5000)), app)
+    eventlet.wsgi.server(eventlet.listen(('0.0.0.0', 5000)), app)
