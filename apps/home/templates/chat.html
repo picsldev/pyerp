@@ -76,11 +76,11 @@
 
 <div class="chat-popup" id="FormChat">
   <form action="/action_page.php" class="form-container-chat">
-    <label for="msg"><b>Mensaje</b></label>
-    <textarea placeholder="Type message.." name="msg" required></textarea>
+    <label for="msg"><b>{{ _('Message') }}</b></label>
+    <textarea placeholder="{{ _('Type message..') }}" name="msg" required></textarea>
 
-    <button type="submit" class="btn">Enviar</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
+    <button type="submit" class="btn">{{ _('Send') }}</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">{{ _('Close') }}</button>
   </form>
 </div>
 

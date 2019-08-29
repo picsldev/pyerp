@@ -46,40 +46,40 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'home-index' %}">Inicio</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'home-index' %}">{{ _("Home") }}</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'home-index' %}#services">Services</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'home-index' %}#services">{{ _("Services") }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'home-index' %}#portfolio">Portfolio</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'home-index' %}#portfolio">{{ _("Portfolio") }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'home-index' %}#about">About</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'home-index' %}#about">{{ _("About") }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'home-index' %}#team">Equipo</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'home-index' %}#team">{{ _("Team") }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'home-index' %}#contact">Contacto</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'home-index' %}#contact">{{ _("Contact") }}</a>
           </li>
 
           {% if user|web_show_blog %}
            <li class="nav-item">
-             <a class="nav-link js-scroll-trigger" href="{% url 'home-blog' %}">Blog</a>
+             <a class="nav-link js-scroll-trigger" href="{% url 'home-blog' %}">{{ _("Blog") }}</a>
            </li>
           {% endif %}
 
           {% if user|web_show_shop %}
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'home-shop' %}">Tienda</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'home-shop' %}">{{ _("Shop") }}</a>
           </li>
           {% endif %}
 
           {% if current_user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">login</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">{{ _("Login") }}</a>
           </li>
           {% endif %}
 
