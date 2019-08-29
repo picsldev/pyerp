@@ -31,6 +31,11 @@ supervisor ctl restart django_app
 rsync -av db.sqlite3 root@ipdelservidor:/home/django/pyerp
 ```
 
+# TRASLATE RUN
+```
+django-admin makemessages -l es_ES
+```
+
 # SERVER COMANDOS
 ```
 cd pyerp
