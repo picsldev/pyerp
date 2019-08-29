@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-28 22:28-0400\n"
+"POT-Creation-Date: 2019-08-28 22:54-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,7 +64,93 @@ msgid "Last name"
 msgstr ""
 
 #: apps/base/views.py:28 apps/base/views.py:47
+#: apps/home/templates/footer.html:51
 msgid "Email"
+msgstr ""
+
+#: apps/home/templates/chat.html:79 apps/home/templates/footer.html:61
+msgid "Message"
+msgstr ""
+
+#: apps/home/templates/chat.html:80
+msgid "Type message.."
+msgstr ""
+
+#: apps/home/templates/chat.html:82
+msgid "Send"
+msgstr ""
+
+#: apps/home/templates/chat.html:83
+msgid "Close"
+msgstr ""
+
+#: apps/home/templates/footer.html:36 apps/home/templates/footer.html:47
+#: apps/home/templates/header.html:65
+msgid "Contact"
+msgstr ""
+
+#: apps/home/templates/footer.html:55
+msgid "Phone"
+msgstr ""
+
+#: apps/home/templates/footer.html:68
+msgid "Send email"
+msgstr ""
+
+#: apps/home/templates/header.html:49
+msgid "Home"
+msgstr ""
+
+#: apps/home/templates/header.html:53
+msgid "Services"
+msgstr ""
+
+#: apps/home/templates/header.html:56
+msgid "Portfolio"
+msgstr ""
+
+#: apps/home/templates/header.html:59
+msgid "About"
+msgstr ""
+
+#: apps/home/templates/header.html:62
+msgid "Team"
+msgstr ""
+
+#: apps/home/templates/header.html:70
+msgid "Blog"
+msgstr ""
+
+#: apps/home/templates/header.html:76 apps/home/templates/shop.html:9
+msgid "Shop"
+msgstr "Tienda"
+
+#: apps/home/templates/header.html:82 apps/home/templates/index.html:26
+msgid "Login"
+msgstr ""
+
+#: apps/home/templates/index.html:21
+msgid "We have worked"
+msgstr ""
+
+#: apps/home/templates/index.html:21
+msgid "of this ERP"
+msgstr ""
+
+#: apps/home/templates/index.html:28
+msgid "Enter"
+msgstr ""
+
+#: apps/home/templates/index.html:39
+msgid "features"
+msgstr ""
+
+#: apps/home/templates/index.html:40
+msgid "All are in Development"
+msgstr ""
+
+#: apps/home/templates/shop.html:19
+msgid "Category"
 msgstr ""
 
 #: pyerp/settings.py:134
