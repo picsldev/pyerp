@@ -6,4 +6,4 @@ from django.shortcuts import render
 class UpdateWebsiteConfigView(UpdateView):
     model = WebsiteConfig
     template_name = 'erp/form.html'
-    fields = ['show_blog', 'show_shop', 'under_construction', 'show_chat']
+    fields = ['show_blog', 'show_shop', 'under_construction', 'show_chat','show_price']

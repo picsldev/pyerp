@@ -56,6 +56,10 @@ def web_show_blog(obj):
     return WebsiteConfig.objects.get(pk=1).show_blog
 
 @register.filter
+def web_show_price(obj):
+    return WebsiteConfig.objects.get(pk=1).show_price
+
+@register.filter
 def web_chat(obj):
     return WebsiteConfig.objects.get(pk=1).show_chat
 

@@ -34,11 +34,15 @@
                 <h4 class="card-title">
                   <a href="{% url 'home-product' product.id %}">{{ product.name }}</a>
                 </h4>
-                <h5> {% if user|currency_position == 'before' %} {{ user|currency_symbol }} {{ product.price }} {% else %} {{ product.price }} {{ user|currency_symbol }} {% endif %} </h5>
+                {% if user|web_show_price %}
+                  <h5> {% if user|currency_position == 'before' %} {{ user|currency_symbol }} {{ product.price }} {% else %} {{ product.price }} {{ user|currency_symbol }} {% endif %} </h5>
+                {% endif %}
                 <p class="card-text">{{ product.description }}</p>
               </div>
               <div class="card-footer">
+                {% if user|web_show_price %}
                     <a href="#" class="btn btn-primary float-right"><i class="fa fa-cart-plus"></i></a>
+                {% endif %}
                     <small class="text-muted"><b>SKU:</b> {{ product.code }}</small>
               </div>
             </div>
