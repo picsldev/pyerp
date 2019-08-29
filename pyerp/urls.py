@@ -35,4 +35,5 @@ urlpatterns = [
     url(r'^marketing/', include('apps.marketing.urls')),
     url(r'^payroll/', include('apps.payroll.urls')),
     url(r'^sale/', include('apps.sale.urls')),
+    url(r'^pychat/', include('apps.chat.urls')),
 ]
