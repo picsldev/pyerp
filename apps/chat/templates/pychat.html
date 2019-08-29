@@ -216,7 +216,7 @@ img{ max-width:100%;}
 {% block scripts %}
 <script>
   // Capturando los mensajes del cliente
-  var socket = io('http://0.0.0.0:5000');
+  var socket = io('http://pyerp.cl:5000');
   socket.on('master', function (data) {
     get_message(data.message);
     client_id = data.sid;
