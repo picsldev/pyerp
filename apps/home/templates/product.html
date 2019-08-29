@@ -33,11 +33,15 @@
           <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
           <div class="card-body">
             <h3 class="card-title">{{ object.name }}</h3>
-            <h5>{% if user|currency_position == 'before' %} {{ user|currency_symbol }} {{ object.price }} {% else %} {{ object.price }} {{ user|currency_symbol }} {% endif %}</h5>
-            <p class="card-text">{{ object.description }}</p>
+                {% if user|web_show_price %}
+                    <h5>{% if user|currency_position == 'before' %} {{ user|currency_symbol }} {{ object.price }} {% else %} {{ object.price }} {{ user|currency_symbol }} {% endif %}</h5>
+                {% endif %}
+              <p class="card-text">{{ object.description }}</p>
           </div>
           <div class="card-footer">
+              {% if user|web_show_price %}
                     <a href="#" class="btn btn-primary float-right"><i class="fa fa-cart-plus"></i></a>
+              {% endif %}
                     <small class="text-muted"><b>SKU:</b> {{ object.code }}</small> -
                     <small class="text-muted"><b>CÓDIGO BARRA:</b> {{ object.bar_code }}</small>
               </div>
