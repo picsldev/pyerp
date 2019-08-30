@@ -82,10 +82,8 @@
   background-color: #f1f1f1;
   border-radius: 10px;
   padding: 10px;
-}
-
-ul.history {
   list-style: none;
+  overflow-y: scroll;
 }
 
 ul li.received {
@@ -123,22 +121,20 @@ ul li.sent {
 
 <script>
 
-  var socket = io('http://pyerp.cl:5000');
+  var socket = io('http://0.0.0.0:5000');
   $('.form-container-chat').submit(function (event) {
     event.preventDefault();
     var valor = $('input[name="msg"]').val();
     socket.emit('chat', valor);
     $('input[name="msg"]').val('');
-    $('.history').append(`<li class="sent">${valor}</li>`);
+    $('.history').append(`<li class="sent">${valor}</li>`).animate({scrollTop: $('.history').offset().top});
     $
   });
   var connect = setInterval(function () {
     if (socket.id) {
       socket.on('chat-' + socket.id, function (msg) {
-        console.warn(socket);
-        $('.history').append(`<li class="received">${msg}</li>`);
+        $('.history').append(`<li class="received">${msg}</li>`).animate({scrollTop: $('.history').offset().top});
       });
-      console.log(socket);
       clearInterval(connect);
     }
   }, 1000);
@@ -150,19 +146,19 @@ function closeForm() {
   document.getElementById("FormChat").style.display = "none";
 }
 
-function ipLookUp () {
-  $.ajax('http://ip-api.com/json')
-  .then(
-      function success(response) {
-          console.log('User\'s Location Data is ', response);
-          console.log('User\'s Country', response.country);
-      },
+// function ipLookUp () {
+//   $.ajax('http://ip-api.com/json')
+//   .then(
+//       function success(response) {
+//           console.log('User\'s Location Data is ', response);
+//           console.log('User\'s Country', response.country);
+//       },
 
-      function fail(data, status) {
-          console.log('Request failed.  Returned status of',
-                      status);
-      }
-  );
-}
-ipLookUp();
+//       function fail(data, status) {
+//           console.log('Request failed.  Returned status of',
+//                       status);
+//       }
+//   );
+// }
+// ipLookUp();
 </script>
