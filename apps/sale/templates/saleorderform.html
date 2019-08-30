@@ -44,7 +44,7 @@
                                 {% for field in fields %}
                                 <th class="text-center">{{ field.string }}</th>
                                 {% endfor %}
-                                <th class="text-center col-2">Acciones</th>
+                                <th class="text-center col-sm-2">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,7 +53,7 @@
                                 {% for field in fields %}
                                 <td class="{{ field.align }}">{{ element|get_obj_attr:field.field }}</td>
                                 {% endfor %}
-                                <td class="text-center">
+                                <td class="text-center col-sm-2">
                                     <button onclick="return abrir_modal('{% url product_edit_url element.pk %}')" data-toggle="tooltip" title="Editar" type="button" class="btn btn-primary btn-sm"><span class="fa fa-pen"></span></button>
                                     <button onclick="return abrir_modal('{% url product_delete_url element.pk %}')" data-toggle="tooltip" title="Eliminar" type="button" class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button>
                                 </td>
