@@ -2,7 +2,13 @@ from django.conf.urls import url
 from .views import chat_home
 from django.contrib.auth import views as auth_views
 from django.urls import path
+from .subviews.trigger import TriggerListView, TriggerDetailView, TriggerCreateView, TriggersUpdateView, DeleteTrigger
 
 urlpatterns = [
     url(r'chat-home', chat_home, name='chat-home'),
+    path('triggers', TriggerListView.as_view(), name='triggers'),
+    path('trigger/add/', TriggerCreateView.as_view(), name='trigger-add'),
+    path('trigger/<int:pk>/', TriggerDetailView.as_view(), name='trigger-detail'),
+    path('trigger/<int:pk>/update', TriggersUpdateView.as_view(), name='trigger-update'),
+    path('trigger/<int:pk>/delete/', DeleteTrigger, name='trigger-delete'),
 ]

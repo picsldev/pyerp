@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-28 23:13-0400\n"
+"POT-Creation-Date: 2019-08-29 21:58-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,8 +22,8 @@ msgstr ""
 msgid "Created on"
 msgstr ""
 
-#: apps/base/submodels/product.py:18 apps/base/views.py:26
-#: apps/base/views.py:45
+#: apps/base/submodels/product.py:18 apps/base/views.py:27
+#: apps/base/views.py:46 apps/chat/submodels/trigger.py:9
 msgid "Name"
 msgstr "Nombre"
 
@@ -55,21 +55,21 @@ msgstr ""
 msgid "type"
 msgstr ""
 
-#: apps/base/views.py:25 apps/base/views.py:44
+#: apps/base/views.py:26 apps/base/views.py:45
 msgid "User Name"
 msgstr ""
 
-#: apps/base/views.py:27 apps/base/views.py:46
+#: apps/base/views.py:28 apps/base/views.py:47
 msgid "Last name"
 msgstr ""
 
-#: apps/base/views.py:28 apps/base/views.py:47
+#: apps/base/views.py:29 apps/base/views.py:48
 #: apps/home/templates/footer.html:51
 msgid "Email"
 msgstr ""
 
 #: apps/erp/templates/erp/dashboard.html:60
-#: apps/erp/templates/erp/dashboard.html:653 apps/home/templates/chat.html:83
+#: apps/erp/templates/erp/dashboard.html:670
 msgid "Close"
 msgstr "Cerrar"
 
@@ -114,12 +114,23 @@ msgstr ""
 msgid "Marketing"
 msgstr ""
 
-#: apps/erp/templates/erp/dashboard.html:485
-#: apps/erp/templates/erp/dashboard.html:650
+#: apps/erp/templates/erp/dashboard.html:481
+msgid "Chat Online"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:502
 msgid "Configuration"
 msgstr ""
 
-#: apps/erp/templates/erp/dashboard.html:652
+#: apps/erp/templates/erp/dashboard.html:662
+msgid "Exit"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:667
+msgid "Select close if you want to leave the assignment.?"
+msgstr ""
+
+#: apps/erp/templates/erp/dashboard.html:669
 msgid "Cancel"
 msgstr ""
 
@@ -165,16 +176,12 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: apps/home/templates/chat.html:79 apps/home/templates/footer.html:61
+#: apps/home/templates/chat.html:116 apps/home/templates/footer.html:61
 msgid "Message"
 msgstr ""
 
-#: apps/home/templates/chat.html:80
+#: apps/home/templates/chat.html:118
 msgid "Type message.."
-msgstr ""
-
-#: apps/home/templates/chat.html:82
-msgid "Send"
 msgstr ""
 
 #: apps/home/templates/footer.html:36 apps/home/templates/footer.html:47
@@ -188,6 +195,10 @@ msgstr ""
 
 #: apps/home/templates/footer.html:68
 msgid "Send email"
+msgstr ""
+
+#: apps/home/templates/footer.html:106
+msgid "License"
 msgstr ""
 
 #: apps/home/templates/header.html:53
@@ -236,6 +247,28 @@ msgstr ""
 
 #: apps/home/templates/shop.html:19
 msgid "Category"
+msgstr ""
+
+#: apps/website/submodels/website_config.py:9
+msgid "Show Blog"
+msgstr ""
+
+#: apps/website/submodels/website_config.py:10
+#, fuzzy
+#| msgid "Shop"
+msgid "Show Shop"
+msgstr "Tienda"
+
+#: apps/website/submodels/website_config.py:11
+msgid "Show price"
+msgstr ""
+
+#: apps/website/submodels/website_config.py:12
+msgid "Show chat"
+msgstr ""
+
+#: apps/website/submodels/website_config.py:13
+msgid "Under Construction"
 msgstr ""
 
 #: pyerp/settings.py:134
