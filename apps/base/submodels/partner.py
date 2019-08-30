@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from ...marketing.submodels.channel import PyChannel
 from ...marketing.submodels.campaign import PyCampaign
 from .father import PyFather
+from dal import autocomplete
 
 
 class PyPartner(PyFather):
