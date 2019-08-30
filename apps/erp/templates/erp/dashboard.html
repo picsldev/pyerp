@@ -60,7 +60,7 @@
           </div>
         </li>
       <li class="nav-item d-none d-sm-inline-block">
-          <button class="btn nav-link" onclick="return abrir_modal('{% url 'erp:logout-modal' %}')" type="button" data-dismiss="modal"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>salir</button>
+          <button class="btn nav-link" onclick="return abrir_modal(`{% url 'erp:logout-modal' %}`)" type="button" data-dismiss="modal"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>salir</button>
 
       </li>
     </ul>
@@ -429,6 +429,34 @@
 <!-- Web End -->
 
 
+<!-- Web Begin -->
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="fa fa-comments nav-icon"></i>
+      <p>
+        Chat
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{% url 'chat-home' %}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Chat</p>
+        </a>
+      </li>
+
+       <li class="nav-item">
+        <a href="{% url 'triggers' %}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Triggers</p>
+        </a>
+      </li>
+    </ul>
+  </li>
+<!-- Web End -->
+
+
  <!-- Web Begin -->
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
@@ -560,7 +588,7 @@
         color: #343A40
         }
 
-        .mylink: hover{
+        .mylink:hover{
         color: #343A40
         }
 
