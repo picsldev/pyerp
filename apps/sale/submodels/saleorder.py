@@ -64,8 +64,6 @@ class PySaleOrderDetail(PyFather):
     )
     product = models.ForeignKey(
         PyProduct,
-        null=True,
-        blank=True,
         on_delete=models.CASCADE
     )
     description = models.TextField(blank=True, null=True)
@@ -115,7 +113,10 @@ class PySaleOrderDetail(PyFather):
 def post_save_sale_order(sender, instance, created, **kwargs):
     _sale_order = PySaleOrder.objects.get(pk=instance.sale_order.pk)
     _amount_untaxec = sender.objects.filter(sale_order=instance.sale_order.pk).aggregate(Sum('amount_total'))
-    _sale_order.amount_untaxec = _amount_untaxec['amount_total__sum']
+    if _amount_untaxec['amount_total__sum']:
+        _sale_order.amount_untaxec = _amount_untaxec['amount_total__sum']
+    else:
+        _sale_order.amount_untaxec = 0
     _sale_order.save()
 
 
@@ -124,5 +125,8 @@ def post_save_sale_order(sender, instance, created, **kwargs):
 def post_delete_sale_order(sender, instance, **kwargs):
     _sale_order = PySaleOrder.objects.get(pk=instance.sale_order.pk)
     _amount_untaxec = sender.objects.filter(sale_order=instance.sale_order.pk).aggregate(Sum('amount_total'))
-    _sale_order.amount_untaxec = _amount_untaxec['amount_total__sum']
+    if _amount_untaxec['amount_total__sum']:
+        _sale_order.amount_untaxec = _amount_untaxec['amount_total__sum']
+    else:
+        _sale_order.amount_untaxec = 0
     _sale_order.save()
