@@ -20,6 +20,7 @@ urlpatterns = [
     path('marketing/', include('apps.marketing.urls')),
     path('payroll/', include('apps.payroll.urls')),
     path('sale/', include('apps.sale.urls')),
+    path('chat/', include('apps.chat.urls')),
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT, }),
     path('static/<path:path>', serve, {'document_root': settings.STATIC_ROOT, }),
 ]
