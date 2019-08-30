@@ -1,10 +1,13 @@
-from django.urls import reverse
+# Librerias Django
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
+from django.urls import reverse
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
+
+# Librerias en carpetas locales
 from ..submodels.pos import PyPos
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 POS_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},

@@ -1,12 +1,16 @@
+# Librerias Django
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
-from .stage import PyStage
+
+# Librerias en carpetas locales
 from ...base.models import PyPartner
-from ...marketing.submodels.channel import PyChannel
-from ...marketing.submodels.campaign import PyCampaign
 from ...base.submodels.father import PyFather
+from ...marketing.submodels.campaign import PyCampaign
+from ...marketing.submodels.channel import PyChannel
+from .stage import PyStage
+
 
 class PyLead(PyFather):
     name = models.CharField('Nombre', max_length=80)

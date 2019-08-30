@@ -1,6 +1,10 @@
+# Librerias Django
 from django.db import models
 from django.urls import reverse
+
+# Librerias en carpetas locales
 from ...base.submodels.father import PyFather
+
 
 class PyPost(PyFather):
     title = models.CharField('Nombre', max_length=255)

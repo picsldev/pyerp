@@ -1,3 +1,4 @@
+# Librerias Django
 from django.db import models
 from django.db.models import Sum
 from django.db.models.signals import post_delete, post_save

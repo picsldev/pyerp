@@ -1,11 +1,16 @@
+# Librerias Django
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
-from ...marketing.submodels.channel import PyChannel
-from ...marketing.submodels.campaign import PyCampaign
-from .father import PyFather
+
+# Librerias de terceros
 from dal import autocomplete
+
+# Librerias en carpetas locales
+from ...marketing.submodels.campaign import PyCampaign
+from ...marketing.submodels.channel import PyChannel
+from .father import PyFather
 
 
 class PyPartner(PyFather):

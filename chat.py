@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Librerias de terceros
 import eventlet
 import socketio
 

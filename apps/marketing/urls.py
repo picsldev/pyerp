@@ -1,9 +1,17 @@
-from django.urls import path
+# Librerias Django
 from django.contrib.auth import views as auth_views
-from .subviews.channel import ChannelListView, ChannelDetailView, ChannelCreateView, ChannelUpdateView, DeleteChannel
-from .subviews.campaign import CampaignListView, CampaignDetailView, CampaignCreateView, CampaignUpdateView, DeleteCampaign
-from .subviews.mform import MformListView, MformDetailView, MformCreateView, MformUpdateView, DeleteMform
+from django.urls import path
 
+# Librerias en carpetas locales
+from .subviews.campaign import (
+    CampaignCreateView, CampaignDetailView, CampaignListView,
+    CampaignUpdateView, DeleteCampaign)
+from .subviews.channel import (
+    ChannelCreateView, ChannelDetailView, ChannelListView, ChannelUpdateView,
+    DeleteChannel)
+from .subviews.mform import (
+    DeleteMform, MformCreateView, MformDetailView, MformListView,
+    MformUpdateView)
 
 urlpatterns = [
     path('channel', ChannelListView.as_view(), name='channel'),

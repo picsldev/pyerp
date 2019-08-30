@@ -1,6 +1,10 @@
-from django.shortcuts import render
+# Librerias Django
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+
+# Librerias en carpetas locales
 from .lead import PyLead
+
 
 @login_required(login_url="/erp/login")
 def DashboardCrmView(request):

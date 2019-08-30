@@ -1,4 +1,7 @@
+# Librerias Django
 from django.db import models
+
+# Librerias en carpetas locales
 from .father import PyFather
 
 

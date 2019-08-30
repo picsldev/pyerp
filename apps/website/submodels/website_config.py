@@ -1,8 +1,10 @@
+# Librerias Django
 from django.db import models
 from django.urls import reverse
-from ...base.submodels.father import PyFather
 from django.utils.translation import ugettext_lazy as _
 
+# Librerias en carpetas locales
+from ...base.submodels.father import PyFather
 
 
 class WebsiteConfig(PyFather):
