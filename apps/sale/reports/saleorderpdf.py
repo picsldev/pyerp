@@ -5,24 +5,30 @@ import io
 
 # Librerias Django
 from django.conf import settings
-from django.http import FileResponse, HttpResponse
+from django.http import FileResponse
 from django.utils import timezone
+from django.http import HttpResponse
+import locale
 
 # Librerias de terceros
 from apps.sale.models import PySaleOrder, PySaleOrderDetail
-from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import cm
+from reportlab.lib import colors
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Table, TableStyle
+
+
+locale.setlocale(locale.LC_ALL, '')
+locale._override_localeconv = {'mon_thousands_sep': '.'}
 
 
 def sale_order_pdf(request, pk):
     """ Función para imprimir la orden de ventas
     """
     response = HttpResponse(content_type='application/pdf')
-    # pdf_name = "clientes.pdf"  # llamado clientes
-    # response['Content-Disposition'] = 'attachment; filename=%s' % pdf_name
+    pdf_name = "clientes.pdf"
+    response['Content-Disposition'] = 'attachment; filename=%s' % pdf_name
 
     # Los productos de la orden
     _sale_order = PySaleOrder.objects.get(pk=pk)
@@ -44,7 +50,7 @@ def sale_order_pdf(request, pk):
     _pdf = canvas.Canvas(_buffer, pagesize=letter)
 
     # Header corporativa
-    archivo_imagen = settings.MEDIA_ROOT+'/pyerp-marketing/PyERP_logo_ 2.png'
+    archivo_imagen = settings.MEDIA_ROOT+'/pyerp-marketing/PyERP_logo_2.png'
     # Definimos el tamaño de la imagen a cargar y las coordenadas
     _pdf.drawImage(archivo_imagen, 30, 710, 120, 90, preserveAspectRatio=True)
     _pdf.setLineWidth(.3)
@@ -115,7 +121,12 @@ def sale_order_pdf(request, pk):
                 str(_product.quantity) + ' Unidades',
                 _product.amount_untaxed,
                 _product.discount,
-                _product.amount_total
+                locale.format(
+                    '%.2f',
+                    _product.amount_total,
+                    grouping=True,
+                    monetary=True
+                )
             ]
         )
         _high = _high - 18
@@ -139,13 +150,11 @@ def sale_order_pdf(request, pk):
     )
     table.wrapOn(_pdf, _width, _height)
     table.drawOn(_pdf, 30, _high)
-    import locale
-    locale.setlocale(locale.LC_ALL, '')
 
     # Footer de la tabla
     _data_foot = []
     _data_foot.append(
-        ["", "Subtotal:", "$" + "{:.2f}".format(_sale_order.amount_untaxec)]
+        ["", "Subtotal:", "$ " + locale.format('%.2f', _sale_order.amount_untaxec, grouping=True, monetary=True)]
     )
     _data_foot.append(
         ["", "IVA:", "$" + "???"]
@@ -177,8 +186,6 @@ def sale_order_pdf(request, pk):
     )
     table.wrapOn(_pdf, _width, _height)
     table.drawOn(_pdf, 30, _high)
-
-
 
     # Close the PDF object cleanly, and we're done.
     _pdf.showPage()

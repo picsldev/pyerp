@@ -149,18 +149,21 @@ LANGUAGES = (
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = 'media'
+
 STATIC_URL = '/static/'
-try:
-    from .localsettings import *
-except ImportError:
-    import logging
-    logging.getLogger(__name__).warning('localsettings.py no encontrado')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATIC_ROOT = '/home/gvizquel/pyerp/staticfiles'
+
+# try:
+#     from .localsettings import *
+# except ImportError:
+#     import logging
+#     logging.getLogger(__name__).warning('localsettings.py no encontrado')
+
 
 
 LOGIN_REDIRECT_URL = '/erp'
 LOGOUT_REDIRECT_URL = '/erp/login/'
-
-# Parar cargar las imagenes
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-MEDIA_ROOT = os.path.join(STATIC_ROOT,'media')
-MEDIA_URL = '/media/'

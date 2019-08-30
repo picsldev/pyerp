@@ -1,12 +1,14 @@
 # Librerias Django
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 
 # Librerias de terceros
+from apps.sale.models import PySaleOrderDetail
 from dal import autocomplete
 
 # Librerias en carpetas locales
@@ -100,9 +102,8 @@ class ProductAutoComplete(autocomplete.Select2QuerySetView):
     """
 
     def get_queryset(self):
-
-
         _sale_order = self.forwarded.get('sale_order', None)
+
         if _sale_order:
             product_sale_order = PySaleOrderDetail.objects.filter(sale_order=_sale_order).values("product")
             queryset = PyProduct.objects.filter(~Q(pk__in=product_sale_order))
