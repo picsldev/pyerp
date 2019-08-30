@@ -155,13 +155,13 @@ MEDIA_ROOT = 'media'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
-STATIC_ROOT = '/home/gvizquel/pyerp/staticfiles'
+# STATIC_ROOT = '/home/gvizquel/pyerp/staticfiles'
 
-# try:
-#     from .localsettings import *
-# except ImportError:
-#     import logging
-#     logging.getLogger(__name__).warning('localsettings.py no encontrado')
+try:
+    from .localsettings import *
+except ImportError:
+    import logging
+    logging.getLogger(__name__).warning('localsettings.py no encontrado')
 
 
 
