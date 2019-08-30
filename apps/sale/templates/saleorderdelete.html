@@ -1,0 +1,31 @@
+<div class="modal fade show" id="modal-danger" style="display: block; padding-right: 12px;" aria-modal="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-danger">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ title }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                {% if not detail %}
+                    {{ delete_message|safe }}
+                    <p>Si desea continuar presione "Eliminar", tenga en cuenta que esta acción esta acción es irreversible.</p>
+                    <p>Presione "Cancelar" para anular la acción.</p>
+                {% else %}
+                    {{ cant_delete_message|safe }}
+                {% endif %}
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline-light" type="button" data-dismiss="modal">Cancelar</button>
+                {% if not detail %}
+                    <form class="form-horizontal" role="form" action="{% url action_url object.pk %}" method="post">
+                    <form method="post" class="form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-light">Eliminar</button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

@@ -35,12 +35,15 @@ ALLOWED_HOSTS = ['0.0.0.0','localhost', '127.0.0.1', 'www.pyerp.cl', 'pyerp.cl']
 # Application definition
 
 INSTALLED_APPS = [
+    # Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Local Apps
     'apps.erp',
     'apps.home',
     'apps.base',
@@ -53,6 +56,10 @@ INSTALLED_APPS = [
     'apps.chat',
     'apps.marketing',
     'apps.project',
+
+    # Third-Party Apps
+    'dal',
+    'dal_select2',
     'bootstrap4',
 ]
 
