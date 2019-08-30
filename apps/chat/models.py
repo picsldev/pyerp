@@ -1,3 +1,3 @@
 # Librerias en carpetas locales
 from .submodels.trigger import PyTrigger
-from .submodels.visitor import PyVisitor
+from .submodels.visitor import PyVisitor, PyChatHistory

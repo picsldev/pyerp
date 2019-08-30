@@ -2,6 +2,8 @@
 # Librerias de terceros
 import eventlet
 import socketio
+import requests
+from datetime import datetime
 
 sio = socketio.Server(cors_allowed_origins='*')
 app = socketio.WSGIApp(sio)
@@ -19,14 +21,29 @@ def disconnect(sid):
 
 @sio.on('chat')
 def message_chat(sid, message):
+    # Registramos el mensaje
+    print('\n\nentrando\n\n')
+    res = requests.post('http://0.0.0.0:5000/chat/register_message', data={
+        'sid': sid,
+        'message': message,
+        'date': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    })
+    print('\n\n%s\n\n' % res.text)
+    # Luego lo emitimos
     sio.emit('master', {
         'sid': sid,
-        'message': message
+        'message': message,
     })
 
 
 @sio.on('chatr')
 def message_response(sid, data):
+    requests.post('http://0.0.0.0:5000/chat/register_message', data={
+        'sid': data['sid'],
+        'message': data['message'],
+        'date': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        'response': True
+    })
     sio.emit('chat-%s' % data['sid'], data['message'])
 
 
