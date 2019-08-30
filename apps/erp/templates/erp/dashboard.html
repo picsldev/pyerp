@@ -14,12 +14,17 @@
   <link rel="stylesheet" href="{% static '/plugins/fontawesome-free/css/all.min.css' %}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="{% static '/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{% static '/plugins/select2/css/select2.min.css' %}">
+  <!-- Bootstrap4 Duallistbox -->
+  <link rel="stylesheet" href="{% static '/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css' %}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{% static '/dist/css/adminlte.min.css' %}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
-  <link rel="stylesheet" href="{% static 'css/django.css' %}">
   {% block head %}
   {% endblock %}
 </head>
@@ -55,13 +60,8 @@
           </div>
         </li>
       <li class="nav-item d-none d-sm-inline-block">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  {{ _('Close') }}
-          </a>
-          <!--
-        <a href="{% url 'logout' %}" class="nav-link"><i class="fas fa-sign-out-alt"></i></a>
-        -->
+          <button class="btn nav-link" onclick="return abrir_modal('{% url 'erp:logout-modal' %}')" type="button" data-dismiss="modal"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>salir</button>
+
       </li>
     </ul>
   </nav>
@@ -100,7 +100,7 @@
           <li class="nav-item has-treeview">
             <a href="/erp" class="nav-link">
               <i class="fa fa-home nav-icon"></i>
-              <p>{{ _('Home') }}</p>
+              <p>Inicio</p>
             </a>
           </li>
 
@@ -121,7 +121,7 @@
                 <p>Historial</p>
               </a>
             </li>
-          
+
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
@@ -151,7 +151,7 @@
                 </li>
             </ul>
           </li>
-          
+
 -->
 {% block leftmenu %}
 <!-- CRM Begin -->
@@ -194,14 +194,14 @@
     <a href="#" class="nav-link">
       <i class="fa fa-file nav-icon"></i>
       <p>
-        {{ _('Sale') }}
+        Ventas
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
     <ul class="nav nav-treeview">
 
         <li class="nav-item">
-          <a href="{% url 'sale-order' %}" class="nav-link">
+          <a href="{% url 'sale:sale-order' %}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Cotización</p>
           </a>
@@ -229,7 +229,7 @@
     <a href="#" class="nav-link">
       <i class="fa fa-book nav-icon"></i>
       <p>
-        {{ _('Purchase') }}
+        Compras
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
@@ -258,7 +258,7 @@
     <a href="#" class="nav-link">
       <i class="fa fa-cube nav-icon"></i>
       <p>
-        {{ _('Inventory') }}
+        Inventario
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
@@ -288,7 +288,7 @@
     <a href="#" class="nav-link">
       <i class="fa fa-hdd nav-icon"></i>
       <p>
-          {{ _('Accounting') }}
+        Contabilidad
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
@@ -316,7 +316,7 @@
     <a href="#" class="nav-link">
       <i class="fa fa-desktop nav-icon"></i>
       <p>
-         {{ _('Point of sale') }}
+         Punto de Venta
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
@@ -337,7 +337,7 @@
     <a href="#" class="nav-link">
       <i class="fa fa-folder nav-icon"></i>
       <p>
-        {{ _('Project') }}
+        Proyectos
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
@@ -371,7 +371,7 @@
     <a href="#" class="nav-link">
       <i class="fa fa-child nav-icon"></i>
       <p>
-        {{ _('Payroll') }}
+        Nómina
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
@@ -398,7 +398,7 @@
     <a href="#" class="nav-link">
       <i class="fa fa-cloud nav-icon"></i>
       <p>
-        {{ _('Web') }}
+        Web
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
@@ -417,22 +417,12 @@
         </a>
       </li>
 
-
-       <li class="nav-item">
-        <a href="{% url 'web-payment-methods' %}" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>Métodos de Pagos Web</p>
-        </a>
-      </li>
-
         <li class="nav-item">
             <a href="{% url 'website-config' 1 %}" class="nav-link">
                 <i class="fa fa-cog nav-icon"></i>
                 <p>Configuración</p>
             </a>
         </li>
-
-
 
     </ul>
   </li>
@@ -444,7 +434,7 @@
     <a href="#" class="nav-link">
       <i class="fa fa-binoculars nav-icon"></i>
       <p>
-        {{ _('Marketing') }}
+        Marketing
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
@@ -473,32 +463,7 @@
 
 
 
-<!-- Web Begin -->
-<li class="nav-item has-treeview">
-    <a href="#" class="nav-link">
-      <i class="fa fa-comment nav-icon"></i>
-      <p>
-        {{ _('Chat Online') }}
-        <i class="fas fa-angle-left right"></i>
-      </p>
-    </a>
-    <ul class="nav nav-treeview">
-      <li class="nav-item">
-        <a href="{% url 'chat-home' %}" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>Chat</p>
-        </a>
-      </li>
 
-      <li class="nav-item">
-        <a href="{% url 'triggers' %}" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>{{ _('Triggers') }}</p>
-        </a>
-      </li>
-    </ul>
-  </li>
-<!-- Web End -->
 
 
 
@@ -507,7 +472,7 @@
               <a href="#" class="nav-link">
                 <i class="fa fa-cogs nav-icon"></i>
                 <p>
-                  {{ _('Configuration') }}
+                  Configuración
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -518,13 +483,7 @@
                     <p>Usuarios</p>
                   </a>
                 </li>
-                  <li class="nav-item">
-                        <a href="{% url 'currencies' %}" class="nav-link">
-                          <i class="fa fa-bold nav-icon"></i>
-                          <p>Monedas</p>
-                        </a>
-                  </li>
-              
+
                 <li class="nav-item">
                   <a href="{% url 'companies' %}" class="nav-link">
                     <i class="fa fa-building nav-icon"></i>
@@ -569,18 +528,8 @@
 
 
 
-
-            
-   <!--
-          <li class="nav-item has-treeview">
-              <a href="{% url 'logout' %}" class="nav-link">
-                <i class="nav-icon fas fa-sign-out-alt"></i>
-                <p>Cerrar</p>
-              </a>
-            </li>
-          
  {% endblock %}
-          
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -590,35 +539,19 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-     <!--Content Header (Page header)
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>PyERP</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              <li class="breadcrumb-item active">Panel</li>
-            </ol>
-          </div>
-        </div>
-      </div>   /.container-fluid 
-    </section>-->
-
-    <!-- Main content -->
-    <nav>
-        <ol class="breadcrumb">
-            {% for bc in breadcrumbs %}
-            <li class="breadcrumb-item"><a href="{% url bc.url %}">{{ bc.name }}</a></li>
-            {% endfor %}
-            <li class="breadcrumb-item">{{ title }}</li>
-        </ol>
-    </nav>
-    <section class="content">
-        {% block content %}{% endblock %}
-  </section>
+      <!-- Main content -->
+      <nav>
+          <ol class="breadcrumb">
+              {% for bc in breadcrumbs %}
+                  <li class="breadcrumb-item"><a href="{% url bc.url %}">{{ bc.name }}</a></li>
+              {% endfor %}
+              <li class="breadcrumb-item">{{ title }}</li>
+          </ol>
+      </nav>
+      <section class="content">
+          {% block content %}{% endblock %}
+      </section>
+      <div id="popup" class="modal fade" role="dialog"></div>
   </div>
   <!-- /.content-wrapper -->
 
@@ -627,7 +560,7 @@
         color: #343A40
         }
 
-        .mylink:hover{
+        .mylink: hover{
         color: #343A40
         }
 
@@ -652,34 +585,93 @@
 <script src="{% static '/plugins/jquery/jquery.min.js' %}"></script>
 <!-- Bootstrap 4 -->
 <script src="{% static '/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="{% static '/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js' %}"></script>
+<!-- InputMask -->
+<script src="{% static '/plugins/inputmask/jquery.inputmask.bundle.js' %}"></script>
+<script src="{% static '/plugins/moment/moment.min.js' %}"></script>
+<!-- date-range-picker -->
+<script src="{% static '/plugins/daterangepicker/daterangepicker.js' %}"></script>
+<!-- bootstrap color picker -->
+<script src="{% static '/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js' %}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{% static '/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
 <!-- FastClick -->
 <script src="{% static '/plugins/fastclick/fastclick.js' %}"></script>
 <!-- AdminLTE App -->
 <script src="{% static '/dist/js/adminlte.min.js' %}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{% static '/dist/js/demo.js' %}"></script>
+<!-- Page script -->
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    //$('.select2').select2()
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+      {
+        ranges   : {
+          'Today'       : [moment(), moment()],
+          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    })
+
+    //Bootstrap Duallistbox
+    $('.duallistbox').bootstrapDualListbox()
+
+    //Colorpicker
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
+
+    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+    });
+  })
+</script>
+<script>
+    function abrir_modal(url) {
+        $('#popup').load(url, function () {
+            $(this).modal('show');
+        });
+        return false;
+    }
+</script>
 {% block scripts %}
 {% endblock %}
-
-
-<!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{ _('Exit') }}</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">{{ _('Select close if you want to leave the assignment.?') }}</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">{{ _('Cancel') }}</button>
-          <a class="btn btn-primary" href="{% url 'logout' %}">{{ _('Close') }}</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
 </body>
 </html>

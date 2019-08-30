@@ -1,7 +1,14 @@
-from django.urls import path
+# Librerias Django
 from django.contrib.auth import views as auth_views
-from .subviews.accountplan import AccountPlanListView, AccountPlanDetailView, AccountPlanCreateView, AccountPlanUpdateView, DeleteAccountPlan
-from .subviews.accountmove import AccountMoveListView, AccountMoveDetailView, AccountMoveCreateView, AccountMoveUpdateView, DeleteAccountMove
+from django.urls import path
+
+# Librerias en carpetas locales
+from .subviews.accountmove import (
+    AccountMoveCreateView, AccountMoveDetailView, AccountMoveListView,
+    AccountMoveUpdateView, DeleteAccountMove)
+from .subviews.accountplan import (
+    AccountPlanCreateView, AccountPlanDetailView, AccountPlanListView,
+    AccountPlanUpdateView, DeleteAccountPlan)
 
 urlpatterns = [
     path('accountplan', AccountPlanListView.as_view(), name='accountplan'),

@@ -1,7 +1,10 @@
-from django.urls import path
+# Librerias Django
 from django.contrib.auth import views as auth_views
-from .subviews.pos import PosListView, PosDetailView, PosCreateView, PosUpdateView, DeletePos
+from django.urls import path
 
+# Librerias en carpetas locales
+from .subviews.pos import (
+    DeletePos, PosCreateView, PosDetailView, PosListView, PosUpdateView)
 
 urlpatterns = [
     path('pos', PosListView.as_view(), name='pos'),

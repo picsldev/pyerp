@@ -1,8 +1,13 @@
+# Librerias Django
 from django.conf.urls import url
-from .views import chat_home
 from django.contrib.auth import views as auth_views
 from django.urls import path
-from .subviews.trigger import TriggerListView, TriggerDetailView, TriggerCreateView, TriggersUpdateView, DeleteTrigger
+
+# Librerias en carpetas locales
+from .subviews.trigger import (
+    DeleteTrigger, TriggerCreateView, TriggerDetailView, TriggerListView,
+    TriggersUpdateView)
+from .views import chat_home
 
 urlpatterns = [
     url(r'chat-home', chat_home, name='chat-home'),

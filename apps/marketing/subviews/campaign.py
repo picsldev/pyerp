@@ -1,13 +1,15 @@
-from django.urls import reverse_lazy, reverse
-from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.contrib.auth.decorators import login_required
+# Librerias Django
 from django.contrib.auth import authenticate
-from ..submodels.campaign import PyCampaign
-from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+from django.shortcuts import redirect, render
+from django.urls import reverse, reverse_lazy
+from django.views.generic import DetailView, ListView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
+# Librerias en carpetas locales
+from ..submodels.campaign import PyCampaign
 
 CAMPAIGN_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},

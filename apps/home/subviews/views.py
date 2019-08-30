@@ -1,12 +1,18 @@
+# Librerias Future
 from __future__ import unicode_literals
-from apps.website.submodels.post import PyPost
-from apps.base.submodels.product import PyProduct
-from apps.base.submodels.partner import PyPartner
-from apps.crm.submodels.lead import PyLead
-from django.views.generic import DetailView, ListView
-from django.shortcuts import render, HttpResponse
+
+# Librerias Django
 from django.core.mail import EmailMessage
+from django.shortcuts import HttpResponse, render
 from django.template.loader import render_to_string
+from django.views.generic import DetailView, ListView
+
+# Librerias de terceros
+from apps.base.submodels.partner import PyPartner
+from apps.base.submodels.product import PyProduct
+from apps.crm.submodels.lead import PyLead
+from apps.website.submodels.post import PyPost
+
 
 def index(request):
     return render(request, 'index.html')

@@ -1,5 +1,7 @@
-from django.db import models
+# Librerias Django
 from django.contrib.auth.models import User
+from django.db import models
+
 
 class PyFather(models.Model):
     active = models.BooleanField(default=True, blank=True, null=True)

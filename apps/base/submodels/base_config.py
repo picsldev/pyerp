@@ -1,5 +1,8 @@
+# Librerias Django
 from django.db import models
 from django.urls import reverse
+
+# Librerias en carpetas locales
 from .company import PyCompany
 
 

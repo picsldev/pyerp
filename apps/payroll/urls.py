@@ -1,7 +1,14 @@
-from django.urls import path
+# Librerias Django
 from django.contrib.auth import views as auth_views
-from .subviews.employee import EmployeeListView, EmployeeDetailView, EmployeeCreateView, EmployeeUpdateView, DeleteEmployee
-from .subviews.department import DepartmentListView, DepartmentDetailView, DepartmentCreateView, DepartmentUpdateView, DeleteDepartment
+from django.urls import path
+
+# Librerias en carpetas locales
+from .subviews.department import (
+    DeleteDepartment, DepartmentCreateView, DepartmentDetailView,
+    DepartmentListView, DepartmentUpdateView)
+from .subviews.employee import (
+    DeleteEmployee, EmployeeCreateView, EmployeeDetailView, EmployeeListView,
+    EmployeeUpdateView)
 
 urlpatterns = [
     path('employee', EmployeeListView.as_view(), name='employee'),

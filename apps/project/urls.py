@@ -1,8 +1,15 @@
-from django.urls import path
+# Librerias Django
 from django.contrib.auth import views as auth_views
-from .subviews.task import TaskListView, TaskDetailView, TaskCreateView, TaskUpdateView, DeleteTask
-from .subviews.project import ProjectListView, ProjectDetailView, ProjectCreateView, ProjectUpdateView, DeleteProject
-from .subviews.bug import BugListView, BugDetailView, BugCreateView, BugUpdateView, DeleteBug
+from django.urls import path
+
+# Librerias en carpetas locales
+from .subviews.bug import (
+    BugCreateView, BugDetailView, BugListView, BugUpdateView, DeleteBug)
+from .subviews.project import (
+    DeleteProject, ProjectCreateView, ProjectDetailView, ProjectListView,
+    ProjectUpdateView)
+from .subviews.task import (
+    DeleteTask, TaskCreateView, TaskDetailView, TaskListView, TaskUpdateView)
 
 urlpatterns = [
     path('task', TaskListView.as_view(), name='task'),

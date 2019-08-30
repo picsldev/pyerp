@@ -1,9 +1,14 @@
-from django.urls import path
+# Librerias Django
 from django.contrib.auth import views as auth_views
-from .subviews.lead import LeadListView, LeadDetailView, LeadCreateView, LeadUpdateView, DeleteLead
-from .subviews.stage import StageListView, StageDetailView, StageCreateView, StageUpdateView, DeleteStage
-from .subviews.dashboard import DashboardCrmView
+from django.urls import path
 
+# Librerias en carpetas locales
+from .subviews.dashboard import DashboardCrmView
+from .subviews.lead import (
+    DeleteLead, LeadCreateView, LeadDetailView, LeadListView, LeadUpdateView)
+from .subviews.stage import (
+    DeleteStage, StageCreateView, StageDetailView, StageListView,
+    StageUpdateView)
 
 urlpatterns = [
     path('dashboard-crm', DashboardCrmView, name='dashboard-crm'),

@@ -1,7 +1,9 @@
+# Librerias Django
 from django import template
+
+# Librerias en carpetas locales
 from ...base.models import BaseConfig
 from ...website.models import WebsiteConfig
-
 
 register = template.Library()
 
@@ -79,4 +81,3 @@ def currency_symbol(obj):
 @register.filter
 def currency_position(obj):
     return BaseConfig.objects.get(pk=1).main_company_id.currency_id.position
-

@@ -1,6 +1,9 @@
-from django.views.generic.edit import UpdateView
-from ..submodels.website_config import WebsiteConfig
+# Librerias Django
 from django.shortcuts import render
+from django.views.generic.edit import UpdateView
+
+# Librerias en carpetas locales
+from ..submodels.website_config import WebsiteConfig
 
 
 class UpdateWebsiteConfigView(UpdateView):
