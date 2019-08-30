@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from .product_category import PyProductCategory
 from .product_webcategory import PyProductWebCategory
 from .father import PyFather
+from dal import autocomplete
 
 PRODUCT_CHOICE = (
         ("product", "Almacenable"),
