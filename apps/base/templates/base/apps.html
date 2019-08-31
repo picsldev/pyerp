@@ -7,36 +7,29 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
                   <!-- App -->
+            {% for app in object_list %}
                   <div class="col-md-3">
-                        <div class="info-box">
+                        <div class="info-box card-primary">
                           <span style="width: 120px;" class="info-box-icon bg-info elevation-1"><i class="fas fa-home"></i></span>
                                   <div class="info-box-content">
-                                    <span class="info-box-text">Name App</span>
+                                    <span class="info-box-text">{{ app.name }}</span>
                                     <span class="info-box-number">
-                                      By Ynext
+                                      {{ app.author }}
                                     </span>
-                                      <span class="info-box-text">This Apps ..</span>
-                                      <button class="btn btn-danger float-right" >Install</button>
+                                      <span class="info-box-text">{{ app.description }}</span>
+                                      {% if app.installed %}
+                                      <button class="btn btn-danger float-right ml-1" >Uninstall</button>
+                                      {% else %}
+                                      <button class="btn btn-danger float-right ml-1" >Install</button>
+                                      {% endif %}
+                                      <button class="btn btn-primary float-right" ><i class="fa fa-eye"></i></button>
                                   </div>
                         </div>
                   </div>
                   <!-- endApp -->
+            {% endfor %}
 
-                <!-- App -->
-                  <div class="col-md-3">
-                        <div class="info-box">
-                          <span style="width: 120px;" class="info-box-icon bg-danger elevation-1"><i class="fas fa-cog nav-icon"></i></span>
-                                  <div class="info-box-content">
-                                    <span class="info-box-text">Base</span>
-                                    <span class="info-box-number">
-                                      By PyERP
-                                    </span>
-                                      <span class="info-box-text">Apps Base</span>
-                                      <button class="btn float-right" disabled >{{ _('Internal') }}</button>
-                                  </div>
-                        </div>
-                  </div>
-                  <!-- endApp -->
+
           </div>
       </div>
   </section>

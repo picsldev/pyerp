@@ -19,3 +19,4 @@ from .submodels.partner import PyPartner
 from .submodels.product import PyProduct
 from .submodels.product_category import PyProductCategory
 from .submodels.product_webcategory import PyProductWebCategory
+from .submodels.app import PyApp

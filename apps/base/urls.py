@@ -10,9 +10,10 @@ from ..base.views import (
     PartnerDetailView, PartnerUpdateView, ProviderListView,
     UpdateBaseConfigView, UserCreateView, UserDetailView, UserListView,
     UserUpdateView)
-from .subviews.base_config import LoadData
 
-from .views import Apps
+
+from .subviews.app import AppView
+from .subviews.base_config import LoadData
 
 from .subviews.cron import (
     CronCreateView, CronDetailView, CronListView, CronUpdateView, DeleteCron)
@@ -36,7 +37,7 @@ from .subviews.product_webcategory import (
 urlpatterns = [
     path('config/<int:pk>', UpdateBaseConfigView.as_view(), name='base-config'),
     path('load-data', LoadData, name='load-data'),
-    path('apps', Apps, name='apps'),
+
 
     path('users', UserListView.as_view(), name='users'),
     path('user/add/', UserCreateView.as_view(), name='user-add'),
@@ -95,6 +96,10 @@ urlpatterns = [
     path('currency/<int:pk>/', CurrencyDetailView.as_view(), name='currency-detail'),
     path('currency/<int:pk>/update', CurrencyUpdateView.as_view(), name='currency-update'),
     path('currency/<int:pk>/delete/', DeleteCurrency, name='currency-delete'),
+
+
+    path('apps', AppView.as_view(), name='apps'),
+    #   path('apps', Apps, name='apps'),
 
     # ====================== Rutas de Auto Completado ====================== #
     path(
