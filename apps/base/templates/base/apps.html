@@ -1,0 +1,39 @@
+{% extends 'erp/dashboard.html' %}
+{% load staticfiles %}
+{% block content %}
+<section class="content">
+  <div style="margin-top: 20px;"></div>
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+              <div class="col-md-3">
+                    <div class="info-box">
+                      <span style="width: 120px;" class="info-box-icon bg-info elevation-1"><i class="fas fa-home"></i></span>
+                              <div class="info-box-content">
+                                <span class="info-box-text">Name App</span>
+                                <span class="info-box-number">
+                                  By Ynext
+                                </span>
+                                  <span class="info-box-text">This Apps ..</span>
+                                  <button class="btn btn-danger float-right" >Install</button>
+                              </div>
+                    </div>
+              </div>
+
+            <div class="col-md-3">
+                    <div class="info-box">
+                      <span style="width: 120px;" class="info-box-icon bg-info elevation-1"><i class="fas fa-male"></i></span>
+                              <div class="info-box-content">
+                                <span class="info-box-text">Name App</span>
+                                <span class="info-box-number">
+                                  By Ynext
+                                </span>
+                                  <span class="info-box-text">This Apps ..</span>
+                                  <button class="btn btn-danger float-right" >Install</button>
+                              </div>
+                    </div>
+              </div>
+          </div>
+      </div>
+  </section>
+{% endblock %}

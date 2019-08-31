@@ -18,6 +18,8 @@ from .subviews.partner import (
     CustomerListView, DeletePartner, PartnerAutoComplete, PartnerCreateView,
     PartnerDetailView, PartnerUpdateView, ProviderListView)
 
+def Apps(request):
+    return render(request, 'base/apps.html')
 
 class UserListView(ListView):
     model = User
