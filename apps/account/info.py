@@ -9,5 +9,5 @@
 	'depends': '',
 	'description': "",
 	'external_dependencies':"",
-	'type':'1'
+	'type':'public'
 }
