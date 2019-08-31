@@ -7,6 +7,9 @@ from django.urls import reverse, reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from os import listdir
+import json
+from .submodels.app import PyApp
 
 # Librerias en carpetas locales
 from ..base.models import PyProduct, PyProductCategory
@@ -110,3 +113,41 @@ def DoChangePassword(self, pk, **kwargs):
     else:
         return render(self, 'erp/change_password.html', {'pk': pk, 'error': 'Las contraseñas no coinciden.'})
     return redirect(reverse('user-detail', kwargs={'pk': pk}))
+
+
+@login_required(login_url="/erp/login")
+def UpdateApps(self):
+    folder_apps = 'apps'
+    list_app = listdir(folder_apps)
+    PyApp.objects.all().delete()
+    for folder in list_app:
+        try:
+            for file in listdir(folder_apps + "/" + folder):
+                if file == 'info.py':
+                    with open(folder_apps + "/" + folder + '/info.py') as json_file:
+                        data = json.load(json_file)
+                        p = PyApp(name=data['name'], description=data['description'], author=data['author'],
+                                  fa=data['fa'], version=data['version'],
+                                  website=data['website'], color=data['color'])
+                        p.save()
+        except Exception:
+            continue
+
+
+    return redirect(reverse('apps'))
+
+
+@login_required(login_url="/erp/login")
+def InstallApps(self, pk):
+    app = PyApp.objects.get(id=pk)
+    app.installed = True
+    app.save()
+    return redirect(reverse('apps'))
+
+
+@login_required(login_url="/erp/login")
+def UninstallApps(self, pk):
+    app = PyApp.objects.get(id=pk)
+    app.installed = False
+    app.save()
+    return redirect(reverse('apps'))

@@ -9,7 +9,7 @@ from ..base.views import (
     DeleteUser, DoChangePassword, PartnerAutoComplete, PartnerCreateView,
     PartnerDetailView, PartnerUpdateView, ProviderListView,
     UpdateBaseConfigView, UserCreateView, UserDetailView, UserListView,
-    UserUpdateView)
+    UserUpdateView, UpdateApps, InstallApps, UninstallApps)
 
 
 from .subviews.app import AppView
@@ -37,6 +37,11 @@ from .subviews.product_webcategory import (
 urlpatterns = [
     path('config/<int:pk>', UpdateBaseConfigView.as_view(), name='base-config'),
     path('load-data', LoadData, name='load-data'),
+
+
+    path('update-app', UpdateApps, name='update-app'),
+    path('install-app/<int:pk>/', InstallApps, name='install-app'),
+    path('uninstall-app/<int:pk>/', UninstallApps, name='uninstall-app'),
 
 
     path('users', UserListView.as_view(), name='users'),
@@ -99,7 +104,6 @@ urlpatterns = [
 
 
     path('apps', AppView.as_view(), name='apps'),
-    #   path('apps', Apps, name='apps'),
 
     # ====================== Rutas de Auto Completado ====================== #
     path(
