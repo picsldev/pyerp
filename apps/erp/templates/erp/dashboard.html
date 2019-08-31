@@ -495,7 +495,36 @@
 
 
 
+<!-- Configuracion Begin -->
+          <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="fa fa-microchip nav-icon"></i>
+                <p>
+                  {{ _('Apps') }}
+                    <i class="fas fa-angle-left right"></i>
+                    <span class="badge badge-info right">2</span>
 
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <li class="nav-item">
+                  <a href="{% url 'apps' %}" class="nav-link">
+                    <i class="fa fa-users nav-icon"></i>
+                    <p>{{ _('Apps') }}</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'apps' %}" class="nav-link">
+                    <i class="fa fa-users nav-icon"></i>
+                    <p>{{ _('Update') }}</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+<!-- Configuracion End -->
 
 
 
@@ -559,27 +588,7 @@
 <!-- Configuracion End -->
 
 
-<!-- Configuracion Begin -->
-          <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="fa fa-microchip nav-icon"></i>
-                <p>
-                  {{ _('Apps') }}
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
 
-                <li class="nav-item">
-                  <a href="{% url 'apps' %}" class="nav-link">
-                    <i class="fa fa-users nav-icon"></i>
-                    <p>{{ _('Internal Apps') }}</p>
-                  </a>
-                </li>
-
-              </ul>
-            </li>
-<!-- Configuracion End -->
 
 
 
