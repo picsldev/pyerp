@@ -1,5 +1,5 @@
 {
-	"name": "Account",
+	"name": "CRM",
 	"version":"1.0.0.1",
 	"author": "YnexT SpA",
 	"website": "www.ynext.cl",
@@ -9,7 +9,7 @@
 	"description": "Demo Hello",
 	"external_dependencies":"",
 	"type":"public",
-	"color":"bg-success",
-	"fa":"fa-hdd"
+	"color":"bg-info",
+	"fa":"fa-home"
 
 }

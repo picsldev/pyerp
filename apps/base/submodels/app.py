@@ -11,6 +11,10 @@ class PyApp(PyFather):
     author = models.CharField(_("Author"), max_length=80)
     description = models.TextField(_("description"), blank=True, null=True)
     installed = models.BooleanField(default=False, blank=True, null=True)
+    website = models.CharField(_("Website"), blank=True, null=True, max_length=180)
+    color = models.CharField(_("Color"), blank=True, null=True, max_length=20)
+    fa = models.CharField(_("Icon"), blank=True, null=True, max_length=20)
+    version = models.CharField(_("Version"), blank=True, null=True, max_length=20)
 
 
     def get_absolute_url(self):

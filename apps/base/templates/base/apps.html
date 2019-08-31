@@ -10,17 +10,17 @@
             {% for app in object_list %}
                   <div class="col-md-3">
                         <div class="info-box card-primary">
-                          <span style="width: 120px;" class="info-box-icon bg-info elevation-1"><i class="fas fa-home"></i></span>
+                          <span style="width: 120px;" class="info-box-icon {{ app.color }} elevation-1"><i class="fas {{ app.fa }}"></i></span>
                                   <div class="info-box-content">
-                                    <span class="info-box-text">{{ app.name }}</span>
-                                    <span class="info-box-number">
-                                      {{ app.author }}
+                                    <span class="info-box-text"><b>{{ app.name }}</b> | {{ app.version }}</span>
+                                    <span class="info-box-text">
+                                      {{ app.author }} | {{ app.website }}
                                     </span>
                                       <span class="info-box-text">{{ app.description }}</span>
                                       {% if app.installed %}
-                                      <button class="btn btn-danger float-right ml-1" >Uninstall</button>
+                                      <a class="btn btn-danger float-right ml-1" href="{% url 'uninstall-app' app.id %}">Uninstall</a>
                                       {% else %}
-                                      <button class="btn btn-danger float-right ml-1" >Install</button>
+                                      <a  class="btn btn-success float-right ml-1" href="{% url 'install-app' app.id %}">Install</a>
                                       {% endif %}
                                       <button class="btn btn-primary float-right" ><i class="fa fa-eye"></i></button>
                                   </div>
@@ -33,4 +33,5 @@
           </div>
       </div>
   </section>
+
 {% endblock %}
