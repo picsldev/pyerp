@@ -25,6 +25,8 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/django.css' %}">
   {% block head %}
   {% endblock %}
 </head>
@@ -60,8 +62,10 @@
           </div>
         </li>
       <li class="nav-item d-none d-sm-inline-block">
-          <button class="btn nav-link" onclick="return abrir_modal(`{% url 'erp:logout-modal' %}`)" type="button" data-dismiss="modal"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>{{ _('Close') }}</button>
-
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  {{ _('Close') }}
+          </a>
       </li>
     </ul>
   </nav>
@@ -723,6 +727,26 @@
 </script>
 {% block scripts %}
 {% endblock %}
+
+
+<!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ _('Exit') }}</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">{{ _('Select close if you want to leave the assignment.?') }}</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">{{ _('Cancel') }}</button>
+          <a class="btn btn-primary" href="{% url 'erp:logout' %}">{{ _('Close') }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
