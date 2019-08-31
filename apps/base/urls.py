@@ -11,6 +11,9 @@ from ..base.views import (
     UpdateBaseConfigView, UserCreateView, UserDetailView, UserListView,
     UserUpdateView)
 from .subviews.base_config import LoadData
+
+from .views import Apps
+
 from .subviews.cron import (
     CronCreateView, CronDetailView, CronListView, CronUpdateView, DeleteCron)
 from .subviews.currency import (
@@ -33,6 +36,8 @@ from .subviews.product_webcategory import (
 urlpatterns = [
     path('config/<int:pk>', UpdateBaseConfigView.as_view(), name='base-config'),
     path('load-data', LoadData, name='load-data'),
+    path('apps', Apps, name='apps'),
+
     path('users', UserListView.as_view(), name='users'),
     path('user/add/', UserCreateView.as_view(), name='user-add'),
     path('user/<int:pk>/', UserDetailView.as_view(), name='user-detail'),
