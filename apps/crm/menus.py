@@ -13,26 +13,26 @@ def profile_title(request):
     return "%s's Profile" % name
 
 """
-Menu.add_item("main", MenuItem("Accounts Index",
+# Menu.add_item("main", MenuItem("Accounts Index",
                                reverse("accounts.views.index")))
 """
 
 # this item will be shown to users who are not logged in
-Menu.add_item("user", MenuItem("Login",
+# Menu.add_item("user", MenuItem("Login",
                                reverse('django.contrib.auth.views.login'),
                                check=lambda request: not request.user.is_authenticated()))
 
 # this will only be shown to logged in users and also demonstrates how to use
 # a callable for the title to return a customized title for each request
-Menu.add_item("user", MenuItem(profile_title,
+# Menu.add_item("user", MenuItem(profile_title,
                                reverse('accounts.views.profile'),
                                check=lambda request: request.user.is_authenticated()))
-Menu.add_item("user", MenuItem("Logout",
+# Menu.add_item("user", MenuItem("Logout",
                                reverse('django.contrib.auth.views.logout'),
                                check=lambda request: request.user.is_authenticated()))
 
 # this only shows to superusers
-Menu.add_item("user", MenuItem("Admin",
+# Menu.add_item("user", MenuItem("Admin",
                                reverse("admin:index"),
                                separator=True,
                                check=lambda request: request.user.is_superuser))

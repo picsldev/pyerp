@@ -82,3 +82,15 @@ def currency_symbol(obj):
 @register.filter
 def currency_position(obj):
     return BaseConfig.objects.get(pk=1).main_company_id.currency_id.position
+
+
+@register.filter
+def get_app_list(obj):
+    apps = PyApp.objects.all().filter(installed=True).order_by('sequence')
+    # apps = PyApp.objects.all().order_by('sequence')
+    app_list = []
+    if apps:
+        for app in apps:
+            st = app.name + "/menu.html"
+            app_list.append(st.lower())
+    return app_list
