@@ -1,0 +1,31 @@
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="fa fa-file nav-icon"></i>
+      <p>
+        {{ _('Sale') }}
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+
+        <li class="nav-item">
+          <a href="{% url 'sale:sale-order' %}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Cotización</p>
+          </a>
+        </li>
+
+      <li class="nav-item">
+        <a href="{% url 'partners' %}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Clientes</p>
+        </a>
+      </li>
+      <li class="nav-item">
+          <a href="{% url 'products' %}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Productos</p>
+          </a>
+        </li>
+    </ul>
+  </li>

@@ -17,7 +17,7 @@ class AppView(LoginRequiredMixin, ListView):
     model = PyApp
     template_name = 'base/apps.html'
     fields = APP_FIELDS
-    paginate_by = 8
+    paginate_by = 80
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
