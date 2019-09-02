@@ -1,0 +1,1 @@
+urlpatterns.insert(0, path('crm/', include('apps.crm.urls')),)
