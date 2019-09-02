@@ -117,7 +117,7 @@ def DoChangePassword(self, pk, **kwargs):
 
 @login_required(login_url="/erp/login")
 def UpdateApps(self):
-    FILE_NAME ='info.json'
+    FILE_NAME ='py_info.json'
     folder_apps = 'apps'
     list_app = listdir(folder_apps)
     PyApp.objects.all().delete()
