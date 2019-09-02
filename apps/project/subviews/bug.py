@@ -22,8 +22,8 @@ BUG_FIELDS_SHORT = ['name','state','user_id','note']
 
 class BugListView(LoginRequiredMixin, ListView):
     model = PyBug
-    template_name = 'erp/list.html'
-    login_url = "/erp/login"
+    template_name = 'base/list.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(BugListView, self).get_context_data(**kwargs)
@@ -35,8 +35,8 @@ class BugListView(LoginRequiredMixin, ListView):
 
 class BugDetailView(LoginRequiredMixin, DetailView):
     model = PyBug
-    template_name = 'erp/detail.html'
-    login_url = "/erp/login"
+    template_name = 'base/detail.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(BugDetailView, self).get_context_data(**kwargs)
@@ -50,8 +50,8 @@ class BugDetailView(LoginRequiredMixin, DetailView):
 class BugCreateView(LoginRequiredMixin, CreateView):
     model = PyBug
     fields = BUG_FIELDS_SHORT
-    template_name = 'erp/form.html'
-    login_url = "/erp/login"
+    template_name = 'base/form.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(BugCreateView, self).get_context_data(**kwargs)
@@ -63,8 +63,8 @@ class BugCreateView(LoginRequiredMixin, CreateView):
 class BugUpdateView(LoginRequiredMixin, UpdateView):
     model = PyBug
     fields = BUG_FIELDS_SHORT
-    template_name = 'erp/form.html'
-    login_url = "/erp/login"
+    template_name = 'base/form.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(BugUpdateView, self).get_context_data(**kwargs)
@@ -74,7 +74,7 @@ class BugUpdateView(LoginRequiredMixin, UpdateView):
         return context
 
 
-@login_required(login_url="/erp/login")
+@login_required(login_url="/base/login")
 def DeleteBug(self, pk):
     bug = PyBug.objects.get(id=pk)
     bug.delete()

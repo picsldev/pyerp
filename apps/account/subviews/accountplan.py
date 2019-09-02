@@ -20,7 +20,7 @@ ACCOUNTPLAN_FIELDS_SHORT = ['code','name','type', 'reconcile']
 
 class AccountPlanListView(ListView):
     model = PyAccountPlan
-    template_name = 'erp/list.html'
+    template_name = 'base/list.html'
 
     def get_context_data(self, **kwargs):
         context = super(AccountPlanListView, self).get_context_data(**kwargs)
@@ -32,7 +32,7 @@ class AccountPlanListView(ListView):
 
 class AccountPlanDetailView(DetailView):
     model = PyAccountPlan
-    template_name = 'erp/detail.html'
+    template_name = 'base/detail.html'
     def get_context_data(self, **kwargs):
         context = super(AccountPlanDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
@@ -45,7 +45,7 @@ class AccountPlanDetailView(DetailView):
 class AccountPlanCreateView(CreateView):
     model = PyAccountPlan
     fields = ACCOUNTPLAN_FIELDS_SHORT
-    template_name = 'erp/form.html'
+    template_name = 'base/form.html'
 
     def get_context_data(self, **kwargs):
         context = super(AccountPlanCreateView, self).get_context_data(**kwargs)
@@ -57,7 +57,7 @@ class AccountPlanCreateView(CreateView):
 class AccountPlanUpdateView(UpdateView):
     model = PyAccountPlan
     fields = ACCOUNTPLAN_FIELDS_SHORT
-    template_name = 'erp/form.html'
+    template_name = 'base/form.html'
 
     def get_context_data(self, **kwargs):
         context = super(AccountPlanUpdateView, self).get_context_data(**kwargs)
@@ -67,7 +67,7 @@ class AccountPlanUpdateView(UpdateView):
         return context
 
 
-@login_required(login_url="/erp/login")
+@login_required(login_url="/base/login")
 def DeleteAccountPlan(self, pk):
     accountplan = PyAccountPlan.objects.get(id=pk)
     accountplan.delete()

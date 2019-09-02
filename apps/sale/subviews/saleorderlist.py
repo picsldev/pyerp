@@ -22,7 +22,7 @@ class SaleOrderListView(LoginRequiredMixin, ListView):
     """
     model = PySaleOrder
     template_name = 'saleorderlist.html'
-    login_url = "/erp/login"
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         """Definición de variables de contexto
