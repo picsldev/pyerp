@@ -8,4 +8,4 @@ from django.views.generic import TemplateView
 class LogOutModalView(TemplateView):
     """Lista de las ordenes de venta
     """
-    template_name = 'erp/logoutmodal.html'
+    template_name = 'base/logoutmodal.html'
