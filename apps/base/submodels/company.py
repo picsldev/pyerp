@@ -5,7 +5,7 @@ from django.urls import reverse
 # Librerias en carpetas locales
 from .currency import PyCurrency
 from .father import PyFather
-from .locations import PyComuna, PyCountry, PyRegion
+from .locations import PyCountry
 
 
 class PyCompany(PyFather):
@@ -16,10 +16,6 @@ class PyCompany(PyFather):
     phone = models.CharField(max_length=20, blank=True)
     email = models.EmailField(max_length=40, blank=True)
     giro = models.CharField(max_length=80, blank=True)
-
-    country_id = models.ForeignKey(PyCountry, null=True, blank=True, on_delete=models.CASCADE)
-    region_id = models.ForeignKey(PyRegion, null=True, blank=True, on_delete=models.CASCADE)
-    comuna_id = models.ForeignKey(PyComuna, null=True, blank=True, on_delete=models.CASCADE)
 
     currency_id = models.ForeignKey(PyCurrency, null=True, blank=True, on_delete=models.CASCADE)
 

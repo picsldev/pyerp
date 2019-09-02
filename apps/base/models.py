@@ -13,7 +13,7 @@ from .submodels.base_config import BaseConfig
 from .submodels.company import PyCompany
 from .submodels.cron import PyCron
 from .submodels.currency import PyCurrency
-from .submodels.locations import PyComuna, PyCountry, PyRegion
+from .submodels.locations import PyCountry
 from .submodels.log import PyLog
 from .submodels.partner import PyPartner
 from .submodels.product import PyProduct
