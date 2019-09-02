@@ -123,9 +123,9 @@ def UpdateApps(self):
     PyApp.objects.all().delete()
     for folder in list_app:
         try:
-            for file in listdir(folder_apps + "/" + folder):
+            for file in listdir(folder_apps + "/" + folder + "/py"):
                 if file == FILE_NAME:
-                    with open(folder_apps + "/" + folder + "/" + FILE_NAME) as json_file:
+                    with open(folder_apps + "/" + folder + "/py/" + FILE_NAME) as json_file:
                         data = json.load(json_file)
                         p = PyApp(name=data['name'], description=data['description'], author=data['author'],
                                   fa=data['fa'], version=data['version'],
