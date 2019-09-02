@@ -117,14 +117,15 @@ def DoChangePassword(self, pk, **kwargs):
 
 @login_required(login_url="/erp/login")
 def UpdateApps(self):
+    FILE_NAME ='info.json'
     folder_apps = 'apps'
     list_app = listdir(folder_apps)
     PyApp.objects.all().delete()
     for folder in list_app:
         try:
             for file in listdir(folder_apps + "/" + folder):
-                if file == 'info.py':
-                    with open(folder_apps + "/" + folder + '/info.json') as json_file:
+                if file == FILE_NAME:
+                    with open(folder_apps + "/" + folder + "/" + FILE_NAME) as json_file:
                         data = json.load(json_file)
                         p = PyApp(name=data['name'], description=data['description'], author=data['author'],
                                   fa=data['fa'], version=data['version'],
