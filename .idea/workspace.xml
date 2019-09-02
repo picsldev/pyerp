@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="014c403e-7c0f-4ced-83f4-8af9c6559750" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/account/subviews/accountmove.py" afterPath="$PROJECT_DIR$/apps/account/subviews/accountmove.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/account/subviews/accountplan.py" afterPath="$PROJECT_DIR$/apps/account/subviews/accountplan.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/marketing/subviews/campaign.py" afterPath="$PROJECT_DIR$/apps/marketing/subviews/campaign.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/marketing/subviews/channel.py" afterPath="$PROJECT_DIR$/apps/marketing/subviews/channel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/marketing/subviews/mform.py" afterPath="$PROJECT_DIR$/apps/marketing/subviews/mform.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/marketing/templates/marketing/menu.html" afterPath="$PROJECT_DIR$/apps/marketing/templates/marketing/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/payroll/subviews/department.py" afterPath="$PROJECT_DIR$/apps/payroll/subviews/department.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/payroll/subviews/employee.py" afterPath="$PROJECT_DIR$/apps/payroll/subviews/employee.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/pos/subviews/pos.py" afterPath="$PROJECT_DIR$/apps/pos/subviews/pos.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/project/subviews/bug.py" afterPath="$PROJECT_DIR$/apps/project/subviews/bug.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/project/subviews/project.py" afterPath="$PROJECT_DIR$/apps/project/subviews/project.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/project/subviews/task.py" afterPath="$PROJECT_DIR$/apps/project/subviews/task.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/sale/subviews/saleorderlist.py" afterPath="$PROJECT_DIR$/apps/sale/subviews/saleorderlist.py" />
-    </list>
+    <list default="true" id="014c403e-7c0f-4ced-83f4-8af9c6559750" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,49 +15,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="saleorderlist.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/sale/subviews/saleorderlist.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="saleorderdelete.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/sale/templates/saleorderdelete.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-181">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="saleorderform.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/sale/templates/saleorderform.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2787">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="saleorderlist.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/sale/templates/saleorderlist.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-681">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="saleordermodalform.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="saleordermodalform.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/sale/templates/saleordermodalform.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-486">
@@ -84,50 +27,90 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="saleorderdelete.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/sale/subviews/saleorderdelete.py">
+      <file leaf-file-name="menu.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/purchase/templates/purchase/menu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-322">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="saleorderdetailadd.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/sale/subviews/saleorderdetailadd.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/purchase/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-182">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="saleorderdetaildelete.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/sale/subviews/saleorderdetaildelete.py">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/purchase/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-270">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="saleorderdetailedit.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/sale/subviews/saleorderdetailedit.py">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/purchase/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-452">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="saleorderedit.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/sale/subviews/saleorderedit.py">
+      <file leaf-file-name="apps.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/purchase/apps.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-704">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/purchase/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/purchase/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="py_settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/purchase/py/py_settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="py_url.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/purchase/py/py_url.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -523,78 +506,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/crm/templates/crm/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/base/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/base/templates/base/apps.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/base/templates/base/change_password.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/base/templates/base/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/base/templates/base/erp_footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/base/templates/base/form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/base/templates/base/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/base/templates/base/ok.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/base/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -934,6 +845,78 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/purchase/templates/purchase/menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/purchase/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/purchase/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/purchase/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/purchase/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/purchase/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/purchase/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/purchase/py/py_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/purchase/py/py_url.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
