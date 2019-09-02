@@ -124,7 +124,7 @@ def UpdateApps(self):
         try:
             for file in listdir(folder_apps + "/" + folder):
                 if file == 'info.py':
-                    with open(folder_apps + "/" + folder + '/info.py') as json_file:
+                    with open(folder_apps + "/" + folder + '/info.json') as json_file:
                         data = json.load(json_file)
                         p = PyApp(name=data['name'], description=data['description'], author=data['author'],
                                   fa=data['fa'], version=data['version'],
