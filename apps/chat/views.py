@@ -6,7 +6,7 @@ from django.shortcuts import HttpResponse, render
 from .models import PyVisitor, PyChatHistory
 
 
-@login_required(login_url="/erp/login")
+@login_required(login_url="/base/login")
 def chat_home(request):
     return render(request, "pychat.html")
 

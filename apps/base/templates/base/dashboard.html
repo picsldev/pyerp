@@ -35,9 +35,9 @@
 <div class="wrapper">
 
 
-  {% include 'erp/navbar.html' %}
+  {% include 'base/navbar.html' %}
 
-  {% include 'erp/sidebar.html' %}
+  {% include 'base/sidebar.html' %}
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -68,7 +68,7 @@
 
     </style>
 
-    {% include "erp/erp_footer.html" %}
+    {% include "base/erp_footer.html" %}
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -183,7 +183,7 @@
         <div class="modal-body">{{ _('Select close if you want to leave the assignment.?') }}</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">{{ _('Cancel') }}</button>
-          <a class="btn btn-primary" href="{% url 'erp:logout' %}">{{ _('Close') }}</a>
+          <a class="btn btn-primary" href="{% url 'logout' %}">{{ _('Close') }}</a>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from os import listdir
 import json
 from .submodels.app import PyApp
+from ..base.models import PyPartner, PyProduct, PyApp
 
 # Librerias en carpetas locales
 from ..base.models import PyProduct, PyProductCategory
@@ -26,7 +27,7 @@ def Apps(request):
 
 class UserListView(ListView):
     model = User
-    template_name = 'erp/list.html'
+    template_name = 'base/list.html'
 
 
     def get_context_data(self, **kwargs):
@@ -45,7 +46,7 @@ class UserListView(ListView):
 
 class UserDetailView(DetailView):
     model = User
-    template_name = 'erp/detail.html'
+    template_name = 'base/detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
@@ -72,7 +73,7 @@ class UserDetailView(DetailView):
 class UserCreateView(CreateView):
     model = User
     fields = ['username', 'email', 'first_name', 'last_name', 'password']
-    template_name = 'erp/form.html'
+    template_name = 'base/form.html'
 
     def get_context_data(self, **kwargs):
         context = super(UserCreateView, self).get_context_data(**kwargs)
@@ -85,7 +86,7 @@ class UserCreateView(CreateView):
 class UserUpdateView(UpdateView):
     model = User
     fields = ['username', 'email', 'first_name', 'last_name']
-    template_name = 'erp/form.html'
+    template_name = 'base/form.html'
 
     def get_context_data(self, **kwargs):
         context = super(UserUpdateView, self).get_context_data(**kwargs)
@@ -95,7 +96,7 @@ class UserUpdateView(UpdateView):
         return context
 
 
-@login_required(login_url="/erp/login")
+@login_required(login_url="/base/login")
 def DeleteUser(self, pk):
     user = User.objects.get(id=pk)
     user.delete()
@@ -103,7 +104,7 @@ def DeleteUser(self, pk):
 
 
 def ChangePasswordForm(self, pk):
-    return render(self, 'erp/change_password.html', {'pk': pk})
+    return render(self, 'base/change_password.html', {'pk': pk})
 
 
 def DoChangePassword(self, pk, **kwargs):
@@ -111,11 +112,11 @@ def DoChangePassword(self, pk, **kwargs):
     if user and self.POST['new_password1'] == self.POST['new_password2']:
         user.set_password(self.POST['new_password1'])
     else:
-        return render(self, 'erp/change_password.html', {'pk': pk, 'error': 'Las contraseñas no coinciden.'})
+        return render(self, 'base/change_password.html', {'pk': pk, 'error': 'Las contraseñas no coinciden.'})
     return redirect(reverse('user-detail', kwargs={'pk': pk}))
 
 
-@login_required(login_url="/erp/login")
+@login_required(login_url="/base/login")
 def UpdateApps(self):
     FILE_NAME ='py_info.json'
     folder_apps = 'apps'
@@ -138,7 +139,7 @@ def UpdateApps(self):
     return redirect(reverse('apps'))
 
 
-@login_required(login_url="/erp/login")
+@login_required(login_url="/base/login")
 def InstallApps(self, pk):
     app = PyApp.objects.get(id=pk)
     app.installed = True
@@ -146,9 +147,35 @@ def InstallApps(self, pk):
     return redirect(reverse('apps'))
 
 
-@login_required(login_url="/erp/login")
+@login_required(login_url="/base/login")
 def UninstallApps(self, pk):
     app = PyApp.objects.get(id=pk)
     app.installed = False
     app.save()
     return redirect(reverse('apps'))
+
+@login_required(login_url="/base/login")
+def erp_home(request):
+    """Vista para renderizar el dasboard del erp
+    """
+
+    count_app = PyApp.objects.all().count()
+
+
+    apps = PyApp.objects.all().filter(installed=True).order_by('sequence')
+    # apps = PyApp.objects.all().order_by('sequence')
+    app_list = []
+    if apps:
+        for app in apps:
+            st = app.name + "/menu.html"
+            app_list.append(st.lower())
+
+    partners = PyPartner.objects.all()
+    return render(request, "home.html", {
+        'customers': partners.filter(customer=True),
+        'providers': partners.filter(provider=True),
+        'users': User.objects.all(),
+        'products': PyProduct.objects.all(),
+        'app_list' : app_list,
+        'count_app' : count_app
+    })
