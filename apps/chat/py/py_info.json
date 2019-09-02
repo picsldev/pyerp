@@ -10,6 +10,7 @@
 	"external_dependencies":"",
 	"type":"public",
 	"color":"bg-success",
-	"fa":"fa-comments"
+	"fa":"fa-comments",
+	"sequence":"10"
 
 }

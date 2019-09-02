@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'apps.chat',
     'apps.marketing',
     'apps.project',
+    'apps.purchase',
 
     # Third-Party Apps
     'dal',

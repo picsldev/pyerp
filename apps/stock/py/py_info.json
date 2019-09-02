@@ -10,6 +10,7 @@
 	"external_dependencies":"",
 	"type":"public",
 	"color":"bg-teal",
-	"fa":"fa-cube"
+	"fa":"fa-cube",
+	"sequence":"4"
 
 }

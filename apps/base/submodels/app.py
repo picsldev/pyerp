@@ -15,6 +15,7 @@ class PyApp(PyFather):
     color = models.CharField(_("Color"), blank=True, null=True, max_length=20)
     fa = models.CharField(_("Icon"), blank=True, null=True, max_length=20)
     version = models.CharField(_("Version"), blank=True, null=True, max_length=20)
+    sequence = models.IntegerField(_("Sequence"), default=100)
 
 
     def get_absolute_url(self):

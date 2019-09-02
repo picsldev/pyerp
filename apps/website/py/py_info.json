@@ -10,6 +10,7 @@
 	"external_dependencies":"",
 	"type":"public",
 	"color":"bg-yellow",
-	"fa":"fa-cloud"
+	"fa":"fa-cloud",
+	"sequence":"8",
 
 }
