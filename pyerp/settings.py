@@ -64,8 +64,6 @@ INSTALLED_APPS = [
     'dal',
     'dal_select2',
     'bootstrap4',
-
-    # django-simple-menu
     'menu',
 ]
 

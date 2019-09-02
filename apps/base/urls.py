@@ -12,6 +12,9 @@ from ..base.views import (
     UserUpdateView, UpdateApps, InstallApps, UninstallApps)
 
 
+from .subviews.country import CountryListView, CountryDetailView, CountryCreateView, CountryUpdateView, DeleteCountry
+
+
 from .subviews.app import AppView
 from .subviews.base_config import LoadData
 
@@ -57,6 +60,13 @@ urlpatterns = [
     path('product/<int:pk>/', ProductDetailView.as_view(), name='product-detail'),
     path('Product/<int:pk>/update', ProductUpdateView.as_view(), name='product-update'),
     path('Product/<int:pk>/delete/', DeleteProduct, name='product-delete'),
+
+
+    path('countries', CountryListView.as_view(), name='countries'),
+    path('country/add/', CountryCreateView.as_view(), name='country-add'),
+    path('country/<int:pk>/', CountryDetailView.as_view(), name='country-detail'),
+    path('country/<int:pk>/update', CountryUpdateView.as_view(), name='country-update'),
+    path('country/<int:pk>/delete/', DeleteCountry, name='country-delete'),
 
     path('companies', CompanyListView.as_view(), name='companies'),
     path('company/add/', CompanyCreateView.as_view(), name='company-add'),

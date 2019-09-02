@@ -5,7 +5,7 @@ from django.urls import reverse
 # Librerias en carpetas locales
 from .currency import PyCurrency
 from .father import PyFather
-from .locations import PyCountry
+from .country import PyCountry
 
 
 class PyCompany(PyFather):
