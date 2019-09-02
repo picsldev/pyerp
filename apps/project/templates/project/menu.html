@@ -1,31 +1,31 @@
-<li class="nav-item has-treeview" >
+<li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="fa fa-tasks nav-icon"></i>
+      <i class="fa fa-folder nav-icon"></i>
       <p>
-        CRM
+        {{ _('Project') }}
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
     <ul class="nav nav-treeview">
-        <li class="nav-item">
-        <a href="{% url 'dashboard-crm'  %}" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>Tablero</p>
-        </a>
-      </li>
-
       <li class="nav-item">
-        <a href="{% url 'lead'  %}" class="nav-link">
+        <a href="{% url 'task' %}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>Oportunidades</p>
+          <p>Tareas</p>
         </a>
       </li>
 
         <li class="nav-item">
-        <a href="{% url 'stage'  %}" class="nav-link">
+        <a href="{% url 'project' %}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>Etapas</p>
+          <p>Proyectos</p>
+        </a>
+      </li>
+
+        <li class="nav-item">
+        <a href="{% url 'bug' %}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Errores</p>
         </a>
       </li>
     </ul>
-</li>
+  </li>
