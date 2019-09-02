@@ -4,4 +4,5 @@
 *.sqlite3
 localsettings.py
 /static/
+__pycache__
 .idea/
