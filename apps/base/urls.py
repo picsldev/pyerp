@@ -9,8 +9,9 @@ from ..base.views import (
     DeleteUser, DoChangePassword, PartnerAutoComplete, PartnerCreateView,
     PartnerDetailView, PartnerUpdateView, ProviderListView,
     UpdateBaseConfigView, UserCreateView, UserDetailView, UserListView,
-    UserUpdateView, UpdateApps, InstallApps, UninstallApps)
+    UserUpdateView, UpdateApps, InstallApps, UninstallApps, )
 
+from ..base.views import erp_home
 
 from .subviews.country import CountryListView, CountryDetailView, CountryCreateView, CountryUpdateView, DeleteCountry
 
@@ -36,8 +37,21 @@ from .subviews.product_webcategory import (
     DeleteProductWebCategory, ProductWebCategoryCreateView,
     ProductWebCategoryDetailView, ProductWebCategoryListView,
     ProductWebCategoryUpdateView)
+from .subviews.logoutmodal import LogOutModalView
 
 urlpatterns = [
+    path('', erp_home, name='home'),
+    path(
+        'login/',
+        auth_views.LoginView.as_view(template_name='login.html'),
+        name='login'
+    ),
+    path(
+        'logout/',
+        auth_views.LogoutView.as_view(template_name='base/login.html'),
+        name='logout'
+    ),
+    path('logoutmodal/', LogOutModalView.as_view(), name='logout-modal'),
     path('config/<int:pk>', UpdateBaseConfigView.as_view(), name='base-config'),
     path('load-data', LoadData, name='load-data'),
 

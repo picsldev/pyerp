@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Local Apps
-    'apps.erp',
     'apps.home',
     'apps.base',
     'apps.sale',

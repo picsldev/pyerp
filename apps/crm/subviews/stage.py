@@ -21,8 +21,8 @@ STAGE_FIELDS_SHORT = ['name']
 
 class StageListView(LoginRequiredMixin, ListView):
     model = PyStage
-    template_name = 'erp/list.html'
-    login_url = "/erp/login"
+    template_name = 'base/list.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(StageListView, self).get_context_data(**kwargs)
@@ -34,8 +34,8 @@ class StageListView(LoginRequiredMixin, ListView):
 
 class StageDetailView(LoginRequiredMixin, DetailView):
     model = PyStage
-    template_name = 'erp/detail.html'
-    login_url = "/erp/login"
+    template_name = 'base/detail.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(StageDetailView, self).get_context_data(**kwargs)
@@ -49,8 +49,8 @@ class StageDetailView(LoginRequiredMixin, DetailView):
 class StageCreateView(LoginRequiredMixin, CreateView):
     model = PyStage
     fields = STAGE_FIELDS_SHORT
-    template_name = 'erp/form.html'
-    login_url = "/erp/login"
+    template_name = 'base/form.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(StageCreateView, self).get_context_data(**kwargs)
@@ -62,8 +62,8 @@ class StageCreateView(LoginRequiredMixin, CreateView):
 class StageUpdateView(LoginRequiredMixin, UpdateView):
     model = PyStage
     fields = STAGE_FIELDS_SHORT
-    template_name = 'erp/form.html'
-    login_url = "/erp/login"
+    template_name = 'base/form.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(StageUpdateView, self).get_context_data(**kwargs)
@@ -73,7 +73,7 @@ class StageUpdateView(LoginRequiredMixin, UpdateView):
         return context
 
 
-@login_required(login_url="/erp/login")
+@login_required(login_url="/base/login")
 def DeleteStage(self, pk):
     lead = PyStage.objects.get(id=pk)
     lead.delete()
