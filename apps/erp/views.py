@@ -14,7 +14,7 @@ from .subviews.logoutmodal import LogOutModalView
 def erp_home(request):
     """Vista para renderizar el dasboard del erp
     """
-    apps = PyApp.objects.all().filter(installed=True)
+    apps = PyApp.objects.all().filter(installed=True).order_by('sequence')
     app_list = []
     if apps:
         for app in apps:

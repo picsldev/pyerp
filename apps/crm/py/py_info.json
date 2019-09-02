@@ -10,6 +10,7 @@
 	"external_dependencies":"",
 	"type":"public",
 	"color":"bg-danger",
-	"fa":"fa-tasks"
+	"fa":"fa-tasks",
+	"sequence":"1"
 
 }
