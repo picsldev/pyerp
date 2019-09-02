@@ -143,6 +143,9 @@ def InstallApps(self, pk):
     app = PyApp.objects.get(id=pk)
     app.installed = True
     app.save()
+    # Insertamos en el settings el módulo
+    f = open(".../pyerp/settings.py", "+")
+
     return redirect(reverse('apps'))
 
 
