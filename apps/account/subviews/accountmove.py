@@ -19,7 +19,7 @@ ACCOUNTMOVE_FIELDS_SHORT = ['code','name','state']
 
 class AccountMoveListView(ListView):
     model = PyAccountMove
-    template_name = 'erp/list.html'
+    template_name = 'base/list.html'
 
     def get_context_data(self, **kwargs):
         context = super(AccountMoveListView, self).get_context_data(**kwargs)
@@ -31,7 +31,7 @@ class AccountMoveListView(ListView):
 
 class AccountMoveDetailView(DetailView):
     model = PyAccountMove
-    template_name = 'erp/detail.html'
+    template_name = 'base/detail.html'
     def get_context_data(self, **kwargs):
         context = super(AccountMoveDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
@@ -44,7 +44,7 @@ class AccountMoveDetailView(DetailView):
 class AccountMoveCreateView(CreateView):
     model = PyAccountMove
     fields = ACCOUNTMOVE_FIELDS_SHORT
-    template_name = 'erp/form.html'
+    template_name = 'base/form.html'
 
     def get_context_data(self, **kwargs):
         context = super(AccountMoveCreateView, self).get_context_data(**kwargs)
@@ -56,7 +56,7 @@ class AccountMoveCreateView(CreateView):
 class AccountMoveUpdateView(UpdateView):
     model = PyAccountMove
     fields = ACCOUNTMOVE_FIELDS_SHORT
-    template_name = 'erp/form.html'
+    template_name = 'base/form.html'
 
     def get_context_data(self, **kwargs):
         context = super(AccountMoveUpdateView, self).get_context_data(**kwargs)
@@ -66,7 +66,7 @@ class AccountMoveUpdateView(UpdateView):
         return context
 
 
-@login_required(login_url="/erp/login")
+@login_required(login_url="/base/login")
 def DeleteAccountMove(self, pk):
     accountmove = PyAccountMove.objects.get(id=pk)
     accountmove.delete()

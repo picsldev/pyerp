@@ -25,7 +25,7 @@ EMPLEOYEE_FIELDS_SHORT = ['name', 'name2', 'email', 'first_name', 'last_name', '
 class EmployeeListView(LoginRequiredMixin, ListView):
     model = PyEmployee
     template_name = 'erp/list.html'
-    login_url = "/erp/login"
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeListView, self).get_context_data(**kwargs)
@@ -38,8 +38,8 @@ class EmployeeListView(LoginRequiredMixin, ListView):
 
 class EmployeeDetailView(LoginRequiredMixin, DetailView):
     model = PyEmployee
-    template_name = 'erp/detail.html'
-    login_url = "/erp/login"
+    template_name = 'base/detail.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeDetailView, self).get_context_data(**kwargs)
@@ -54,8 +54,8 @@ class EmployeeDetailView(LoginRequiredMixin, DetailView):
 class EmployeeCreateView(LoginRequiredMixin, CreateView):
     model = PyEmployee
     fields = EMPLEOYEE_FIELDS_SHORT
-    template_name = 'erp/form.html'
-    login_url = "/erp/login"
+    template_name = 'base/form.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeCreateView, self).get_context_data(**kwargs)
@@ -68,8 +68,8 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
 class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
     model = PyEmployee
     fields = EMPLEOYEE_FIELDS_SHORT
-    template_name = 'erp/form.html'
-    login_url = "/erp/login"
+    template_name = 'base/form.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeUpdateView, self).get_context_data(**kwargs)
@@ -79,11 +79,8 @@ class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
         return context
 
 
-@login_required(login_url="/erp/login")
+@login_required(login_url="/base/login")
 def DeleteEmployee(self, pk):
     employee = PyEmployee.objects.get(id=pk)
     employee.delete()
     return redirect(reverse('employee'))
-
-
-""" END EMPLEOYEE """

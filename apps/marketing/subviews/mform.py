@@ -26,8 +26,8 @@ MFORM_FIELDS_SHORT = ['name','campaign_id']
 
 class MformListView(LoginRequiredMixin, ListView):
     model = PyMform
-    template_name = 'erp/list.html'
-    login_url = "/erp/login"
+    template_name = 'base/list.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(MformListView, self).get_context_data(**kwargs)
@@ -39,7 +39,7 @@ class MformListView(LoginRequiredMixin, ListView):
 
 class MformDetailView(LoginRequiredMixin, DetailView):
     model = PyMform
-    template_name = 'erp/detail.html'
+    template_name = 'base/detail.html'
     def get_context_data(self, **kwargs):
         context = super(MformDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].name
@@ -52,8 +52,8 @@ class MformDetailView(LoginRequiredMixin, DetailView):
 class MformCreateView(LoginRequiredMixin, CreateView):
     model = PyMform
     fields = MFORM_FIELDS_SHORT
-    template_name = 'erp/form.html'
-    login_url = "/erp/login"
+    template_name = 'base/form.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(MformCreateView, self).get_context_data(**kwargs)
@@ -65,8 +65,8 @@ class MformCreateView(LoginRequiredMixin, CreateView):
 class MformUpdateView(LoginRequiredMixin, UpdateView):
     model = PyMform
     fields = MFORM_FIELDS_SHORT
-    template_name = 'erp/form.html'
-    login_url = "/erp/login"
+    template_name = 'base/form.html'
+    login_url = "/base/login"
 
     def get_context_data(self, **kwargs):
         context = super(MformUpdateView, self).get_context_data(**kwargs)
@@ -76,7 +76,7 @@ class MformUpdateView(LoginRequiredMixin, UpdateView):
         return context
 
 
-@login_required(login_url="/erp/login")
+@login_required(login_url="/base/login")
 def DeleteMform(self, pk):
     mform = PyMform.objects.get(id=pk)
     mform.delete()
