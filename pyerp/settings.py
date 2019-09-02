@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'apps.sale',
     'apps.account',
     'apps.crm',
+    'apps.stock',
     'apps.website',
     'apps.payroll',
     'apps.pos',
@@ -157,20 +158,8 @@ MEDIA_ROOT = 'media'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
-# STATIC_ROOT = '/home/gvizquel/pyerp/staticfiles'
-
-try:
-    from .localsettings import *
-except ImportError:
-    import logging
-    logging.getLogger(__name__).warning('localsettings.py no encontrado')
-
-
-
 LOGIN_REDIRECT_URL = '/erp'
 LOGOUT_REDIRECT_URL = '/erp/login/'
-
-
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
@@ -180,3 +169,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
 )
+
+try:
+    from .localsettings import *
+except ImportError:
+    import logging
+    logging.getLogger(__name__).warning('localsettings.py no encontrado')
