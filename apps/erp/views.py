@@ -14,6 +14,10 @@ from .subviews.logoutmodal import LogOutModalView
 def erp_home(request):
     """Vista para renderizar el dasboard del erp
     """
+
+    count_app = PyApp.objects.all().count()
+
+
     apps = PyApp.objects.all().filter(installed=True).order_by('sequence')
     app_list = []
     if apps:
@@ -27,5 +31,6 @@ def erp_home(request):
         'providers': partners.filter(provider=True),
         'users': User.objects.all(),
         'products': PyProduct.objects.all(),
-        'app_list' : app_list
+        'app_list' : app_list,
+        'count_app' : count_app
     })

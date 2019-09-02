@@ -4,6 +4,7 @@ from django import template
 # Librerias en carpetas locales
 from ...base.models import BaseConfig
 from ...website.models import WebsiteConfig
+from ...base.submodels.app import PyApp
 
 register = template.Library()
 
