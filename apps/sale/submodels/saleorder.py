@@ -5,9 +5,8 @@ from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
 
 # Librerias de terceros
-from apps.base.submodels.father import PyFather
-from apps.base.submodels.partner import PyPartner
-from apps.base.submodels.product import PyProduct
+from apps.base.models import PyFather, PyPartner, PyProduct
+
 
 SALE_STATE = (
         ("draft", "Borrador"),

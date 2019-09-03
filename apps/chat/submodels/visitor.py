@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 import datetime
 
 # Librerias en carpetas locales
-from ...base.submodels.father import PyFather
+from apps.base.models import PyFather
 
 
 # Tabla de Departamentos

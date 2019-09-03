@@ -27,12 +27,10 @@ LEAD_FIELDS_VIEW = [
             {'string': 'Vendedor', 'field': 'user_id'},
             {'string': 'Ingreso', 'field': 'income'},
             {'string': 'Etapa', 'field': 'stage_id'},
-            {'string': 'Canal', 'field': 'channel_id'},
-            {'string': 'Campaña', 'field': 'campaign_id'},
             {'string': 'Contenido', 'field': 'content'},
         ]
 
-LEAD_FIELDS_SHORT = ['name','partner_id','user_id','income','stage_id','channel_id','campaign_id','content']
+LEAD_FIELDS_SHORT = ['name','partner_id','user_id','income','stage_id','content']
 
 
 class LeadListView(LoginRequiredMixin, ListView):

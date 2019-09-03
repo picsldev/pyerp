@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 
 # Librerias en carpetas locales
-from ...base.submodels.father import PyFather
+from apps.base.models import PyFather
 
 
 class PyPost(PyFather):

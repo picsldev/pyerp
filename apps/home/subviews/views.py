@@ -8,8 +8,7 @@ from django.template.loader import render_to_string
 from django.views.generic import DetailView, ListView
 
 # Librerias de terceros
-from apps.base.submodels.partner import PyPartner
-from apps.base.submodels.product import PyProduct
+from apps.base.models import PyPartner, PyProduct
 from apps.crm.submodels.lead import PyLead
 from apps.website.submodels.post import PyPost
 

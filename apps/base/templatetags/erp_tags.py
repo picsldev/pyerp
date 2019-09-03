@@ -2,9 +2,8 @@
 from django import template
 
 # Librerias en carpetas locales
-from ...base.models import BaseConfig
-from ...website.models import WebsiteConfig
-from ...base.submodels.app import PyApp
+from ..models import BaseConfig, PyApp
+from apps.website.models import WebsiteConfig
 
 register = template.Library()
 
@@ -28,25 +27,31 @@ def get_company_name(obj):
 def get_company_email(obj):
     return BaseConfig.objects.get(pk=1).main_company_id.email
 
+
 @register.filter
 def get_company_slogan(obj):
     return BaseConfig.objects.get(pk=1).main_company_id.slogan
+
 
 @register.filter
 def get_company_rut(obj):
     return BaseConfig.objects.get(pk=1).main_company_id.rut
 
+
 @register.filter
 def get_company_facebook(obj):
     return BaseConfig.objects.get(pk=1).main_company_id.social_facebook
+
 
 @register.filter
 def get_company_instagram(obj):
     return BaseConfig.objects.get(pk=1).main_company_id.social_instagram
 
+
 @register.filter
 def get_company_linkedin(obj):
     return BaseConfig.objects.get(pk=1).main_company_id.social_linkedin
+
 
 @register.filter
 def get_sidebar_collapse(obj):
@@ -58,26 +63,31 @@ def get_sidebar_collapse(obj):
 def web_show_blog(obj):
     return WebsiteConfig.objects.get(pk=1).show_blog
 
+
 @register.filter
 def web_show_price(obj):
     return WebsiteConfig.objects.get(pk=1).show_price
+
 
 @register.filter
 def web_chat(obj):
     return WebsiteConfig.objects.get(pk=1).show_chat
 
+
 @register.filter
 def web_show_shop(obj):
     return WebsiteConfig.objects.get(pk=1).show_shop
+
 
 @register.filter
 def web_under_construction(obj):
     return WebsiteConfig.objects.get(pk=1).under_construction
 
-# Moneda
+
 @register.filter
 def currency_symbol(obj):
     return BaseConfig.objects.get(pk=1).main_company_id.currency_id.symbol
+
 
 @register.filter
 def currency_position(obj):
@@ -87,10 +97,4 @@ def currency_position(obj):
 @register.filter
 def get_app_list(obj):
     apps = PyApp.objects.all().filter(installed=True).order_by('sequence')
-    # apps = PyApp.objects.all().order_by('sequence')
-    app_list = []
-    if apps:
-        for app in apps:
-            st = app.name + "/menu.html"
-            app_list.append(st.lower())
-    return app_list
+    return [app.name.lower() + "/menu.html" for app in apps]
