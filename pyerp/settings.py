@@ -52,22 +52,26 @@ INSTALLED_APPS = [
     'apps.home',
     'apps.base',
     'apps.sale',
-    'apps.account',
+    # 'apps.account',
     'apps.crm',
-    'apps.stock',
+    # 'apps.stock',
     'apps.website',
-    'apps.payroll',
-    'apps.pos',
-    'apps.chat',
+    # 'apps.payroll',
+    # 'apps.pos',
+    # 'apps.chat',
     'apps.marketing',
-    'apps.project',
-    'apps.purchase',
+    # 'apps.project',
+    # 'apps.purchase',
 
     # Third-Party Apps
     'dal',
     'dal_select2',
     'bootstrap4',
 ]
+
+with open('installed_apps.py', 'r') as ins_apps_file:
+    for line in ins_apps_file.readlines():
+        INSTALLED_APPS += [line.strip()]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
