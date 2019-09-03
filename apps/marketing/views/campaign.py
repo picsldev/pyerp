@@ -9,7 +9,7 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 # Librerias en carpetas locales
-from ..submodels.campaign import PyCampaign
+from ..models import PyCampaign
 
 CAMPAIGN_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},

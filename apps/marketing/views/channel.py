@@ -9,7 +9,7 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 # Librerias en carpetas locales
-from ..submodels.channel import PyChannel
+from ..models import PyChannel
 
 CHANNEL_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},

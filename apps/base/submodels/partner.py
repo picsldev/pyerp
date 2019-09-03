@@ -4,12 +4,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
-# Librerias de terceros
-from dal import autocomplete
-
 # Librerias en carpetas locales
-# from ...marketing.submodels.campaign import PyCampaign
-# from ...marketing.submodels.channel import PyChannel
 from .father import PyFather
 
 
@@ -26,9 +21,6 @@ class PyPartner(PyFather):
     note = models.TextField(blank=True, null=True)
 
     not_email = models.BooleanField('No Email', default=False)
-
-    # channel_id = models.ForeignKey(PyChannel, null=True, blank=True, on_delete=models.CASCADE)
-    # campaign_id = models.ForeignKey(PyCampaign, null=True, blank=True, on_delete=models.CASCADE)
 
     created_by = models.ForeignKey(
         User, related_name='pypartner_created_by',

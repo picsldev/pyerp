@@ -9,7 +9,7 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 # Librerias en carpetas locales
-from ..submodels.mform import PyMform
+from ..models import PyMform
 
 MFORM_FIELDS = [
             {'string': 'Nombre', 'field': 'name'},
