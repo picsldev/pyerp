@@ -1,6 +1,6 @@
 from django.db import models
 
-from ...base.submodels.partner import PyPartner
+from apps.base.models import PyPartner
 from .campaign import PyCampaign
 from .channel import PyChannel
 

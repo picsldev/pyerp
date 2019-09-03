@@ -5,8 +5,7 @@ from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
 # Librerias en carpetas locales
-from ...base.models import PyPartner
-from ...base.submodels.father import PyFather
+from apps.base.models import PyFather, PyPartner
 from .stage import PyStage
 
 
