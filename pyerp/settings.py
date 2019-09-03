@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     'apps.crm',
     'apps.website',
     'apps.marketing',
-    'apps.pos',
 
     # Third-Party Apps
     'dal',
