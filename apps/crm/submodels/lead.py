@@ -7,8 +7,8 @@ from django.utils.translation import ugettext_lazy as _
 # Librerias en carpetas locales
 from ...base.models import PyPartner
 from ...base.submodels.father import PyFather
-from ...marketing.submodels.campaign import PyCampaign
-from ...marketing.submodels.channel import PyChannel
+# from ...marketing.submodels.campaign import PyCampaign
+# from ...marketing.submodels.channel import PyChannel
 from .stage import PyStage
 
 
@@ -19,8 +19,8 @@ class PyLead(PyFather):
     stage_id = models.ForeignKey(PyStage, null=True, blank=True, on_delete=models.CASCADE)
     income = models.DecimalField('Ingreso', max_digits=10, decimal_places=2, default=0)
 
-    channel_id = models.ForeignKey(PyChannel, null=True, blank=True, on_delete=models.CASCADE)
-    campaign_id = models.ForeignKey(PyCampaign, null=True, blank=True, on_delete=models.CASCADE)
+    # channel_id = models.ForeignKey(PyChannel, null=True, blank=True, on_delete=models.CASCADE)
+    # campaign_id = models.ForeignKey(PyCampaign, null=True, blank=True, on_delete=models.CASCADE)
     content = models.TextField(null=True, blank=True)
 
 
