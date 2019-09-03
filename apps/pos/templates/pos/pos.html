@@ -10,13 +10,100 @@
   <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="{% static '/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
   <link href="{% static '/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="{% static '.' %}/dist/favicon.png" type="image/x-icon"/>
+  <link rel="stylesheet" href="{% static '/css/django.css' %}">
 
 </head>
- <body>
+ <body class="django-background">
   
-  <div class="container">
-       <h1>POS</h1>    
+  <div class="my-container">
+       <div class="row">
+           <div class="col-sm-4 sql ">
+               <div class="sql-inter">
+                    <div class="sql-inter-sup" style="margin : 10px;">
+                        <a class="btn btn-primary" href="">1</a>
+                        <a class="btn btn-primary" href="">2</a>
+                        <a class="btn btn-primary" href="">3</a>
+
+                        <a class="btn btn-danger" href="">+</a>
+                        <a class="btn btn-danger" href="">-</a>
+
+
+                    </div>
+                    <div class="sql-inter-dow">
+
+                    </div>
+               </div>
+
+           </div>
+           <div class="col-sm-8 sql">
+                <div class="sql-inter">
+                    <div class="sql-inter-sup">
+                        <a class="btn btn-primary" href="">HOME</a>
+                        <a class="btn btn-primary" href="">LIQ</a>
+                        <a class="btn btn-primary" href="">DRINK</a>
+
+                        <div class="input-group stylish-input-group" style="margin-top:10px;">
+                          <input type="text" id="searchProd" class="form-control" placeholder="Search">
+                          <span class="input-group-addon">
+                        </div>
+
+                    </div>
+                    <div class="sql-inter-dow">
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                        <div class="product django-background"></div>
+                    </div>
+
+               </div>
+           </div>
+       </div>
   </div>
+
+  <style>
+    .sql{
+
+      }
+      .sql-inter{
+        margin-top:10px;
+        background-color:#ECF0F1;
+        min-height: 900px;
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+      }
+
+      .sql-inter-sup{
+        min-height: 90px;
+        padding : 10px;
+      }
+
+      .sql-inter-dow{
+        padding : 10px;
+      }
+
+      .product{
+            width: 120px;
+            height: 120px;
+            float:left;
+            margin : 3px;
+      }
+
+
+  </style>
        
     <script src="{% static '/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
