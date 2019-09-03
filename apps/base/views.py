@@ -149,7 +149,7 @@ def InstallApps(self, pk):
     path = os.environ.get('PWD')
     with open('%s/installed_apps.py' % path, 'a+') as installed_apps_file:
         installed_apps_file.write('apps.%s\n' % app.name.lower())
-    Path('%s/pyerp/wsgi.py' % path).touch()
+    # Path('%s/pyerp/wsgi.py' % path).touch()
     return redirect(reverse('apps'))
 
 
@@ -167,7 +167,7 @@ def UninstallApps(self, pk):
             if 'apps.%s' % app.name.lower() == line.strip():
                 continue
             installed_apps_file.write(line)
-    Path('%s/pyerp/wsgi.py' % path).touch()
+    # Path('%s/pyerp/wsgi.py' % path).touch()
     return redirect(reverse('apps'))
 
 @login_required(login_url="/base/login")
