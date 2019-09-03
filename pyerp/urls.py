@@ -26,7 +26,7 @@ urlpatterns = [
 ]
 
 
-with open('installed_apps.py', 'r') as ins_apps_file:
+with open('/home/django/pyerp/installed_apps.py', 'r') as ins_apps_file:
     for line in ins_apps_file.readlines():
         app, _ = line.split('.')
         urlpatterns += [path('%s/' % app, include('%s.urls' % line.strip()))]
