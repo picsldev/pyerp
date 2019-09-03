@@ -161,7 +161,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 LOGIN_REDIRECT_URL = '/erp'
 LOGOUT_REDIRECT_URL = '/erp/login/'
 TEMPLATE_CONTEXT_PROCESSORS = (
