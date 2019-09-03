@@ -3,13 +3,13 @@ from django.contrib.auth import views as auth_views
 from django.urls import path
 
 # Librerias en carpetas locales
-from .subviews.campaign import (
+from .views import (
     CampaignCreateView, CampaignDetailView, CampaignListView,
     CampaignUpdateView, DeleteCampaign)
-from .subviews.channel import (
+from .views import (
     ChannelCreateView, ChannelDetailView, ChannelListView, ChannelUpdateView,
     DeleteChannel)
-from .subviews.mform import (
+from .views import (
     DeleteMform, MformCreateView, MformDetailView, MformListView,
     MformUpdateView)
 
