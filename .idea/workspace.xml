@@ -2,7 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="014c403e-7c0f-4ced-83f4-8af9c6559750" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/account/py/py_info.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/account/py/py_settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/account/py/py_url.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/chat/py/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/chat/py/py_info.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/chat/py/py_settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/chat/py/py_url.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/crm/py/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/crm/py/py_info.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/crm/py/py_settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/crm/py/py_url.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/marketing/py/py_info.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/marketing/py/py_settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/marketing/py/py_url.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/payroll/py/py_info.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/payroll/py/py_settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/payroll/py/py_url.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/pos/py/py_info.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/pos/py/py_settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/pos/py/py_url.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/project/py/py_info.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/project/py/py_settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/project/py/py_url.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/purchase/py/py_info.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/purchase/py/py_settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/purchase/py/py_url.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/sale/py/py_info.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/sale/py/py_settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/sale/py/py_url.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/stock/py/py_info.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/stock/py/py_settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/stock/py/py_url.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/website/py/py_info.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/website/py/py_settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/website/py/py_url.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/base/views.py" afterPath="$PROJECT_DIR$/apps/base/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,32 +53,20 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/base/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="160" column="0" lean-forward="true" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
-              <folding>
-                <element signature="e#19#63#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/chat/templates/chat/menu.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="189">
+              <caret line="130" column="62" lean-forward="false" selection-start-line="130" selection-start-column="62" selection-end-line="130" selection-end-column="62" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pyerp/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1116">
+            <state relative-caret-position="428">
               <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
               <folding />
             </state>
@@ -71,6 +95,7 @@
       <find>erp/</find>
       <find>chat</find>
       <find>erp</find>
+      <find>/py</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/apps/base/templates</dir>
@@ -104,7 +129,6 @@
         <option value="$PROJECT_DIR$/apps/home/templates/index.html" />
         <option value="$PROJECT_DIR$/apps/base/templates/base/dashboard.html" />
         <option value="$PROJECT_DIR$/apps/crm/templates/crm/dashboard-crm.html" />
-        <option value="$PROJECT_DIR$/apps/base/views.py" />
         <option value="$PROJECT_DIR$/apps/base/templates/base/apps.html" />
         <option value="$PROJECT_DIR$/apps/base/templates/base/change_password.html" />
         <option value="$PROJECT_DIR$/apps/base/templates/base/detail.html" />
@@ -133,6 +157,7 @@
         <option value="$PROJECT_DIR$/apps/sale/subviews/saleorderlist.py" />
         <option value="$PROJECT_DIR$/apps/base/subviews/logoutmodal.py" />
         <option value="$PROJECT_DIR$/pyerp/settings.py" />
+        <option value="$PROJECT_DIR$/apps/base/views.py" />
       </list>
     </option>
   </component>
@@ -164,20 +189,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="pyerp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pyerp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pyerp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pyerp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pyerp" />
@@ -417,7 +428,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24530387" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23230088" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3949115" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32853982" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -439,86 +450,28 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/base/views.py</url>
-          <line>143</line>
+          <line>145</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/base/views.py</url>
-          <line>120</line>
+          <line>122</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/base/views.py</url>
+          <line>130</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/chat/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/chat/templates/pychat.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/account/templates/account/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/account/subviews/accountplan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="69" column="32" lean-forward="false" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/account/subviews/accountmove.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="68" column="32" lean-forward="false" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/marketing/submodels/campaign.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/marketing/submodels/channel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/marketing/submodels/mform.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/marketing/templates/marketing/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/marketing/subviews/mform.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
@@ -801,21 +754,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pyerp/settings.py">
+    <entry file="file://$PROJECT_DIR$/apps/stock/py/py_url.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1116">
-          <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/stock/templates/stock/menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/stock/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/stock/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/stock/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/stock/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/stock/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/stock/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/sale/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/base/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="160" column="0" lean-forward="true" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
-          <folding>
-            <element signature="e#19#63#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="189">
+          <caret line="130" column="62" lean-forward="false" selection-start-line="130" selection-start-column="62" selection-end-line="130" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyerp/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
