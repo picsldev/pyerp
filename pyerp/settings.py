@@ -49,8 +49,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Local Apps
-    'apps.home',
     'apps.base',
+
+    # App To Separate
+    'apps.home',
     'apps.sale',
     'apps.crm',
     'apps.website',
