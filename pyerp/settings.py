@@ -70,9 +70,9 @@ INSTALLED_APPS = [
 ]
 
 # Copiar en localsettings.py
-# with open('installed_apps.py', 'r') as ins_apps_file:
-#     for line in ins_apps_file.readlines():
-#         INSTALLED_APPS += [line.strip()]
+with open('installed_apps.py', 'r') as ins_apps_file:
+    for line in ins_apps_file.readlines():
+        INSTALLED_APPS += [line.strip()]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
