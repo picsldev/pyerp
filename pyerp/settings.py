@@ -52,16 +52,9 @@ INSTALLED_APPS = [
     'apps.home',
     'apps.base',
     'apps.sale',
-    # 'apps.account',
     'apps.crm',
-    # 'apps.stock',
     'apps.website',
-    # 'apps.payroll',
-    # 'apps.pos',
-    # 'apps.chat',
     'apps.marketing',
-    # 'apps.project',
-    # 'apps.purchase',
 
     # Third-Party Apps
     'dal',
