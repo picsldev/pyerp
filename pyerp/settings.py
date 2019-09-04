@@ -54,8 +54,10 @@ INSTALLED_APPS = [
     # App To Separate
     'apps.home',
     'apps.sale',
-    'apps.crm',
     'apps.website',
+
+    # 'apps.crm',
+    # 'apps.marketing',
 
     # Third-Party Apps
     'dal',
