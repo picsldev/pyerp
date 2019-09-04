@@ -9,7 +9,7 @@ from django.views.generic import DetailView, ListView
 
 # Librerias de terceros
 from apps.base.models import PyPartner, PyProduct
-from apps.crm.submodels.lead import PyLead
+# from apps.crm.submodels.lead import PyLead
 from apps.website.submodels.post import PyPost
 
 
@@ -43,8 +43,8 @@ def contact(request):
 
     if send:
         title = name
-        lead = PyLead(name=title, content=message, partner_id=partner)
-        lead.save()
+        # lead = PyLead(name=title, content=message, partner_id=partner)
+        # lead.save()
         body = render_to_string('home/contact_mail_template.html', {'name': name, 'phone': phone, 'message': message})
         email_message = EmailMessage(subject='Mensaje de usuario', body=body, from_email=email, to=['mfalcon@ynext.cl'])
         email_message.content_subtype = 'html'
