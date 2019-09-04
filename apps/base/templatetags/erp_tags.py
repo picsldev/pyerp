@@ -3,7 +3,7 @@ from django import template
 
 # Librerias en carpetas locales
 from ..models import BaseConfig, PyApp
-from apps.home.models import WebsiteConfig
+# from apps.home.models import WebsiteConfig
 
 register = template.Library()
 
@@ -68,7 +68,7 @@ def web_show_blog(obj):
 def web_show_price(obj):
     return WebsiteConfig.objects.get(pk=1).show_price
 
-
+"""
 @register.filter
 def web_chat(obj):
     return WebsiteConfig.objects.get(pk=1).show_chat
@@ -82,7 +82,7 @@ def web_show_shop(obj):
 @register.filter
 def web_under_construction(obj):
     return WebsiteConfig.objects.get(pk=1).under_construction
-
+"""
 
 @register.filter
 def currency_symbol(obj):
