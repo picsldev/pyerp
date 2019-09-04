@@ -7,6 +7,9 @@ https://t.me/pyerp
 ![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/marketing/pyerp-m.png?raw=true "Ynext")
 
 # Install PyERP using the following command
+
+## virtualenv
+
 ```
 git clone https://github.com/falconsoft3d/pyerp
 virtualenv env --python=python3
@@ -15,7 +18,16 @@ cd pyerp
 pip3 install -r requirements.txt
 python manage.py runserver
 ```
-    
+
+## pipenv
+
+```
+git clone https://github.com/falconsoft3d/pyerp
+cd pyerp/
+pipenv --three install                  
+pipenv shell                            
+python manage.py runserver
+```
 
 # Credentials for admin
 ```
