@@ -8,7 +8,7 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 
 # Librerias de terceros
-from apps.sale.models import PySaleOrderDetail
+# from apps.sale.models import PySaleOrderDetail
 from dal import autocomplete
 
 # Librerias en carpetas locales
@@ -95,11 +95,8 @@ def DeleteProduct(self, pk):
     product.delete()
     return redirect(reverse('products'))
 
-
+"""
 class ProductAutoComplete(autocomplete.Select2QuerySetView):
-    """Servicio de auto completado para el modelo Taxonomia (sub especie)
-    """
-
     def get_queryset(self):
         _sale_order = self.forwarded.get('sale_order', None)
 
@@ -112,4 +109,4 @@ class ProductAutoComplete(autocomplete.Select2QuerySetView):
         if self.q:
             queryset = queryset.filter(name__icontains=self.q)
 
-        return queryset
+        return queryset"""

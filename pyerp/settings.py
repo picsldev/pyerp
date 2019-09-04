@@ -53,7 +53,7 @@ INSTALLED_APPS = [
 
     # App To Separate
     'apps.home',
-    'apps.sale',
+    # 'apps.sale',
     'apps.website',
 
     # 'apps.crm',
