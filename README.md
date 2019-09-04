@@ -4,7 +4,7 @@ PyERP is an open-source, user-oriented, ERP system based on Django framework.
 # Telegram Group (Pyerp)
 https://t.me/pyerp
 
-![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/pyerp-marketing/pyerp-m.png?raw=true "Ynext")
+![Alt text](https://github.com/falconsoft3d/pyerp/blob/master/marketing/pyerp-m.png?raw=true "Ynext")
 
 # Install PyERP using the following command
 ```
