@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     # Local Apps
     'apps.base',
     # App To Separate
-    'apps.home',
+    # 'apps.home',
 
     # Third-Party Apps
     'dal',
@@ -153,8 +153,8 @@ MEDIA_ROOT = 'media'
 
 STATIC_URL = '/static/'
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
-LOGIN_REDIRECT_URL = '/erp'
-LOGOUT_REDIRECT_URL = '/erp/login/'
+LOGIN_REDIRECT_URL = '/base'
+LOGOUT_REDIRECT_URL = '/base/login/'
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
