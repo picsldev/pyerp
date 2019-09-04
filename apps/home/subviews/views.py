@@ -10,7 +10,7 @@ from django.views.generic import DetailView, ListView
 # Librerias de terceros
 from apps.base.models import PyPartner, PyProduct
 # from apps.crm.submodels.lead import PyLead
-from apps.website.submodels.post import PyPost
+from ..submodels.post import PyPost
 
 
 def index(request):

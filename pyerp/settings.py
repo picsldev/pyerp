@@ -50,14 +50,8 @@ INSTALLED_APPS = [
 
     # Local Apps
     'apps.base',
-
     # App To Separate
     'apps.home',
-    # 'apps.sale',
-    'apps.website',
-
-    # 'apps.crm',
-    # 'apps.marketing',
 
     # Third-Party Apps
     'dal',

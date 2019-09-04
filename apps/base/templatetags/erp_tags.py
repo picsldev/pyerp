@@ -3,7 +3,7 @@ from django import template
 
 # Librerias en carpetas locales
 from ..models import BaseConfig, PyApp
-from apps.website.models import WebsiteConfig
+from apps.home.models import WebsiteConfig
 
 register = template.Library()
 

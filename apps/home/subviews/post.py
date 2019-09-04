@@ -17,7 +17,7 @@ POST_FIELDS_SHORT = ['title','content']
 
 class PostListView(ListView):
     model = PyPost
-    template_name = 'erp/list.html'
+    template_name = 'base/list.html'
 
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
@@ -29,7 +29,7 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = PyPost
-    template_name = 'erp/detail.html'
+    template_name = 'base/detail.html'
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         context['title'] = context['object'].title
@@ -42,7 +42,7 @@ class PostDetailView(DetailView):
 class PostCreateView(CreateView):
     model = PyPost
     fields = POST_FIELDS_SHORT
-    template_name = 'erp/form.html'
+    template_name = 'base/form.html'
 
     def get_context_data(self, **kwargs):
         context = super(PostCreateView, self).get_context_data(**kwargs)
@@ -54,7 +54,7 @@ class PostCreateView(CreateView):
 class PostUpdateView(UpdateView):
     model = PyPost
     fields = POST_FIELDS_SHORT
-    template_name = 'erp/form.html'
+    template_name = 'base/form.html'
 
     def get_context_data(self, **kwargs):
         context = super(PostUpdateView, self).get_context_data(**kwargs)
@@ -64,7 +64,7 @@ class PostUpdateView(UpdateView):
         return context
 
 
-@login_required(login_url="/erp/login")
+@login_required(login_url="/base/login")
 def DeletePost(self, pk):
     post = PyPost.objects.get(id=pk)
     post.delete()
