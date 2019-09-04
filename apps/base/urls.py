@@ -23,7 +23,7 @@ from .views.currency import (CurrencyCreateView, CurrencyDetailView,
 from .views.log import (DeleteLog, LogCreateView, LogDetailView, LogListView,
                         LogUpdateView)
 from .views.logoutmodal import LogOutModalView
-from .views.product import (DeleteProduct, ProductAutoComplete,
+from .views.product import (DeleteProduct,
                             ProductCreateView, ProductDetailView,
                             ProductListView, ProductUpdateView)
 from .views.product_category import (DeleteProductCategory,
@@ -133,9 +133,12 @@ urlpatterns = [
         PartnerAutoComplete.as_view(),
         name='partners-autocomplete'
     ),
+]
+
+
+"""
     path(
         'product/product-autocomplete',
         ProductAutoComplete.as_view(),
         name='product-autocomplete'
-    ),
-]
+    ),"""

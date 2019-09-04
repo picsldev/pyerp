@@ -14,7 +14,7 @@ urlpatterns = [
     # path('crm/', include('apps.crm.urls')),
     path('website/', include('apps.website.urls')),
     # path('marketing/', include('apps.marketing.urls')),
-    path('sale/', include('apps.sale.urls')),
+    # path('sale/', include('apps.sale.urls')),
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT, }),
     path('static/<path:path>', serve, {'document_root': settings.STATIC_ROOT, }),
 ]
