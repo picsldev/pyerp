@@ -45,6 +45,7 @@ python manage.py runserver
 | flow | starting | - | - | - | - | - |
 | paypal | starting | - | - | - | - | - |
 | payroll | starting | x | - | - | - | - |
+| odoo api | starting | - | - | - | - | - |
 
 
 # Rules for Developers
