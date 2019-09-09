@@ -37,7 +37,7 @@ python manage.py runserver
 | chat  | starting | - | - |
 | crm  | starting | x | - |
 | marketing  | starting | - | - |
-| pos  | starting | - | - |
+| pos  | starting | x | - |
 | project  | starting | - | - |
 | purchase  | starting | - | - |
 | Sale  | starting | - | - |
