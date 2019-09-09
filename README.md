@@ -29,7 +29,8 @@ pipenv shell
 python manage.py runserver
 ```
 
-# Modules Status, if you want to help send me email: mfalcon@ynext.cl
+# Modules Status
+if you want to help send me email: mfalcon@ynext.cl
 | #  | Module  | State | New mode | Translation | Bugs | Date | Note |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | 01 | base  | starting | x | - | - | - | - |
